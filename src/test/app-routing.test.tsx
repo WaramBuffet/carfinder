@@ -34,6 +34,29 @@ describe("Fahrzeugvergleich", () => {
     expect(container.querySelectorAll("tbody tr")).toHaveLength(15);
     expect(screen.getAllByRole("link", { name: "Offizielle Herstellerseite" })).toHaveLength(15);
   });
+  it("zeigt unterschiedliche Modellaufnahmen mit Bildnachweisen und Variantenhinweisen", async () => {
+    const { container, router } = await renderAt();
+    await screen.findByRole("heading", { name: "Alle 15 Modelle im Überblick" });
+    const gallery = container.querySelector("#fotos")!;
+    const images = Array.from(gallery.querySelectorAll("img"));
+    expect(images).toHaveLength(15);
+    expect(new Set(images.map((image) => image.src)).size).toBe(15);
+    expect(images.every((image) => image.alt.length > 10)).toBe(true);
+    expect(gallery.querySelectorAll('a[href*="commons.wikimedia.org/wiki/File:"]')).toHaveLength(
+      14,
+    );
+    expect(gallery).toHaveTextContent("Foto zeigt N Line; verglichen wird Trend");
+    expect(gallery).toHaveTextContent("Foto zeigt Aceman S; verglichen wird Aceman E");
+    expect(
+      gallery.querySelector('a[href="https://www.hyundai.news/eu/terms-of-use.html"]'),
+    ).toHaveTextContent("Redaktionelle Nutzung");
+    fireEvent.click(screen.getByRole("button", { name: "Mit Gefühl" }));
+    await waitFor(() => expect(router.state.location.search).toMatchObject({ ansicht: "gefuehl" }));
+    expect(container.querySelector("#mobile-car-hyundai-ioniq-3")).toHaveTextContent(
+      "© Hyundai Motor Company",
+    );
+    expect(container.querySelector("#mobile-car-mini-aceman-e")).toHaveTextContent("Aceman S");
+  });
   it("zeigt technische Daten in Tabelle und Mobilkarten ohne Ladefenster gleichzusetzen", async () => {
     const { container, router } = await renderAt();
     await screen.findByLabelText("Hersteller");

@@ -1,0 +1,16 @@
+{
+  "checkedAt": "2026-10-03",
+  "repository": "WaramBuffet/carfinder",
+  "githubCreatedAt": "2026-10-03T04:05:10Z",
+  "githubWebhooks": [],
+  "lovableProject": "20091547-6bbb-4a58-9c89-cde5e9f3f08e",
+  "lovableLatestCommit": "a1be96fc2b77fb9f6fcd8fcf9e2312599a89aa62",
+  "lovableLastEditedAt": "2026-10-03T03:38:59.965Z",
+  "githubHeadBeforePhotos": "b0ee87d",
+  "conclusion": "Independent repository created after Lovable original. Lovable remains at the original commit despite subsequent carfinder commits and Pages deployments; no GitHub webhook configured. No Lovable write or deploy action performed.",
+  "evidenceSources": [
+    "Lovable get_project (read-only)",
+    "GitHub GET /repos/WaramBuffet/carfinder",
+    "GitHub GET /repos/WaramBuffet/carfinder/hooks"
+  ]
+}

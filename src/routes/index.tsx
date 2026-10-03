@@ -20,11 +20,7 @@ import {
 import { useEffect, useState } from "react";
 
 import { Button } from "@/components/ui/button";
-import heroImage from "../assets/eautos-hero.jpg";
-import compactCoral from "../assets/ev-compact-coral.jpg";
-import hatchSage from "../assets/ev-hatch-sage.jpg";
-import crossoverSand from "../assets/ev-crossover-sand.jpg";
-import urbanRose from "../assets/ev-urban-rose.jpg";
+import { vehiclePhotos, type VehiclePhoto } from "@/data/vehicle-photos";
 
 type ViewMode = "fakten" | "gefuehl";
 
@@ -57,7 +53,6 @@ export const Route = createFileRoute("/")({
 
 type Safety = "5 Sterne" | "4 Sterne" | "Kein aktueller Test";
 type SortKey = "rate" | "price" | "length" | "trunk" | "delivery";
-type CarImage = typeof compactCoral;
 
 type Car = {
   slug: string;
@@ -75,8 +70,7 @@ type Car = {
   trunkFoldedValue: number;
   safety: Safety;
   safetyNote: string;
-  image: CarImage;
-  imageAlt: string;
+  photo: VehiclePhoto;
   character: string;
   electric: {
     variantUnconfirmed?: boolean;
@@ -170,8 +164,7 @@ const cars: Car[] = [
     trunkFoldedValue: 880,
     safety: "Kein aktueller Test",
     safetyNote: "Kein Euro NCAP",
-    image: compactCoral,
-    imageAlt: "Neutrale redaktionelle Darstellung eines kleinen Elektro-Stadtautos in Korallrot",
+    photo: vehiclePhotos["leapmotor-t03"],
     character: "Klein im Format, mit einer heiteren, unkomplizierten Ausstrahlung.",
     electric: {
       range: "265",
@@ -202,8 +195,7 @@ const cars: Car[] = [
     trunkFoldedValue: 1315,
     safety: "Kein aktueller Test",
     safetyNote: "Kein Euro NCAP",
-    image: hatchSage,
-    imageAlt: "Neutrale redaktionelle Darstellung eines kompakten Elektroautos in Salbeigrün",
+    photo: vehiclePhotos["fiat-grande-panda"],
     character: "Praktische Proportionen, freundlich und angenehm unangestrengt.",
     electric: {
       range: "bis zu 320",
@@ -234,8 +226,7 @@ const cars: Car[] = [
     trunkFoldedValue: 1200,
     safety: "Kein aktueller Test",
     safetyNote: "Kein Euro NCAP",
-    image: urbanRose,
-    imageAlt: "Neutrale redaktionelle Darstellung eines runden Elektro-Stadtautos in Rosé",
+    photo: vehiclePhotos["citroen-e-c3"],
     character: "Weiche Formen und eine gelassene Präsenz für den Alltag.",
     electric: {
       variantUnconfirmed: true,
@@ -268,8 +259,7 @@ const cars: Car[] = [
     trunkFoldedValue: 1160,
     safety: "Kein aktueller Test",
     safetyNote: "Noch kein Euro NCAP",
-    image: crossoverSand,
-    imageAlt: "Neutrale redaktionelle Darstellung eines kompakten Elektro-Crossovers in Sand",
+    photo: vehiclePhotos["kia-ev2"],
     character: "Klar gezeichnet und mit angenehm selbstbewusster Haltung.",
     electric: {
       range: "308–317",
@@ -303,8 +293,7 @@ const cars: Car[] = [
     trunkFoldedValue: 1001,
     safety: "Kein aktueller Test",
     safetyNote: "Noch kein Euro NCAP",
-    image: compactCoral,
-    imageAlt: "Neutrale redaktionelle Darstellung eines kleinen Elektro-Stadtautos in Korallrot",
+    photo: vehiclePhotos["renault-twingo"],
     character: "Kompakt, lebendig und wie gemacht für enge Straßen.",
     electric: {
       range: "bis zu 262",
@@ -335,8 +324,7 @@ const cars: Car[] = [
     trunkFoldedValue: 623,
     safety: "5 Sterne",
     safetyNote: "5★ Euro NCAP",
-    image: crossoverSand,
-    imageAlt: "Neutrale redaktionelle Darstellung eines kompakten Elektro-Crossovers in Sand",
+    photo: vehiclePhotos["volvo-ex30"],
     character: "Reduziert, ruhig und mit einer souveränen Präsenz.",
     electric: {
       range: "bis zu 335",
@@ -374,8 +362,7 @@ const cars: Car[] = [
     trunkFoldedValue: 1213,
     safety: "Kein aktueller Test",
     safetyNote: "Noch kein Euro NCAP",
-    image: hatchSage,
-    imageAlt: "Neutrale redaktionelle Darstellung eines kompakten Elektroautos in Salbeigrün",
+    photo: vehiclePhotos["hyundai-ioniq-3"],
     character: "Modern, klar und mit viel optischer Ruhe.",
     electric: {
       range: "341",
@@ -406,8 +393,7 @@ const cars: Car[] = [
     trunkFoldedValue: 800,
     safety: "5 Sterne",
     safetyNote: "5★ Euro NCAP (2025)",
-    image: urbanRose,
-    imageAlt: "Neutrale redaktionelle Darstellung eines runden Elektro-Stadtautos in Rosé",
+    photo: vehiclePhotos["mini-cooper-e"],
     character: "Charmant, konzentriert und mit spielerischer Eleganz.",
     electric: {
       range: "290–300",
@@ -439,8 +425,7 @@ const cars: Car[] = [
     trunkFoldedValue: 1059,
     safety: "4 Sterne",
     safetyNote: "4★ Euro NCAP (2025)",
-    image: compactCoral,
-    imageAlt: "Neutrale redaktionelle Darstellung eines kleinen Elektro-Stadtautos in Korallrot",
+    photo: vehiclePhotos["hyundai-inster"],
     character: "Ein sympathischer Stadtbegleiter mit eigenständiger Haltung.",
     electric: {
       range: "327",
@@ -472,8 +457,7 @@ const cars: Car[] = [
     trunkFoldedValue: 550,
     safety: "4 Sterne",
     safetyNote: "4★ Euro NCAP (2021)",
-    image: urbanRose,
-    imageAlt: "Neutrale redaktionelle Darstellung eines runden Elektro-Stadtautos in Rosé",
+    photo: vehiclePhotos["fiat-500e"],
     character: "Klassisch verspielt und besonders zuhause im Stadtbild.",
     electric: {
       range: "322–331",
@@ -506,8 +490,7 @@ const cars: Car[] = [
     trunkFoldedValue: 1005,
     safety: "5 Sterne",
     safetyNote: "5★ Euro NCAP (2025)",
-    image: hatchSage,
-    imageAlt: "Neutrale redaktionelle Darstellung eines kompakten Elektroautos in Salbeigrün",
+    photo: vehiclePhotos["mini-aceman-e"],
     character: "Urban, grafisch und mit einer kleinen Portion Extravaganz.",
     electric: {
       range: "301–309",
@@ -538,8 +521,7 @@ const cars: Car[] = [
     trunkFoldedValue: 1106,
     safety: "4 Sterne",
     safetyNote: "4★ Euro NCAP (2024)",
-    image: compactCoral,
-    imageAlt: "Neutrale redaktionelle Darstellung eines kleinen Elektro-Stadtautos in Korallrot",
+    photo: vehiclePhotos["renault-5"],
     character: "Lebensfroh, kompakt und mit einem Hauch Nostalgie.",
     electric: {
       range: "321",
@@ -576,8 +558,7 @@ const cars: Car[] = [
     trunkFoldedValue: 1231,
     safety: "Kein aktueller Test",
     safetyNote: "Kein Euro-NCAP-Test gefunden",
-    image: crossoverSand,
-    imageAlt: "Neutrale redaktionelle Darstellung eines kompakten Elektro-Crossovers in Sand",
+    photo: vehiclePhotos["fiat-600e"],
     character: "Rund, freundlich und etwas großzügiger gedacht.",
     electric: {
       range: "bis zu 409",
@@ -617,8 +598,7 @@ const cars: Car[] = [
     trunkFoldedValue: 1405,
     safety: "4 Sterne",
     safetyNote: "4★ Euro NCAP",
-    image: hatchSage,
-    imageAlt: "Neutrale redaktionelle Darstellung eines kompakten Elektroautos in Salbeigrün",
+    photo: vehiclePhotos["renault-4"],
     character: "Praktisch und entspannt, mit einer angenehm offenen Wirkung.",
     electric: {
       range: "305",
@@ -654,8 +634,7 @@ const cars: Car[] = [
     trunkFoldedValue: 1004,
     safety: "Kein aktueller Test",
     safetyNote: "Kein aktueller Test · frühere Variante 1★ (2021)",
-    image: compactCoral,
-    imageAlt: "Neutrale redaktionelle Darstellung eines kleinen Elektro-Stadtautos in Korallrot",
+    photo: vehiclePhotos["dacia-spring"],
     character: "Unkompliziert, handlich und ganz auf den Alltag konzentriert.",
     electric: {
       range: "221–226",
@@ -954,6 +933,45 @@ function Highlights({ emotional }: { emotional: boolean }) {
   );
 }
 
+function PhotoCredit({
+  photo,
+  hero = false,
+  className = "px-4 pb-3 text-[11px] leading-relaxed text-muted-foreground",
+}: {
+  photo: VehiclePhoto;
+  hero?: boolean;
+  className?: string;
+}) {
+  return (
+    <p className={className}>
+      <span className="block">{photo.note}</span>
+      Bild: {photo.author} ·{" "}
+      <a
+        href={photo.source}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="underline underline-offset-2"
+      >
+        Bildquelle
+      </a>{" "}
+      ·{" "}
+      <a
+        href={photo.licenseUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="underline underline-offset-2"
+      >
+        {photo.license}
+      </a>
+      <span className="block">
+        {hero
+          ? "Titelbild: verkleinert, beschnitten und mit Text überlagert."
+          : "Verkleinert; sonst unverändert."}
+      </span>
+    </p>
+  );
+}
+
 function PhotoGallery({
   emotional,
   onSelect,
@@ -963,10 +981,11 @@ function PhotoGallery({
 }) {
   return (
     <section
+      id="fotos"
       className={
         emotional
-          ? "bg-rose-soft/50 py-16 lg:py-24"
-          : "border-y border-border bg-card py-10 lg:py-12"
+          ? "scroll-mt-40 bg-rose-soft/50 py-16 lg:scroll-mt-24 lg:py-24"
+          : "scroll-mt-40 border-y border-border bg-card py-10 lg:scroll-mt-24 lg:py-12"
       }
     >
       <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
@@ -978,8 +997,8 @@ function PhotoGallery({
             </h2>
           </div>
           <p className="max-w-sm text-xs leading-relaxed text-muted-foreground">
-            Neutrale redaktionelle Fahrzeugdarstellungen ohne Markenlogos; keine Originalfotos. Die
-            Verlinkung führt zur offiziellen deutschen Herstellerseite.
+            Originalfotos und eine Herstelleraufnahme der Modelle. Farbe, Ausstattung und Modelljahr
+            können vom Vergleichsangebot abweichen. Bildnachweise stehen direkt beim Foto.
           </p>
         </div>
         <div
@@ -997,12 +1016,12 @@ function PhotoGallery({
                 aria-label={`${car.manufacturer} ${car.model} im Vergleich anzeigen`}
               >
                 <img
-                  src={car.image}
-                  alt={car.imageAlt}
+                  src={car.photo.src}
+                  alt={car.photo.alt}
                   loading="lazy"
                   width={1280}
                   height={800}
-                  className={`w-full object-cover transition-transform duration-500 group-hover:scale-[1.02] ${emotional ? "aspect-[16/10]" : "aspect-[4/3]"}`}
+                  className={`w-full bg-muted/40 object-contain transition-transform duration-500 group-hover:scale-[1.02] ${emotional ? "aspect-[16/10]" : "aspect-[4/3]"}`}
                 />
                 <span className="block w-full p-4">
                   <span className="block text-xs font-bold uppercase tracking-[0.12em] text-primary">
@@ -1020,6 +1039,7 @@ function PhotoGallery({
                   )}
                 </span>
               </button>
+              <PhotoCredit photo={car.photo} />
               <a
                 href={car.site}
                 target="_blank"
@@ -1572,8 +1592,8 @@ function Index() {
         <>
           <section className="relative min-h-[78svh] overflow-hidden bg-foreground text-primary-foreground">
             <img
-              src={heroImage}
-              alt="Drei charmante, kompakte Elektroautos vor einer mediterranen Küstenkulisse"
+              src={vehiclePhotos["renault-5"].src}
+              alt={vehiclePhotos["renault-5"].alt}
               width={1920}
               height={1280}
               fetchPriority="high"
@@ -1611,6 +1631,11 @@ function Index() {
                 </Button>
               </div>
             </div>
+            <PhotoCredit
+              photo={vehiclePhotos["renault-5"]}
+              hero
+              className="relative mx-auto max-w-7xl px-5 pb-5 text-xs leading-relaxed text-primary-foreground/90 sm:px-8 lg:px-12"
+            />
           </section>
           <BasisStrip />
           <Highlights emotional />
@@ -1715,14 +1740,17 @@ function CarCard({
       className={`scroll-mt-32 overflow-hidden rounded-md border bg-card transition-shadow ${selected ? "border-primary ring-2 ring-ring" : "border-border"}`}
     >
       {emotional && (
-        <img
-          src={car.image}
-          alt=""
-          loading="lazy"
-          width={1280}
-          height={800}
-          className="aspect-[16/8] w-full object-cover"
-        />
+        <>
+          <img
+            src={car.photo.src}
+            alt={car.photo.alt}
+            loading="lazy"
+            width={1280}
+            height={800}
+            className="aspect-[16/10] w-full bg-muted/40 object-contain"
+          />
+          <PhotoCredit photo={car.photo} />
+        </>
       )}
       <div
         className={`grid grid-cols-[minmax(0,1fr)_auto] items-start gap-4 border-b border-border px-5 py-5 ${emotional ? "bg-rose-soft" : "bg-muted"}`}
