@@ -78,6 +78,16 @@ type Car = {
   image: CarImage;
   imageAlt: string;
   character: string;
+  electric: {
+    variantUnconfirmed?: boolean;
+    range: string;
+    consumption: string;
+    chargingMinutes: number | null;
+    chargingAlternative?: string;
+    chargingNote?: string;
+    variant: string;
+    sources: { label: string; url: string }[];
+  };
 };
 
 type ServiceLocation = {
@@ -163,6 +173,19 @@ const cars: Car[] = [
     image: compactCoral,
     imageAlt: "Neutrale redaktionelle Darstellung eines kleinen Elektro-Stadtautos in Korallrot",
     character: "Klein im Format, mit einer heiteren, unkomplizierten Ausstrahlung.",
+    electric: {
+      range: "265",
+      consumption: "16,3",
+      chargingMinutes: null,
+      chargingAlternative: "36 Min. für 30–80 %",
+      variant: "T03 · 37,3 kWh; Herstellerbroschüre für den europäischen Markt.",
+      sources: [
+        {
+          label: "Technische Daten",
+          url: "https://lpwebsite-prod-s3cdn.leapmotor-international.com/public/download/t03/en/T03Brochure_EN.pdf",
+        },
+      ],
+    },
   },
   {
     slug: "fiat-grande-panda",
@@ -182,6 +205,19 @@ const cars: Car[] = [
     image: hatchSage,
     imageAlt: "Neutrale redaktionelle Darstellung eines kompakten Elektroautos in Salbeigrün",
     character: "Praktische Proportionen, freundlich und angenehm unangestrengt.",
+    electric: {
+      range: "bis zu 320",
+      consumption: "16,8",
+      chargingMinutes: null,
+      chargingAlternative: "27 Min. für 20–80 %",
+      variant: "La Prima · 44 kWh.",
+      sources: [
+        {
+          label: "Technische Daten",
+          url: "https://www.fiat.de/modelle/grande-panda-elektrisch/technical-data",
+        },
+      ],
+    },
   },
   {
     slug: "citroen-e-c3",
@@ -201,6 +237,21 @@ const cars: Car[] = [
     image: urbanRose,
     imageAlt: "Neutrale redaktionelle Darstellung eines runden Elektro-Stadtautos in Rosé",
     character: "Weiche Formen und eine gelassene Präsenz für den Alltag.",
+    electric: {
+      variantUnconfirmed: true,
+      range: "310–322",
+      consumption: "16,7–17,3",
+      chargingMinutes: null,
+      chargingAlternative: "26 Min. für 20–80 %",
+      variant:
+        "Standard-Range · 44 kWh. Die Batterie ist im ursprünglichen Angebot nicht benannt; Zuordnung zum Angebot noch bestätigen. Spannen gelten für die Standard-Range-Baureihe.",
+      sources: [
+        {
+          label: "Preisliste · April 2026",
+          url: "https://www.citroen.de/content/dam/citroen/germany/b2c/pricelists/04-26/Preisliste-C3-01.04.2026.pdf",
+        },
+      ],
+    },
   },
   {
     slug: "kia-ev2",
@@ -220,6 +271,22 @@ const cars: Car[] = [
     image: crossoverSand,
     imageAlt: "Neutrale redaktionelle Darstellung eines kompakten Elektro-Crossovers in Sand",
     character: "Klar gezeichnet und mit angenehm selbstbewusster Haltung.",
+    electric: {
+      range: "308–317",
+      consumption: "15,1–15,5",
+      chargingMinutes: 29,
+      variant: "Air · 42,2 kWh; abhängig von 16- oder 18-Zoll-Rädern.",
+      sources: [
+        {
+          label: "Preisliste",
+          url: "https://www.kia.com/content/dam/kwcms/kme/de/de/assets/contents/utility/Preisliste/Kia-Germany-EV2-Preisliste.pdf",
+        },
+        {
+          label: "Laden",
+          url: "https://www.kia.com/de/specials/electric-deals/",
+        },
+      ],
+    },
   },
   {
     slug: "renault-twingo",
@@ -239,6 +306,18 @@ const cars: Car[] = [
     image: compactCoral,
     imageAlt: "Neutrale redaktionelle Darstellung eines kleinen Elektro-Stadtautos in Korallrot",
     character: "Kompakt, lebendig und wie gemacht für enge Straßen.",
+    electric: {
+      range: "bis zu 262",
+      consumption: "13,1",
+      chargingMinutes: 30,
+      variant: "Evolution · 27,5 kWh · 50-kW-DC-Lader laut Renault-Presseinformation.",
+      sources: [
+        {
+          label: "Herstellerangaben · Evolution",
+          url: "https://presse.renault.de/renault-twingo-evolution-ab-19990-euro/?lang=deu",
+        },
+      ],
+    },
   },
   {
     slug: "volvo-ex30",
@@ -259,6 +338,25 @@ const cars: Car[] = [
     image: crossoverSand,
     imageAlt: "Neutrale redaktionelle Darstellung eines kompakten Elektro-Crossovers in Sand",
     character: "Reduziert, ruhig und mit einer souveränen Präsenz.",
+    electric: {
+      range: "bis zu 335",
+      consumption: "17,0",
+      chargingMinutes: 26,
+      chargingNote:
+        "Herstellerangabe; Reichweite und Ladezeit auf der Modellseite als vorläufig bezeichnet.",
+      variant:
+        "P3 Essential · 51 kWh. Verbrauch der Essential-Angebotsvariante; andere Konfigurationen können abweichen.",
+      sources: [
+        {
+          label: "P3 Essential",
+          url: "https://www.volvocars.com/de/promotions/details/ex30-leasingangebot-business/",
+        },
+        {
+          label: "Ladebedingungen",
+          url: "https://www.volvocars.com/de/cars/ex30-electric/",
+        },
+      ],
+    },
   },
   {
     slug: "hyundai-ioniq-3",
@@ -279,6 +377,19 @@ const cars: Car[] = [
     image: hatchSage,
     imageAlt: "Neutrale redaktionelle Darstellung eines kompakten Elektroautos in Salbeigrün",
     character: "Modern, klar und mit viel optischer Ruhe.",
+    electric: {
+      range: "341",
+      consumption: "14,3",
+      chargingMinutes: 29,
+      variant:
+        "Trend · 42 kWh laut Hersteller (im ursprünglichen Datensatz als 42,2 kWh bezeichnet).",
+      sources: [
+        {
+          label: "Reichweite und Laden",
+          url: "https://www.hyundai.com/de/de/modelle/ioniq-3/reichweite-und-laden.html",
+        },
+      ],
+    },
   },
   {
     slug: "mini-cooper-e",
@@ -298,6 +409,19 @@ const cars: Car[] = [
     image: urbanRose,
     imageAlt: "Neutrale redaktionelle Darstellung eines runden Elektro-Stadtautos in Rosé",
     character: "Charmant, konzentriert und mit spielerischer Eleganz.",
+    electric: {
+      range: "290–300",
+      consumption: "14,3",
+      chargingMinutes: 28,
+      variant:
+        "Cooper E · 36,6 kWh netto. Reichweite abhängig von Ausstattung; Verbrauch ist die WLTP-Pflichtangabe.",
+      sources: [
+        {
+          label: "Reichweite und Laden",
+          url: "https://www.mini.de/de_DE/home/range/electric/performance.html",
+        },
+      ],
+    },
   },
   {
     slug: "hyundai-inster",
@@ -318,6 +442,20 @@ const cars: Car[] = [
     image: compactCoral,
     imageAlt: "Neutrale redaktionelle Darstellung eines kleinen Elektro-Stadtautos in Korallrot",
     character: "Ein sympathischer Stadtbegleiter mit eigenständiger Haltung.",
+    electric: {
+      range: "327",
+      consumption: "14,3",
+      chargingMinutes: 30,
+      chargingNote:
+        "Für die angegebene Ladezeit setzt Hyundai einen HPC-Ladepunkt mit mindestens 350 kW voraus.",
+      variant: "Select · 42 kWh.",
+      sources: [
+        {
+          label: "Herstellerangaben",
+          url: "https://www.hyundai.com/de/de/modelle/inster.html",
+        },
+      ],
+    },
   },
   {
     slug: "fiat-500e",
@@ -337,6 +475,21 @@ const cars: Car[] = [
     image: urbanRose,
     imageAlt: "Neutrale redaktionelle Darstellung eines runden Elektro-Stadtautos in Rosé",
     character: "Klassisch verspielt und besonders zuhause im Stadtbild.",
+    electric: {
+      range: "322–331",
+      consumption: "13,6–13,9",
+      chargingMinutes: null,
+      chargingAlternative: "ca. 35 Min. bis 80 %",
+      chargingNote: "Start-Ladestand vom Hersteller nicht angegeben.",
+      variant:
+        "Icon · 42 kWh · Limousine, passend zum Listenpreis von 32.990 €. Werte laut Preisliste Oktober 2026; nicht Cabrio oder 3+1.",
+      sources: [
+        {
+          label: "Preisliste · Oktober 2026",
+          url: "https://www.fiat.de/content/dam/fiat2023/de/pdf/pricelist/Preisliste-Fiat-500.pdf",
+        },
+      ],
+    },
   },
   {
     slug: "mini-aceman-e",
@@ -356,6 +509,19 @@ const cars: Car[] = [
     image: hatchSage,
     imageAlt: "Neutrale redaktionelle Darstellung eines kompakten Elektroautos in Salbeigrün",
     character: "Urban, grafisch und mit einer kleinen Portion Extravaganz.",
+    electric: {
+      range: "301–309",
+      consumption: "14,6",
+      chargingMinutes: 28,
+      variant:
+        "Aceman E · 38,5 kWh netto. Reichweite abhängig von Ausstattung; Verbrauch ist die WLTP-Pflichtangabe.",
+      sources: [
+        {
+          label: "Technische Daten · September 2026",
+          url: "https://www.mini.de/content/dam/MINI/marketDSM_DE/mini_de/brochures/Brochures2026/J05_MINI_Aceman_0926_Ausgabe1_Produktflyer.pdf.asset.1779955654815.pdf",
+        },
+      ],
+    },
   },
   {
     slug: "renault-5",
@@ -375,6 +541,24 @@ const cars: Car[] = [
     image: compactCoral,
     imageAlt: "Neutrale redaktionelle Darstellung eines kleinen Elektro-Stadtautos in Korallrot",
     character: "Lebensfroh, kompakt und mit einem Hauch Nostalgie.",
+    electric: {
+      range: "321",
+      consumption: "14,2",
+      chargingMinutes: null,
+      chargingAlternative: "30 Min. für 15–80 %",
+      variant:
+        "Evolution 120 Urban Range (MY26) · 40 kWh, passend zum Listenpreis von 26.290 €. Werte der Standardkonfiguration.",
+      sources: [
+        {
+          label: "Konfigurator",
+          url: "https://www.renault.de/elektromodelle/r5-e-tech-elektrisch-my26/konfigurator.html",
+        },
+        {
+          label: "Laden",
+          url: "https://www.renault.de/elektromodelle/r5-e-tech-elektrisch-my26/reichweite-und-aufladen.html",
+        },
+      ],
+    },
   },
   {
     slug: "fiat-600e",
@@ -395,6 +579,28 @@ const cars: Car[] = [
     image: crossoverSand,
     imageAlt: "Neutrale redaktionelle Darstellung eines kompakten Elektro-Crossovers in Sand",
     character: "Rund, freundlich und etwas großzügiger gedacht.",
+    electric: {
+      range: "bis zu 409",
+      consumption: "15,2",
+      chargingMinutes: null,
+      chargingAlternative: "27 Min. für 20–80 %",
+      variant:
+        "Pop · 54 kWh. Reichweite ist der Maximalwert der 54-kWh-Baureihe; ausstattungsabhängig.",
+      sources: [
+        {
+          label: "Verbrauch · Pop",
+          url: "https://www.fiat.de/modelle/600/pop",
+        },
+        {
+          label: "Technische Daten",
+          url: "https://www.fiat.de/modelle/600/technische-details",
+        },
+        {
+          label: "Ladefenster",
+          url: "https://www.media.stellantis.com/uk-en/fiat/press/fiat-600e-wins-best-electric-compact-suv-award-from-ecocar",
+        },
+      ],
+    },
   },
   {
     slug: "renault-4",
@@ -414,6 +620,24 @@ const cars: Car[] = [
     image: hatchSage,
     imageAlt: "Neutrale redaktionelle Darstellung eines kompakten Elektroautos in Salbeigrün",
     character: "Praktisch und entspannt, mit einer angenehm offenen Wirkung.",
+    electric: {
+      range: "305",
+      consumption: "14,8",
+      chargingMinutes: null,
+      chargingAlternative: "30 Min. für 15–80 %",
+      variant:
+        "Evolution 120 Urban Range · 40 kWh, passend zum Listenpreis von 29.500 €. Werte der Standardkonfiguration.",
+      sources: [
+        {
+          label: "Konfigurator",
+          url: "https://www.renault.de/elektromodelle/r4-e-tech-elektrisch/konfigurator.html",
+        },
+        {
+          label: "Laden",
+          url: "https://www.renault.de/elektromodelle/r4-e-tech-elektrisch/antrieb.html",
+        },
+      ],
+    },
   },
   {
     slug: "dacia-spring",
@@ -433,6 +657,25 @@ const cars: Car[] = [
     image: compactCoral,
     imageAlt: "Neutrale redaktionelle Darstellung eines kleinen Elektro-Stadtautos in Korallrot",
     character: "Unkompliziert, handlich und ganz auf den Alltag konzentriert.",
+    electric: {
+      range: "221–226",
+      consumption: "12,7",
+      chargingMinutes: null,
+      chargingAlternative: "29 Min. für 20–80 %",
+      chargingNote: "Nur mit optionalem 40-kW-CCS-Schnellladeanschluss.",
+      variant:
+        "Expression electric 70 · Modelljahr 2026. Reichweitenspanne der aktuellen Baureihe; ausstattungsabhängig.",
+      sources: [
+        {
+          label: "Version Expression",
+          url: "https://www.dacia.de/hybrid-und-elektromodelle/spring-stadtauto/preise-versionen.html?gradeCode=ENS_MDL2P1SERIELIM2",
+        },
+        {
+          label: "Laden",
+          url: "https://www.dacia.de/hybrid-und-elektromodelle/spring-stadtauto.html",
+        },
+      ],
+    },
   },
 ];
 
@@ -469,6 +712,53 @@ function Rate({ car }: { car: Car }) {
       </strong>
       <span className="text-xs text-muted-foreground"> / Monat</span>
     </>
+  );
+}
+
+function ChargingTime({ car }: { car: Car }) {
+  const { chargingMinutes, chargingAlternative, chargingNote } = car.electric;
+  return (
+    <div className="max-w-56">
+      <span className="font-semibold">
+        {chargingMinutes === null ? "Nicht angegeben" : `ca. ${chargingMinutes} Min.`}
+      </span>
+      {chargingAlternative && (
+        <span className="mt-1 block text-xs text-muted-foreground">{chargingAlternative}</span>
+      )}
+      {chargingNote && (
+        <span className="mt-1 block text-xs text-muted-foreground">{chargingNote}</span>
+      )}
+    </div>
+  );
+}
+
+function ElectricSources({ car }: { car: Car }) {
+  return (
+    <details className="mt-3 max-w-60 text-xs text-muted-foreground">
+      <summary className="cursor-pointer font-medium text-primary">
+        Variante &amp; Quellen{car.electric.variantUnconfirmed ? " · Batteriezuordnung offen" : ""}
+      </summary>
+      <p className="mt-2 leading-relaxed">{car.electric.variant}</p>
+      <p className="mt-2">Technische Angaben geprüft am 03.10.2026.</p>
+      <ul className="mt-2 space-y-2">
+        {car.electric.sources.map((source) => (
+          <li key={source.url}>
+            <a
+              className="underline underline-offset-2"
+              href={source.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {source.label}
+              <span className="sr-only">
+                {" "}
+                für {car.manufacturer} {car.model}
+              </span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </details>
   );
 }
 
@@ -844,6 +1134,11 @@ function Comparison({
             setSafety={setSafety}
           />
         </div>
+        <p className="mt-5 max-w-3xl text-sm leading-relaxed text-muted-foreground">
+          Reichweite und Durchschnittsverbrauch: WLTP kombiniert. Schnellladen: DC von 10 auf 80 %;
+          abweichende Hersteller-Ladefenster stehen ausdrücklich beim Fahrzeug. Technische Daten
+          geprüft am 03.10.2026.
+        </p>
         <div className="mt-8 md:hidden">
           <div className="grid grid-cols-2 gap-3">
             <label className="text-xs font-bold uppercase tracking-[0.12em] text-muted-foreground">
@@ -887,7 +1182,7 @@ function Comparison({
         <div className="mt-8 hidden overflow-x-auto rounded-md border border-border bg-card md:block">
           <table
             aria-label="Fahrzeugvergleich"
-            className="w-full min-w-[1380px] border-collapse text-left text-sm"
+            className="w-full min-w-[1850px] border-collapse text-left text-sm"
           >
             <thead
               className={
@@ -915,6 +1210,19 @@ function Comparison({
                     direction={direction}
                     onSort={onSort}
                   />
+                </th>
+                <th scope="col" className="px-4 py-4">
+                  WLTP-Reichweite
+                </th>
+                <th scope="col" className="px-4 py-4">
+                  Ø Verbrauch
+                  <br />
+                  <span className="font-normal">WLTP · kWh/100 km</span>
+                </th>
+                <th scope="col" className="px-4 py-4">
+                  DC-Schnellladen
+                  <br />
+                  <span className="font-normal">10–80 % · Minuten</span>
                 </th>
                 <th className="px-4 py-4">Überführung</th>
                 <th scope="col" className="px-4 py-4">
@@ -964,11 +1272,21 @@ function Comparison({
                     >
                       {car.model}
                     </strong>
+                    <ElectricSources car={car} />
                   </td>
                   <td className="px-4 py-5">
                     <Rate car={car} />
                   </td>
                   <td className="px-4 py-5 font-medium">{money.format(car.price)}</td>
+                  <td className="px-4 py-5 whitespace-nowrap font-semibold">
+                    {car.electric.range} km
+                  </td>
+                  <td className="px-4 py-5 whitespace-nowrap font-semibold">
+                    {car.electric.consumption}
+                  </td>
+                  <td className="px-4 py-5">
+                    <ChargingTime car={car} />
+                  </td>
                   <td className="px-4 py-5">
                     {car.transfer === null ? (
                       <span className="text-muted-foreground">Noch offen</span>
@@ -1038,6 +1356,20 @@ function Methodology({ compact }: { compact: boolean }) {
         </p>
       </div>
       <div className="divide-y divide-border border-y border-border">
+        <article className="py-6">
+          <h3 className={compact ? "text-lg font-bold" : "font-display text-2xl"}>
+            Reichweite, Verbrauch und Laden
+          </h3>
+          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+            WLTP kombiniert ist ein standardisierter Vergleichswert, kein gemessener
+            Alltagsverbrauch. Ausstattung, Wetter und Fahrweise verändern Reichweite und Verbrauch.
+            Die Quellen nennen die verwendete Batterie und Variante; Spannen bleiben erhalten.
+            DC-Ladezeiten gelten unter den Herstellerbedingungen und hängen insbesondere von
+            Batterietemperatur und Ladesäule ab. Wenn 10–80 % nicht veröffentlicht ist, zeigen wir
+            „Nicht angegeben“ und das tatsächlich genannte Ladefenster. Es erfolgt keine
+            rechnerische Umrechnung auf 10–80 %.
+          </p>
+        </article>
         <article className="grid gap-3 py-6 sm:grid-cols-[3rem_1fr]">
           <span
             className={`${compact ? "text-2xl font-bold" : "font-display text-3xl"} text-primary`}
@@ -1326,10 +1658,11 @@ function Index() {
         className="mx-auto max-w-7xl px-5 pt-6 text-sm leading-relaxed text-muted-foreground sm:px-8 lg:px-12"
         aria-label="Quellenstatus"
       >
-        <strong className="text-foreground">Übernommener Datenstand: 02.10.2026.</strong>{" "}
-        Fahrzeugdaten, Leasingraten, Sicherheitsangaben und Serviceadressen stammen aus dem
-        ursprünglichen Projekt. Angebotsbelege und Einzelquellen fehlen bislang; diese Angaben sind
-        nicht unabhängig geprüft. Die Herstellerlinks dienen zur weiteren Recherche.
+        <strong className="text-foreground">Übernommener Datenstand: 02.10.2026.</strong> Preise,
+        Leasingraten, Abmessungen, Sicherheitsangaben und Serviceadressen stammen aus dem
+        ursprünglichen Projekt und sind nicht unabhängig geprüft. Reichweite, Verbrauch und
+        Ladezeiten wurden am 03.10.2026 anhand von Herstellerquellen ergänzt; Variante und Quellen
+        sind bei jedem Fahrzeug aufklappbar.
       </aside>
       <Comparison
         visibleCars={visibleCars}
@@ -1452,8 +1785,23 @@ function CarCard({
               {car.trunk} normal · {car.trunkFolded} umgeklappt
             </dd>
           </div>
+          <div>
+            <dt className="text-xs text-muted-foreground">WLTP-Reichweite</dt>
+            <dd className="mt-1 font-semibold">{car.electric.range} km</dd>
+          </div>
+          <div>
+            <dt className="text-xs text-muted-foreground">Ø Verbrauch · WLTP</dt>
+            <dd className="mt-1 font-semibold">{car.electric.consumption} kWh/100 km</dd>
+          </div>
+          <div className="col-span-2">
+            <dt className="text-xs text-muted-foreground">DC-Schnellladen · 10–80 %</dt>
+            <dd className="mt-1">
+              <ChargingTime car={car} />
+            </dd>
+          </div>
           <ServiceDetails car={car} />
         </dl>
+        <ElectricSources car={car} />
         <div className="mt-5">
           <SafetyBadge car={car} />
         </div>

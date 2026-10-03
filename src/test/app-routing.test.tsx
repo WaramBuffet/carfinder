@@ -34,6 +34,29 @@ describe("Fahrzeugvergleich", () => {
     expect(container.querySelectorAll("tbody tr")).toHaveLength(15);
     expect(screen.getAllByRole("link", { name: "Offizielle Herstellerseite" })).toHaveLength(15);
   });
+  it("zeigt technische Daten in Tabelle und Mobilkarten ohne Ladefenster gleichzusetzen", async () => {
+    const { container, router } = await renderAt();
+    await screen.findByLabelText("Hersteller");
+    for (const selector of ["#car-hyundai-inster", "#mobile-car-hyundai-inster"]) {
+      const vehicle = container.querySelector(selector)!;
+      expect(vehicle).toHaveTextContent("327 km");
+      expect(vehicle).toHaveTextContent("14,3");
+      expect(vehicle).toHaveTextContent("ca. 30 Min.");
+    }
+    for (const selector of ["#car-leapmotor-t03", "#mobile-car-leapmotor-t03"]) {
+      const vehicle = container.querySelector(selector)!;
+      expect(vehicle).toHaveTextContent("Nicht angegeben");
+      expect(vehicle).toHaveTextContent("36 Min. für 30–80 %");
+    }
+    expect(container.querySelector("#car-dacia-spring")).toHaveTextContent("optionalem 40-kW");
+    expect(container.querySelector("#car-citroen-e-c3")).toHaveTextContent(
+      "Batteriezuordnung offen",
+    );
+    expect(container.querySelectorAll("tbody tr details")).toHaveLength(15);
+    fireEvent.click(screen.getByRole("button", { name: "Mit Gefühl" }));
+    await waitFor(() => expect(router.state.location.search).toMatchObject({ ansicht: "gefuehl" }));
+    expect(container.querySelector("#car-hyundai-inster")).toHaveTextContent("327 km");
+  });
   it("schaltet die Ansicht über die URL und behält aktive Filter", async () => {
     const { router, container } = await renderAt();
     await screen.findByRole("heading", { name: "E-Autos klar und nachvollziehbar vergleichen" });
