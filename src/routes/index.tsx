@@ -1,11 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import {
-  ArrowDown,
-  ArrowUp,
   CalendarDays,
   CarFront,
   Check,
-  ChevronDown,
   CircleHelp,
   ExternalLink,
   Ruler,
@@ -698,11 +695,11 @@ function ChargingTime({ car }: { car: Car }) {
 }
 function ElectricSources({ car }: { car: Car }) {
   return (
-    <details className="mt-3 max-w-60 text-xs text-muted-foreground">
+    <details className="mt-5 text-xs text-muted-foreground">
       <summary className="cursor-pointer font-medium text-primary">
         Variante &amp; Quellen{car.electric.variantUnconfirmed ? " · Batteriezuordnung offen" : ""}
       </summary>
-      <p className="mt-2 leading-relaxed">{car.electric.variant}</p>
+      <p className="mt-2 break-words leading-relaxed">{car.electric.variant}</p>
       <p className="mt-2">Technische Angaben geprüft am 03.10.2026.</p>
       <ul className="mt-2 space-y-2">
         {car.electric.sources.map((source) => (
@@ -760,41 +757,6 @@ function ServiceDetails({ car, compact = false }: { car: Car; compact?: boolean 
         {service.verified ? " · typische Fahrzeit bei normalem Verkehr" : ""}
       </dd>
     </div>
-  );
-}
-function SortButton({
-  label,
-  value,
-  active,
-  direction,
-  onSort,
-}: {
-  label: string;
-  value: SortKey;
-  active: boolean;
-  direction: "asc" | "desc";
-  onSort: (value: SortKey) => void;
-}) {
-  return (
-    <Button
-      type="button"
-      variant="ghost"
-      size="sm"
-      onClick={() => onSort(value)}
-      className="h-auto px-0 py-0 font-semibold hover:bg-transparent hover:text-primary"
-      aria-label={`${label} sortieren`}
-    >
-      {label}
-      {active ? (
-        direction === "asc" ? (
-          <ArrowUp />
-        ) : (
-          <ArrowDown />
-        )
-      ) : (
-        <ChevronDown className="text-muted-foreground" />
-      )}
-    </Button>
   );
 }
 function BasisStrip({ compact = false }: { compact?: boolean }) {
@@ -906,71 +868,6 @@ function PhotoCredit({
     </p>
   );
 }
-function PhotoGallery({ onSelect }: { onSelect: (car: Car) => void }) {
-  return (
-    <section
-      id="fotos"
-      className="scroll-mt-40 border-y border-border bg-card py-10 lg:scroll-mt-24 lg:py-12"
-    >
-      <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
-        <div className="grid gap-4 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-end">
-          <div className="min-w-0">
-            <p className="eyebrow">Fotoübersicht</p>
-            <h2 className="mt-2 text-2xl font-bold sm:text-3xl">
-              {"Alle 15 Modelle im Überblick"}
-            </h2>
-          </div>
-          <p className="max-w-sm text-xs leading-relaxed text-muted-foreground">
-            Originalfotos und eine Herstelleraufnahme der Modelle. Farbe, Ausstattung und Modelljahr
-            können vom Vergleichsangebot abweichen. Bildnachweise stehen direkt beim Foto.
-          </p>
-        </div>
-        <div className="gallery-scroll mt-8 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4 lg:grid lg:overflow-visible lg:pb-0 lg:grid-cols-5">
-          {cars.map((car) => (
-            <article
-              key={car.slug}
-              className="w-[82vw] shrink-0 snap-start overflow-hidden border border-border sm:w-[22rem] lg:w-auto bg-card"
-            >
-              <button
-                type="button"
-                onClick={() => onSelect(car)}
-                className="group block h-auto w-full text-left whitespace-normal"
-                aria-label={`${car.manufacturer} ${car.model} im Vergleich anzeigen`}
-              >
-                <img
-                  src={car.photo.src}
-                  alt={car.photo.alt}
-                  loading="lazy"
-                  width={1280}
-                  height={800}
-                  className="w-full bg-muted/40 object-contain transition-transform duration-500 group-hover:scale-[1.02] aspect-[4/3]"
-                />
-                <span className="block w-full p-4">
-                  <span className="block text-xs font-bold uppercase tracking-[0.12em] text-primary">
-                    {car.manufacturer}
-                  </span>
-                  <span className="text-sm font-bold mt-1 block leading-tight text-foreground">
-                    {car.model}
-                  </span>
-                </span>
-              </button>
-              <PhotoCredit photo={car.photo} />
-              <a
-                href={car.site}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1.5 px-4 pb-4 pt-1 text-xs font-semibold text-primary hover:underline"
-              >
-                Offizielle Herstellerseite
-                <ExternalLink className="h-3 w-3" aria-hidden="true" />
-              </a>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
 function FilterBar({
   manufacturer,
   setManufacturer,
@@ -989,7 +886,7 @@ function FilterBar({
         <select
           value={manufacturer}
           onChange={(event) => setManufacturer(event.target.value)}
-          className="mt-2 block h-11 w-full min-w-48 rounded-md border border-input bg-background px-3 text-sm font-medium text-foreground outline-none focus:ring-2 focus:ring-ring"
+          className="mt-2 block h-11 w-full min-w-0 rounded-md border border-input bg-background px-3 text-sm font-medium text-foreground outline-none focus:ring-2 focus:ring-ring"
         >
           <option>Alle</option>
           {manufacturers.map((item) => (
@@ -1002,7 +899,7 @@ function FilterBar({
         <select
           value={safety}
           onChange={(event) => setSafety(event.target.value)}
-          className="mt-2 block h-11 w-full min-w-56 rounded-md border border-input bg-background px-3 text-sm font-medium text-foreground outline-none focus:ring-2 focus:ring-ring"
+          className="mt-2 block h-11 w-full min-w-0 rounded-md border border-input bg-background px-3 text-sm font-medium text-foreground outline-none focus:ring-2 focus:ring-ring"
         >
           <option>Alle</option>
           <option>5 Sterne</option>
@@ -1015,7 +912,6 @@ function FilterBar({
 }
 function Comparison({
   visibleCars,
-  mobileCars,
   manufacturer,
   setManufacturer,
   safety,
@@ -1023,13 +919,10 @@ function Comparison({
   sortKey,
   setSortKey,
   direction,
-  onSort,
-  mobileDirection,
-  setMobileDirection,
+  setDirection,
   selectedSlug,
 }: {
   visibleCars: Car[];
-  mobileCars: Car[];
   manufacturer: string;
   setManufacturer: (value: string) => void;
   safety: string;
@@ -1037,9 +930,7 @@ function Comparison({
   sortKey: SortKey;
   setSortKey: (value: SortKey) => void;
   direction: "asc" | "desc";
-  onSort: (value: SortKey) => void;
-  mobileDirection: "asc" | "desc";
-  setMobileDirection: (value: "asc" | "desc") => void;
+  setDirection: (value: "asc" | "desc") => void;
   selectedSlug: string | null;
 }) {
   return (
@@ -1049,7 +940,7 @@ function Comparison({
           <div>
             <p className="eyebrow">Alle Modelle</p>
             <h2 className="mt-2 text-3xl font-bold sm:text-4xl">
-              Vergleichen, was wirklich zählt.
+              Fotos und Fakten auf einen Blick
             </h2>
             <p className="mt-3 text-sm text-muted-foreground" aria-live="polite">
               {visibleCars.length} von {cars.length} Fahrzeugen
@@ -1067,182 +958,45 @@ function Comparison({
           abweichende Hersteller-Ladefenster stehen ausdrücklich beim Fahrzeug. Technische Daten
           geprüft am 03.10.2026.
         </p>
-        <div className="mt-8 md:hidden">
-          <div className="grid grid-cols-2 gap-3">
-            <label className="text-xs font-bold uppercase tracking-[0.12em] text-muted-foreground">
-              Sortierung
-              <select
-                value={sortKey}
-                onChange={(event) => setSortKey(event.target.value as SortKey)}
-                className="mt-2 block h-11 w-full rounded-md border border-input bg-background px-3 text-sm font-medium text-foreground"
-              >
-                <option value="rate">Monatsrate</option>
-                <option value="price">Listenpreis</option>
-                <option value="length">Länge</option>
-                <option value="trunk">Kofferraum umgeklappt</option>
-                <option value="delivery">Lieferzeit</option>
-              </select>
-            </label>
-            <label className="text-xs font-bold uppercase tracking-[0.12em] text-muted-foreground">
-              Richtung
-              <select
-                value={mobileDirection}
-                onChange={(event) => setMobileDirection(event.target.value as "asc" | "desc")}
-                className="mt-2 block h-11 w-full rounded-md border border-input bg-background px-3 text-sm font-medium text-foreground"
-              >
-                <option value="asc">Aufsteigend</option>
-                <option value="desc">Absteigend</option>
-              </select>
-            </label>
-          </div>
-          <div className="mt-5 space-y-4">
-            {mobileCars.map((car, index) => (
-              <CarCard
-                key={car.slug}
-                car={car}
-                index={index}
-                selected={selectedSlug === car.slug}
-              />
-            ))}
-          </div>
+        <div className="mt-6 grid gap-3 sm:max-w-xl sm:grid-cols-2">
+          <label className="text-xs font-bold uppercase tracking-[0.12em] text-muted-foreground">
+            Sortierung
+            <select
+              value={sortKey}
+              onChange={(event) => setSortKey(event.target.value as SortKey)}
+              className="mt-2 block h-11 w-full min-w-0 rounded-md border border-input bg-background px-3 text-sm font-medium text-foreground"
+            >
+              <option value="rate">Monatsrate</option>
+              <option value="price">Listenpreis</option>
+              <option value="length">Länge</option>
+              <option value="trunk">Kofferraum umgeklappt</option>
+              <option value="delivery">Lieferzeit</option>
+            </select>
+          </label>
+          <label className="text-xs font-bold uppercase tracking-[0.12em] text-muted-foreground">
+            Richtung
+            <select
+              value={direction}
+              onChange={(event) => setDirection(event.target.value as "asc" | "desc")}
+              className="mt-2 block h-11 w-full min-w-0 rounded-md border border-input bg-background px-3 text-sm font-medium text-foreground"
+            >
+              <option value="asc">Aufsteigend</option>
+              <option value="desc">Absteigend</option>
+            </select>
+          </label>
         </div>
-        <div className="mt-8 hidden overflow-x-auto rounded-md border border-border bg-card md:block">
-          <table
-            aria-label="Fahrzeugvergleich"
-            className="w-full min-w-[1850px] border-collapse text-left text-sm"
-          >
-            <thead className="bg-muted text-xs uppercase tracking-[0.08em]">
-              <tr>
-                <th className="px-5 py-4">Modell</th>
-                <th scope="col" className="px-4 py-4">
-                  <SortButton
-                    label="Monatsrate"
-                    value="rate"
-                    active={sortKey === "rate"}
-                    direction={direction}
-                    onSort={onSort}
-                  />
-                </th>
-                <th scope="col" className="px-4 py-4">
-                  <SortButton
-                    label="Listenpreis"
-                    value="price"
-                    active={sortKey === "price"}
-                    direction={direction}
-                    onSort={onSort}
-                  />
-                </th>
-                <th scope="col" className="px-4 py-4">
-                  WLTP-Reichweite
-                </th>
-                <th scope="col" className="px-4 py-4">
-                  Ø Verbrauch
-                  <br />
-                  <span className="font-normal">WLTP · kWh/100 km</span>
-                </th>
-                <th scope="col" className="px-4 py-4">
-                  DC-Schnellladen
-                  <br />
-                  <span className="font-normal">10–80 % · Minuten</span>
-                </th>
-                <th className="px-4 py-4">Überführung</th>
-                <th scope="col" className="px-4 py-4">
-                  <SortButton
-                    label="Lieferzeit"
-                    value="delivery"
-                    active={sortKey === "delivery"}
-                    direction={direction}
-                    onSort={onSort}
-                  />
-                </th>
-                <th scope="col" className="px-4 py-4">
-                  <SortButton
-                    label="Länge"
-                    value="length"
-                    active={sortKey === "length"}
-                    direction={direction}
-                    onSort={onSort}
-                  />
-                </th>
-                <th scope="col" className="px-4 py-4">
-                  <SortButton
-                    label="Kofferraum"
-                    value="trunk"
-                    active={sortKey === "trunk"}
-                    direction={direction}
-                    onSort={onSort}
-                  />
-                </th>
-                <th className="px-4 py-4">Sicherheit</th>
-                <th className="px-4 py-4">Service / Fahrzeit</th>
-              </tr>
-            </thead>
-            <tbody>
-              {visibleCars.map((car) => (
-                <tr
-                  id={`car-${car.slug}`}
-                  key={car.slug}
-                  className={`scroll-mt-24 border-t border-border align-top transition-colors ${selectedSlug === car.slug ? "bg-accent" : "hover:bg-accent/50"}`}
-                >
-                  <td className="px-5 py-5">
-                    <span className="block text-xs font-semibold text-muted-foreground">
-                      {car.manufacturer}
-                    </span>
-                    <strong className="font-bold mt-1 block max-w-52 leading-tight">
-                      {car.model}
-                    </strong>
-                    <ElectricSources car={car} />
-                  </td>
-                  <td className="px-4 py-5">
-                    <Rate car={car} />
-                  </td>
-                  <td className="px-4 py-5 font-medium">{money.format(car.price)}</td>
-                  <td className="px-4 py-5 whitespace-nowrap font-semibold">
-                    {car.electric.range} km
-                  </td>
-                  <td className="px-4 py-5 whitespace-nowrap font-semibold">
-                    {car.electric.consumption}
-                  </td>
-                  <td className="px-4 py-5">
-                    <ChargingTime car={car} />
-                  </td>
-                  <td className="px-4 py-5">
-                    {car.transfer === null ? (
-                      <span className="text-muted-foreground">Noch offen</span>
-                    ) : (
-                      money.format(car.transfer)
-                    )}
-                  </td>
-                  <td className="px-4 py-5">
-                    <span className="font-medium">{formatDelivery(car.delivery)}</span>
-                    <span className="mt-1 block text-xs text-muted-foreground">
-                      Vorläufig · unsicher
-                    </span>
-                  </td>
-                  <td className="px-4 py-5">
-                    {car.length.toLocaleString("de-DE", { minimumFractionDigits: 2 })} m
-                  </td>
-                  <td className="px-4 py-5">
-                    <span className="font-medium">{car.trunk}</span>
-                    <span className="mt-1 block text-xs text-muted-foreground">
-                      umgeklappt {car.trunkFolded}
-                    </span>
-                  </td>
-                  <td className="px-4 py-5">
-                    <SafetyBadge car={car} />
-                  </td>
-                  <td className="px-4 py-5">
-                    <ServiceDetails car={car} compact />
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+        <div
+          id="fotos"
+          className="scroll-mt-24 mt-8 grid items-start gap-6 lg:grid-cols-2"
+          aria-label="Fahrzeugvergleich"
+        >
+          {visibleCars.map((car, index) => (
+            <CarCard key={car.slug} car={car} index={index} selected={selectedSlug === car.slug} />
+          ))}
         </div>
         {visibleCars.length === 0 && (
-          <div className="mt-8 rounded-md border border-border bg-card p-10 text-center">
-            <CircleHelp className="mx-auto h-6 w-6 text-primary" />
-            <p className="mt-3 font-medium">Für diese Filterkombination gibt es kein Modell.</p>
+          <div className="mt-8 rounded-md border border-border bg-muted/40 p-8 text-center">
+            <p className="font-semibold">Keine Fahrzeuge für diese Filter gefunden.</p>
             <Button
               className="mt-4"
               onClick={() => {
@@ -1269,8 +1023,8 @@ function Methodology({ compact }: { compact: boolean }) {
           Transparent statt schöngerechnet.
         </h2>
         <p className="mt-5 max-w-md leading-relaxed text-muted-foreground">
-          Alle Angaben folgen in beiden Ansichten derselben Datenbasis. Vorläufige oder fehlende
-          Werte bleiben sichtbar gekennzeichnet.
+          Alle Fahrzeugkarten verwenden dieselbe Datenbasis. Vorläufige oder fehlende Werte bleiben
+          sichtbar gekennzeichnet.
         </p>
       </div>
       <div className="divide-y divide-border border-y border-border">
@@ -1368,8 +1122,6 @@ function Index() {
   const [safety, setSafety] = useState("Alle");
   const [sortKey, setSortKey] = useState<SortKey>("rate");
   const [direction, setDirection] = useState<"asc" | "desc">("asc");
-  const mobileDirection = direction;
-  const setMobileDirection = setDirection;
   const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
   useEffect(() => {
     const match = /^#car-([a-z0-9-]+)$/.exec(window.location.hash);
@@ -1378,9 +1130,7 @@ function Index() {
     if (!slug || !cars.some((car) => car.slug === slug)) return;
     setSelectedSlug(slug);
     const timer = window.setTimeout(() => {
-      const targetId = window.matchMedia("(max-width: 767px)").matches
-        ? `mobile-car-${slug}`
-        : `car-${slug}`;
+      const targetId = `car-${slug}`;
       document.getElementById(targetId)?.scrollIntoView({ behavior: "smooth", block: "center" });
     }, 120);
     return () => window.clearTimeout(timer);
@@ -1408,30 +1158,6 @@ function Index() {
     });
   };
   const visibleCars = sortCars(filteredCars, direction);
-  const mobileCars = visibleCars;
-  const onSort = (key: SortKey) => {
-    if (sortKey === key) setDirection((current) => (current === "asc" ? "desc" : "asc"));
-    else {
-      setSortKey(key);
-      setDirection("asc");
-    }
-  };
-  const onPhotoSelect = (car: Car) => {
-    setManufacturer("Alle");
-    setSafety("Alle");
-    setSelectedSlug(car.slug);
-    window.history.replaceState(
-      null,
-      "",
-      `${window.location.pathname}${window.location.search}#car-${car.slug}`,
-    );
-    window.setTimeout(() => {
-      const targetId = window.matchMedia("(max-width: 767px)").matches
-        ? `mobile-car-${car.slug}`
-        : `car-${car.slug}`;
-      document.getElementById(targetId)?.scrollIntoView({ behavior: "smooth", block: "center" });
-    }, 80);
-  };
   return (
     <main className="mode-facts overflow-x-clip bg-background">
       <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur">
@@ -1491,7 +1217,6 @@ function Index() {
       </aside>
       <Comparison
         visibleCars={visibleCars}
-        mobileCars={mobileCars}
         manufacturer={manufacturer}
         setManufacturer={setManufacturer}
         safety={safety}
@@ -1499,13 +1224,10 @@ function Index() {
         sortKey={sortKey}
         setSortKey={setSortKey}
         direction={direction}
-        onSort={onSort}
-        mobileDirection={mobileDirection}
-        setMobileDirection={setMobileDirection}
+        setDirection={setDirection}
         selectedSlug={selectedSlug}
       />
 
-      <PhotoGallery onSelect={onPhotoSelect} />
       <Methodology compact />
       <footer className="bg-foreground text-primary-foreground">
         <div className="mx-auto max-w-7xl px-5 py-10 sm:px-8 lg:px-12">
@@ -1523,20 +1245,36 @@ function Index() {
 function CarCard({ car, index, selected }: { car: Car; index: number; selected: boolean }) {
   return (
     <article
-      id={`mobile-car-${car.slug}`}
-      className={`scroll-mt-32 overflow-hidden rounded-md border bg-card transition-shadow ${selected ? "border-primary ring-2 ring-ring" : "border-border"}`}
+      id={`car-${car.slug}`}
+      aria-labelledby={`title-${car.slug}`}
+      className={`min-w-0 scroll-mt-24 overflow-hidden rounded-md border bg-card transition-shadow ${selected ? "border-primary ring-2 ring-ring" : "border-border"}`}
     >
       <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-4 border-b border-border px-5 py-5 bg-muted">
         <div className="min-w-0">
           <p className="text-xs font-bold uppercase tracking-[0.12em] text-primary">
             {car.manufacturer}
           </p>
-          <h3 className="mt-1 leading-tight text-xl font-bold">{car.model}</h3>
+          <h3 id={`title-${car.slug}`} className="mt-1 leading-tight text-xl font-bold">
+            {car.model}
+          </h3>
         </div>
         <span className="font-bold shrink-0 text-2xl text-border">
           {String(index + 1).padStart(2, "0")}
         </span>
       </div>
+      <figure>
+        <img
+          src={car.photo.src}
+          alt={car.photo.alt}
+          loading="lazy"
+          width={1280}
+          height={960}
+          className="h-52 w-full bg-muted/30 object-contain sm:h-60"
+        />
+        <figcaption className="border-b border-border px-5 py-3 text-xs leading-relaxed text-muted-foreground">
+          {car.photo.note}
+        </figcaption>
+      </figure>
       <div className="p-5">
         <div className="pb-5">
           <p className="text-xs font-semibold uppercase tracking-[0.1em] text-muted-foreground">
@@ -1546,7 +1284,21 @@ function CarCard({ car, index, selected }: { car: Car; index: number; selected: 
             <Rate car={car} />
           </p>
         </div>
-        <dl className="grid grid-cols-2 gap-x-4 gap-y-5 border-t border-border pt-5 text-sm">
+        <dl className="grid grid-cols-2 gap-x-4 gap-y-5 border-t border-border pt-5 text-sm [&>div]:min-w-0">
+          <div>
+            <dt className="text-xs text-muted-foreground">WLTP-Reichweite</dt>
+            <dd className="mt-1 font-semibold">{car.electric.range} km</dd>
+          </div>
+          <div>
+            <dt className="text-xs text-muted-foreground">Ø Verbrauch · WLTP</dt>
+            <dd className="mt-1 font-semibold">{car.electric.consumption} kWh/100 km</dd>
+          </div>
+          <div className="col-span-2">
+            <dt className="text-xs text-muted-foreground">DC-Schnellladen · 10–80 %</dt>
+            <dd className="mt-1">
+              <ChargingTime car={car} />
+            </dd>
+          </div>
           <div>
             <dt className="text-xs text-muted-foreground">Listenpreis</dt>
             <dd className="mt-1 font-semibold">{money.format(car.price)}</dd>
@@ -1574,27 +1326,25 @@ function CarCard({ car, index, selected }: { car: Car; index: number; selected: 
               {car.trunk} normal · {car.trunkFolded} umgeklappt
             </dd>
           </div>
-          <div>
-            <dt className="text-xs text-muted-foreground">WLTP-Reichweite</dt>
-            <dd className="mt-1 font-semibold">{car.electric.range} km</dd>
-          </div>
-          <div>
-            <dt className="text-xs text-muted-foreground">Ø Verbrauch · WLTP</dt>
-            <dd className="mt-1 font-semibold">{car.electric.consumption} kWh/100 km</dd>
-          </div>
-          <div className="col-span-2">
-            <dt className="text-xs text-muted-foreground">DC-Schnellladen · 10–80 %</dt>
-            <dd className="mt-1">
-              <ChargingTime car={car} />
-            </dd>
-          </div>
           <ServiceDetails car={car} />
         </dl>
         <ElectricSources car={car} />
         <div className="mt-5">
           <SafetyBadge car={car} />
         </div>
+        <a
+          href={car.site}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-primary hover:underline"
+        >
+          Offizielle Herstellerseite <ExternalLink className="h-3 w-3" aria-hidden="true" />
+        </a>
       </div>
+      <details className="border-t border-border px-5 py-3 text-xs text-muted-foreground">
+        <summary className="cursor-pointer font-medium text-primary">Bildnachweis & Lizenz</summary>
+        <PhotoCredit photo={car.photo} className="pt-2 text-xs leading-relaxed" />
+      </details>
     </article>
   );
 }

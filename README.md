@@ -1,6 +1,6 @@
 # Charmante E-Autos im Vergleich
 
-Unabhängige GitHub-Kopie des bestehenden Lovable-Projekts. 15 Fahrzeuge, eine Faktenansicht, gemeinsame Fahrzeugdaten, Filter, Sortierung, Galerie und Marken-Serviceinformationen. Die öffentliche Lovable-Seite bleibt unverändert; dieses Repository wird nicht mit Lovable synchronisiert.
+Unabhängige GitHub-Kopie des bestehenden Lovable-Projekts. 15 Fahrzeuge, eine Faktenansicht, gemeinsame Fahrzeugdaten, Filter, Sortierung, gemeinsame Foto-/Detailkarten und Marken-Serviceinformationen. Die öffentliche Lovable-Seite bleibt unverändert; dieses Repository wird nicht mit Lovable synchronisiert.
 
 ## Entwicklung
 
@@ -45,3 +45,7 @@ Fahrzeugzahlen und Sicherheitsnotizen stammen unverändert aus der bestehenden D
 Die Webseite zeigt seit 03.10.2026 modellbezogene Aufnahmen für jedes der 15 Modelle: 14 frei lizenzierte Wikimedia-Fotos sowie eine für redaktionelle Nutzung freigegebene Hyundai-Herstelleraufnahme des IONIQ 3. Urheber, Quelle und Lizenz sind unmittelbar bei den Bildern verlinkt; abweichende Ausstattungen werden gekennzeichnet. Details und Wiederverwendungsbedingungen: [Bildnachweise](src/assets/vehicles/README.md). Die ursprünglichen Lovable-Illustrationen bleiben im Migrationsarchiv erhalten.
 
 Die frühere Ansicht „Mit Gefühl“ und der Umschalter wurden entfernt. Alte Links mit `?ansicht=gefuehl` zeigen jetzt ebenfalls die Faktenansicht.
+
+## Gemeinsame Fahrzeugkarten
+
+Fotos, technische Daten, Preise, Sicherheit und Service stehen zusammen in einer Fahrzeugkarte. Mobil erscheinen die Karten untereinander, ab Desktop-Breite in zwei Spalten. Filter und Sortierung steuern dieselbe Liste; eine breite Tabelle und separate Fotogalerie entfallen. Fahrzeug-Direktlinks (`#car-…`) und der bisherige Galerieanker `#fotos` bleiben nutzbar.

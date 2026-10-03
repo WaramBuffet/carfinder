@@ -31,12 +31,12 @@ describe("Fahrzeugvergleich", () => {
     expect(
       await screen.findByRole("heading", { name: "E-Autos klar und nachvollziehbar vergleichen" }),
     ).toBeInTheDocument();
-    expect(container.querySelectorAll("tbody tr")).toHaveLength(15);
+    expect(container.querySelectorAll("#fotos > article")).toHaveLength(15);
     expect(screen.getAllByRole("link", { name: "Offizielle Herstellerseite" })).toHaveLength(15);
   });
   it("zeigt unterschiedliche Modellaufnahmen mit Bildnachweisen und Variantenhinweisen", async () => {
     const { container } = await renderAt();
-    await screen.findByRole("heading", { name: "Alle 15 Modelle im Überblick" });
+    await screen.findByRole("heading", { name: "Fotos und Fakten auf einen Blick" });
     const gallery = container.querySelector("#fotos")!;
     const images = Array.from(gallery.querySelectorAll("img"));
     expect(images).toHaveLength(15);
@@ -51,16 +51,16 @@ describe("Fahrzeugvergleich", () => {
       gallery.querySelector('a[href="https://www.hyundai.news/eu/terms-of-use.html"]'),
     ).toHaveTextContent("Redaktionelle Nutzung");
   });
-  it("zeigt technische Daten in Tabelle und Mobilkarten ohne Ladefenster gleichzusetzen", async () => {
+  it("vereint Fotos und technische Daten ohne Ladefenster gleichzusetzen", async () => {
     const { container } = await renderAt();
     await screen.findByLabelText("Hersteller");
-    for (const selector of ["#car-hyundai-inster", "#mobile-car-hyundai-inster"]) {
+    for (const selector of ["#car-hyundai-inster"]) {
       const vehicle = container.querySelector(selector)!;
       expect(vehicle).toHaveTextContent("327 km");
       expect(vehicle).toHaveTextContent("14,3");
       expect(vehicle).toHaveTextContent("ca. 30 Min.");
     }
-    for (const selector of ["#car-leapmotor-t03", "#mobile-car-leapmotor-t03"]) {
+    for (const selector of ["#car-leapmotor-t03"]) {
       const vehicle = container.querySelector(selector)!;
       expect(vehicle).toHaveTextContent("Nicht angegeben");
       expect(vehicle).toHaveTextContent("36 Min. für 30–80 %");
@@ -69,26 +69,30 @@ describe("Fahrzeugvergleich", () => {
     expect(container.querySelector("#car-citroen-e-c3")).toHaveTextContent(
       "Batteriezuordnung offen",
     );
-    expect(container.querySelectorAll("tbody tr details")).toHaveLength(15);
+    expect(container.querySelectorAll("#fotos article > div details")).toHaveLength(15);
   });
   it("kombiniert Hersteller und Sicherheit und kann leere Filter zurücksetzen", async () => {
     const { container } = await renderAt();
     await screen.findByLabelText("Hersteller");
     fireEvent.change(screen.getByLabelText("Hersteller"), { target: { value: "MINI" } });
     fireEvent.change(screen.getByLabelText("Sicherheit"), { target: { value: "4 Sterne" } });
-    expect(container.querySelectorAll("tbody tr")).toHaveLength(0);
+    expect(container.querySelectorAll("#fotos > article")).toHaveLength(0);
+    expect(container.querySelectorAll("#fotos img")).toHaveLength(0);
     fireEvent.click(screen.getByRole("button", { name: "Filter zurücksetzen" }));
-    expect(container.querySelectorAll("tbody tr")).toHaveLength(15);
+    expect(container.querySelectorAll("#fotos > article")).toHaveLength(15);
+    fireEvent.change(screen.getByLabelText("Hersteller"), { target: { value: "MINI" } });
+    expect(container.querySelectorAll("#fotos img")).toHaveLength(2);
   });
-  it("sortiert absteigend mit fehlender Rate am Ende und synchronisiert Mobil", async () => {
+  it("sortiert die gemeinsamen Fotokarten mit fehlender Rate am Ende", async () => {
     const { container } = await renderAt();
-    fireEvent.click(await screen.findByRole("button", { name: "Monatsrate sortieren" }));
-    const rows = container.querySelectorAll("tbody tr");
+    await screen.findByLabelText("Richtung");
+    fireEvent.change(screen.getByLabelText("Richtung"), { target: { value: "desc" } });
+    const rows = container.querySelectorAll("#fotos > article");
     expect(rows[0]).toHaveAttribute("id", "car-renault-4");
     expect(rows[14]).toHaveAttribute("id", "car-dacia-spring");
     expect(screen.getByLabelText("Richtung")).toHaveValue("desc");
     fireEvent.change(screen.getByLabelText("Richtung"), { target: { value: "asc" } });
-    expect(container.querySelector("tbody tr")).toHaveAttribute("id", "car-leapmotor-t03");
+    expect(container.querySelector("#fotos > article")).toHaveAttribute("id", "car-leapmotor-t03");
   });
   it.each(["gefuehl", "unbekannt"])(
     "zeigt auch für den alten Modus %s nur Fakten",
@@ -104,16 +108,21 @@ describe("Fahrzeugvergleich", () => {
       expect(screen.queryByRole("button", { name: "Mit Gefühl" })).not.toBeInTheDocument();
       expect(screen.queryByRole("button", { name: "Zahlen & Fakten" })).not.toBeInTheDocument();
       expect(container.querySelector(".mode-emotional")).toBeNull();
-      expect(container.querySelectorAll("tbody tr")).toHaveLength(15);
+      expect(container.querySelectorAll("#fotos > article")).toHaveLength(15);
     },
   );
-  it("springt aus der Galerie zum Fahrzeug und hebt es hervor", async () => {
+  it("öffnet einen Fahrzeugdirektlink direkt auf der gemeinsamen Fotokarte", async () => {
+    window.history.replaceState(null, "", "/#car-mini-cooper-e");
     const { container } = await renderAt();
-    fireEvent.click(
-      await screen.findByRole("button", { name: "MINI Cooper E im Vergleich anzeigen" }),
+    await screen.findByLabelText("Hersteller");
+    const card = container.querySelector("#car-mini-cooper-e")!;
+    expect(card).toHaveClass("border-primary");
+    expect(card.querySelector("img")).toHaveAttribute(
+      "alt",
+      expect.stringContaining("MINI Cooper E"),
     );
-    expect(window.location.hash).toBe("#car-mini-cooper-e");
-    expect(container.querySelector("#car-mini-cooper-e")).toHaveClass("bg-accent");
+    expect(card).toHaveTextContent("290–300 km");
+    expect(card).toHaveTextContent("Bildnachweis & Lizenz");
   });
   it("stellt die Seite auch bei blockiertem Sitzungsspeicher bereit", async () => {
     vi.spyOn(Storage.prototype, "getItem").mockImplementation(() => {
@@ -126,7 +135,7 @@ describe("Fahrzeugvergleich", () => {
     expect(
       await screen.findByRole("heading", { name: "E-Autos klar und nachvollziehbar vergleichen" }),
     ).toBeInTheDocument();
-    expect(container.querySelectorAll("tbody tr")).toHaveLength(15);
+    expect(container.querySelectorAll("#fotos > article")).toHaveLength(15);
   });
   it("rendert eine deutsche Fehlerseite für unbekannte Routen", async () => {
     vi.spyOn(console, "warn").mockImplementation(() => undefined);
