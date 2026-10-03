@@ -2,7 +2,7 @@
 
 Stand: 03.10.2026. Die Fotos sind lokal eingebunden, ohne externe Bildanfragen. Quellen, ursprüngliche Metadaten und SHA-256-Prüfsummen stehen in `manifest.json`; sichtbare Credits stammen aus `src/data/vehicle-photos.ts`.
 
-Wikimedia-Fotos wurden als verkleinerte Vorschaudateien übernommen. Die Galerie zeigt das vollständige Bild; das Renault-5-Titelbild wird per CSS beschnitten und mit Text überlagert. Bei CC BY-SA stehen auch diese Bilddarstellungen unter derselben Bildlizenz. Die Bildlizenzen gelten jeweils nur für das betreffende Bild, nicht pauschal für den Quellcode.
+Wikimedia-Fotos wurden als verkleinerte Vorschaudateien übernommen. Die Galerie zeigt das vollständige Bild; ein Titelbild mit Ausschnitt oder Textüberlagerung wird seit Entfernung der Ansicht „Mit Gefühl“ nicht mehr verwendet. Bei CC BY-SA stehen auch diese Bilddarstellungen unter derselben Bildlizenz. Die Bildlizenzen gelten jeweils nur für das betreffende Bild, nicht pauschal für den Quellcode.
 
 Die IONIQ-3-Herstelleraufnahme ist **nicht frei lizenziert**: Hyundai gestattet die redaktionelle öffentliche Verwendung über das Internet (Newsroom-Nutzungsbedingungen, Artikel 1–2), untersagt Werbung/Promotion und erteilt kein Unterlizenzrecht. Dieses Projekt verwendet sie ausschließlich im redaktionellen Modellvergleich. Copyright- und Markenhinweise bleiben erhalten. Bei anderweitiger Wiederverwendung diese Bedingungen gesondert beachten. Die Aufnahme zeigt N Line statt Trend.
 

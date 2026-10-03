@@ -1,4 +1,4 @@
-import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { createFileRoute } from "@tanstack/react-router";
 import {
   ArrowDown,
   ArrowUp,
@@ -8,41 +8,33 @@ import {
   ChevronDown,
   CircleHelp,
   ExternalLink,
-  Heart,
-  Images,
   Ruler,
   ShieldCheck,
   Sparkles,
   Star,
-  TableProperties,
   WalletCards,
 } from "lucide-react";
 import { useEffect, useState } from "react";
-
 import { Button } from "@/components/ui/button";
 import { vehiclePhotos, type VehiclePhoto } from "@/data/vehicle-photos";
-
-type ViewMode = "fakten" | "gefuehl";
-
-type PageSearch = { ansicht: ViewMode };
-
+type PageSearch = { ansicht: "fakten" };
 export const Route = createFileRoute("/")({
-  validateSearch: (search: Record<string, unknown>): PageSearch => ({
-    ansicht: search["ansicht"] === "gefuehl" ? "gefuehl" : "fakten",
+  validateSearch: (): PageSearch => ({
+    ansicht: "fakten",
   }),
   head: () => ({
     meta: [
-      { title: "Preiswerte E-Autos im Vergleich – Zahlen oder mit Gefühl" },
+      { title: "Preiswerte E-Autos im Vergleich – Zahlen & Fakten" },
       {
         name: "description",
         content:
-          "15 kompakte Elektroautos in zwei Ansichten: sachlich nach Zahlen und Fakten oder als warme, bildstarke Editorial-Auswahl.",
+          "15 kompakte Elektroautos im sachlichen Vergleich mit Preisen, technischen Daten und Modellfotos.",
       },
       { property: "og:title", content: "Preiswerte E-Autos im Vergleich" },
       {
         property: "og:description",
         content:
-          "Ein transparenter E-Auto-Vergleich mit gemeinsamer Datenbasis – wahlweise nüchtern oder emotional erzählt.",
+          "Ein transparenter E-Auto-Vergleich mit Preisen, Reichweite, Verbrauch, Ladezeiten und Modellfotos.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -50,10 +42,8 @@ export const Route = createFileRoute("/")({
   }),
   component: Index,
 });
-
 type Safety = "5 Sterne" | "4 Sterne" | "Kein aktueller Test";
 type SortKey = "rate" | "price" | "length" | "trunk" | "delivery";
-
 type Car = {
   slug: string;
   site: string;
@@ -80,17 +70,18 @@ type Car = {
     chargingAlternative?: string;
     chargingNote?: string;
     variant: string;
-    sources: { label: string; url: string }[];
+    sources: {
+      label: string;
+      url: string;
+    }[];
   };
 };
-
 type ServiceLocation = {
   name: string;
   address: string;
   driveTime: string;
   verified: boolean;
 };
-
 const serviceByManufacturer: Record<string, ServiceLocation> = {
   Renault: {
     name: "Sonnleitner Nürnberg Nord",
@@ -147,7 +138,6 @@ const serviceByManufacturer: Record<string, ServiceLocation> = {
     verified: false,
   },
 };
-
 const cars: Car[] = [
   {
     slug: "leapmotor-t03",
@@ -657,7 +647,6 @@ const cars: Car[] = [
     },
   },
 ];
-
 const money = new Intl.NumberFormat("de-DE", {
   style: "currency",
   currency: "EUR",
@@ -671,11 +660,9 @@ const monthly = new Intl.NumberFormat("de-DE", {
 const manufacturers = [...new Set(cars.map((car) => car.manufacturer))].sort((a, b) =>
   a.localeCompare(b, "de"),
 );
-
 function formatDelivery(value: number) {
   return `${value.toLocaleString("de-DE")} Monate`;
 }
-
 function Rate({ car }: { car: Car }) {
   if (car.rate === null)
     return (
@@ -693,7 +680,6 @@ function Rate({ car }: { car: Car }) {
     </>
   );
 }
-
 function ChargingTime({ car }: { car: Car }) {
   const { chargingMinutes, chargingAlternative, chargingNote } = car.electric;
   return (
@@ -710,7 +696,6 @@ function ChargingTime({ car }: { car: Car }) {
     </div>
   );
 }
-
 function ElectricSources({ car }: { car: Car }) {
   return (
     <details className="mt-3 max-w-60 text-xs text-muted-foreground">
@@ -740,7 +725,6 @@ function ElectricSources({ car }: { car: Car }) {
     </details>
   );
 }
-
 function SafetyBadge({ car }: { car: Car }) {
   const tone =
     car.safety === "5 Sterne"
@@ -757,7 +741,6 @@ function SafetyBadge({ car }: { car: Car }) {
     </span>
   );
 }
-
 function ServiceDetails({ car, compact = false }: { car: Car; compact?: boolean }) {
   const service = serviceByManufacturer[car.manufacturer];
   if (!service) return null;
@@ -779,7 +762,6 @@ function ServiceDetails({ car, compact = false }: { car: Car; compact?: boolean 
     </div>
   );
 }
-
 function SortButton({
   label,
   value,
@@ -815,35 +797,6 @@ function SortButton({
     </Button>
   );
 }
-
-function ViewToggle({ mode, setMode }: { mode: ViewMode; setMode: (mode: ViewMode) => void }) {
-  return (
-    <div
-      className="grid w-full grid-cols-2 rounded-md border border-border bg-background p-1 sm:w-auto"
-      aria-label="Ansicht wählen"
-    >
-      <Button
-        type="button"
-        variant={mode === "fakten" ? "default" : "ghost"}
-        onClick={() => setMode("fakten")}
-        aria-pressed={mode === "fakten"}
-        className="min-w-0 px-3 sm:min-w-44"
-      >
-        <TableProperties aria-hidden="true" /> <span className="truncate">Zahlen &amp; Fakten</span>
-      </Button>
-      <Button
-        type="button"
-        variant={mode === "gefuehl" ? "default" : "ghost"}
-        onClick={() => setMode("gefuehl")}
-        aria-pressed={mode === "gefuehl"}
-        className="min-w-0 px-3 sm:min-w-36"
-      >
-        <Heart aria-hidden="true" /> <span className="truncate">Mit Gefühl</span>
-      </Button>
-    </div>
-  );
-}
-
 function BasisStrip({ compact = false }: { compact?: boolean }) {
   return (
     <section
@@ -877,18 +830,13 @@ function BasisStrip({ compact = false }: { compact?: boolean }) {
     </section>
   );
 }
-
-function Highlights({ emotional }: { emotional: boolean }) {
+function Highlights() {
   return (
-    <section
-      className={`mx-auto max-w-7xl px-5 sm:px-8 lg:px-12 ${emotional ? "py-16 lg:py-24" : "py-10 lg:py-12"}`}
-    >
+    <section className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12 py-10 lg:py-12">
       <div className="max-w-2xl">
-        <p className="eyebrow">{emotional ? "Was sofort auffällt" : "Beschreibende Kennzahlen"}</p>
-        <h2 className={emotional ? "section-title" : "mt-2 text-2xl font-bold sm:text-3xl"}>
-          {emotional
-            ? "Drei gute Gründe, genauer hinzusehen."
-            : "Erfasste Eckwerte auf einen Blick"}
+        <p className="eyebrow">{"Beschreibende Kennzahlen"}</p>
+        <h2 className="mt-2 text-2xl font-bold sm:text-3xl">
+          {"Erfasste Eckwerte auf einen Blick"}
         </h2>
       </div>
       <div className="mt-8 grid gap-px overflow-hidden rounded-md border border-border bg-border md:grid-cols-3">
@@ -897,9 +845,7 @@ function Highlights({ emotional }: { emotional: boolean }) {
           <p className="mt-6 text-xs font-bold uppercase tracking-[0.14em] text-muted-foreground">
             Niedrigste erfasste Rate
           </p>
-          <h3 className={`mt-2 ${emotional ? "font-display text-3xl" : "text-xl font-bold"}`}>
-            Leapmotor T03
-          </h3>
+          <h3 className="mt-2 text-xl font-bold">Leapmotor T03</h3>
           <p className="mt-2 text-xl font-semibold text-primary">
             34,22 € <span className="text-sm font-normal text-muted-foreground">/ Monat</span>
           </p>
@@ -909,9 +855,7 @@ function Highlights({ emotional }: { emotional: boolean }) {
           <p className="mt-6 text-xs font-bold uppercase tracking-[0.14em] text-sage-foreground/70">
             Größtes erfasstes Ladevolumen
           </p>
-          <h3 className={`mt-2 ${emotional ? "font-display text-3xl" : "text-xl font-bold"}`}>
-            Renault 4 E-Tech
-          </h3>
+          <h3 className="mt-2 text-xl font-bold">Renault 4 E-Tech</h3>
           <p className="mt-2 text-xl font-semibold text-sage-foreground">
             1.405 l <span className="text-sm font-normal">umgeklappt</span>
           </p>
@@ -921,9 +865,7 @@ function Highlights({ emotional }: { emotional: boolean }) {
           <p className="mt-6 text-xs font-bold uppercase tracking-[0.14em] text-primary-foreground/70">
             Erfasstes 5-Sterne-Ergebnis
           </p>
-          <h3 className={`mt-2 ${emotional ? "font-display text-3xl" : "text-xl font-bold"}`}>
-            Drei Modelle
-          </h3>
+          <h3 className="mt-2 text-xl font-bold">Drei Modelle</h3>
           <p className="mt-2 text-sm leading-relaxed">
             Volvo EX30, MINI Cooper E und MINI Aceman E
           </p>
@@ -932,14 +874,11 @@ function Highlights({ emotional }: { emotional: boolean }) {
     </section>
   );
 }
-
 function PhotoCredit({
   photo,
-  hero = false,
   className = "px-4 pb-3 text-[11px] leading-relaxed text-muted-foreground",
 }: {
   photo: VehiclePhoto;
-  hero?: boolean;
   className?: string;
 }) {
   return (
@@ -963,37 +902,22 @@ function PhotoCredit({
       >
         {photo.license}
       </a>
-      <span className="block">
-        {hero
-          ? "Titelbild: verkleinert, beschnitten und mit Text überlagert."
-          : "Verkleinert; sonst unverändert."}
-      </span>
+      <span className="block">Verkleinert; sonst unverändert.</span>
     </p>
   );
 }
-
-function PhotoGallery({
-  emotional,
-  onSelect,
-}: {
-  emotional: boolean;
-  onSelect: (car: Car) => void;
-}) {
+function PhotoGallery({ onSelect }: { onSelect: (car: Car) => void }) {
   return (
     <section
       id="fotos"
-      className={
-        emotional
-          ? "scroll-mt-40 bg-rose-soft/50 py-16 lg:scroll-mt-24 lg:py-24"
-          : "scroll-mt-40 border-y border-border bg-card py-10 lg:scroll-mt-24 lg:py-12"
-      }
+      className="scroll-mt-40 border-y border-border bg-card py-10 lg:scroll-mt-24 lg:py-12"
     >
       <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
         <div className="grid gap-4 sm:grid-cols-[minmax(0,1fr)_auto] sm:items-end">
           <div className="min-w-0">
             <p className="eyebrow">Fotoübersicht</p>
-            <h2 className={emotional ? "section-title" : "mt-2 text-2xl font-bold sm:text-3xl"}>
-              {emotional ? "Welcher Charakter spricht Sie an?" : "Alle 15 Modelle im Überblick"}
+            <h2 className="mt-2 text-2xl font-bold sm:text-3xl">
+              {"Alle 15 Modelle im Überblick"}
             </h2>
           </div>
           <p className="max-w-sm text-xs leading-relaxed text-muted-foreground">
@@ -1001,13 +925,11 @@ function PhotoGallery({
             können vom Vergleichsangebot abweichen. Bildnachweise stehen direkt beim Foto.
           </p>
         </div>
-        <div
-          className={`gallery-scroll mt-8 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4 lg:grid lg:overflow-visible lg:pb-0 ${emotional ? "lg:grid-cols-3" : "lg:grid-cols-5"}`}
-        >
+        <div className="gallery-scroll mt-8 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4 lg:grid lg:overflow-visible lg:pb-0 lg:grid-cols-5">
           {cars.map((car) => (
             <article
               key={car.slug}
-              className={`w-[82vw] shrink-0 snap-start overflow-hidden border border-border sm:w-[22rem] lg:w-auto ${emotional ? "bg-background" : "bg-card"}`}
+              className="w-[82vw] shrink-0 snap-start overflow-hidden border border-border sm:w-[22rem] lg:w-auto bg-card"
             >
               <button
                 type="button"
@@ -1021,22 +943,15 @@ function PhotoGallery({
                   loading="lazy"
                   width={1280}
                   height={800}
-                  className={`w-full bg-muted/40 object-contain transition-transform duration-500 group-hover:scale-[1.02] ${emotional ? "aspect-[16/10]" : "aspect-[4/3]"}`}
+                  className="w-full bg-muted/40 object-contain transition-transform duration-500 group-hover:scale-[1.02] aspect-[4/3]"
                 />
                 <span className="block w-full p-4">
                   <span className="block text-xs font-bold uppercase tracking-[0.12em] text-primary">
                     {car.manufacturer}
                   </span>
-                  <span
-                    className={`${emotional ? "font-display text-2xl" : "text-sm font-bold"} mt-1 block leading-tight text-foreground`}
-                  >
+                  <span className="text-sm font-bold mt-1 block leading-tight text-foreground">
                     {car.model}
                   </span>
-                  {emotional && (
-                    <span className="mt-2 block text-xs leading-relaxed text-muted-foreground">
-                      {car.character}
-                    </span>
-                  )}
                 </span>
               </button>
               <PhotoCredit photo={car.photo} />
@@ -1056,7 +971,6 @@ function PhotoGallery({
     </section>
   );
 }
-
 function FilterBar({
   manufacturer,
   setManufacturer,
@@ -1099,7 +1013,6 @@ function FilterBar({
     </div>
   );
 }
-
 function Comparison({
   visibleCars,
   mobileCars,
@@ -1114,7 +1027,6 @@ function Comparison({
   mobileDirection,
   setMobileDirection,
   selectedSlug,
-  emotional,
 }: {
   visibleCars: Car[];
   mobileCars: Car[];
@@ -1129,18 +1041,14 @@ function Comparison({
   mobileDirection: "asc" | "desc";
   setMobileDirection: (value: "asc" | "desc") => void;
   selectedSlug: string | null;
-  emotional: boolean;
 }) {
   return (
-    <section
-      id="vergleich"
-      className={`${emotional ? "bg-surface" : "bg-background"} py-14 lg:py-20`}
-    >
+    <section id="vergleich" className="bg-background py-14 lg:py-20">
       <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
         <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-end">
           <div>
             <p className="eyebrow">Alle Modelle</p>
-            <h2 className={emotional ? "section-title" : "mt-2 text-3xl font-bold sm:text-4xl"}>
+            <h2 className="mt-2 text-3xl font-bold sm:text-4xl">
               Vergleichen, was wirklich zählt.
             </h2>
             <p className="mt-3 text-sm text-muted-foreground" aria-live="polite">
@@ -1194,7 +1102,6 @@ function Comparison({
                 car={car}
                 index={index}
                 selected={selectedSlug === car.slug}
-                emotional={emotional}
               />
             ))}
           </div>
@@ -1204,13 +1111,7 @@ function Comparison({
             aria-label="Fahrzeugvergleich"
             className="w-full min-w-[1850px] border-collapse text-left text-sm"
           >
-            <thead
-              className={
-                emotional
-                  ? "bg-rose-soft text-xs uppercase tracking-[0.08em]"
-                  : "bg-muted text-xs uppercase tracking-[0.08em]"
-              }
-            >
+            <thead className="bg-muted text-xs uppercase tracking-[0.08em]">
               <tr>
                 <th className="px-5 py-4">Modell</th>
                 <th scope="col" className="px-4 py-4">
@@ -1287,9 +1188,7 @@ function Comparison({
                     <span className="block text-xs font-semibold text-muted-foreground">
                       {car.manufacturer}
                     </span>
-                    <strong
-                      className={`${emotional ? "font-display text-lg" : "font-bold"} mt-1 block max-w-52 leading-tight`}
-                    >
+                    <strong className="font-bold mt-1 block max-w-52 leading-tight">
                       {car.model}
                     </strong>
                     <ElectricSources car={car} />
@@ -1359,7 +1258,6 @@ function Comparison({
     </section>
   );
 }
-
 function Methodology({ compact }: { compact: boolean }) {
   return (
     <section
@@ -1462,13 +1360,10 @@ function Methodology({ compact }: { compact: boolean }) {
     </section>
   );
 }
-
 function Index() {
-  const { ansicht } = Route.useSearch();
   const totalModels = cars.length;
   const totalManufacturers = new Set(cars.map((car) => car.manufacturer)).size;
   const fiveStarModels = cars.filter((car) => car.safety === "5 Sterne").length;
-  const navigate = useNavigate({ from: "/" });
   const [manufacturer, setManufacturer] = useState("Alle");
   const [safety, setSafety] = useState("Alle");
   const [sortKey, setSortKey] = useState<SortKey>("rate");
@@ -1476,21 +1371,6 @@ function Index() {
   const mobileDirection = direction;
   const setMobileDirection = setDirection;
   const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
-  const emotional = ansicht === "gefuehl";
-
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    if (!params.has("ansicht")) {
-      let saved: string | null = null;
-      try {
-        saved = window.sessionStorage.getItem("eauto-ansicht");
-      } catch {
-        /* Private browsing may block storage. */
-      }
-      if (saved === "gefuehl") void navigate({ search: { ansicht: "gefuehl" }, replace: true });
-    }
-  }, [navigate]);
-
   useEffect(() => {
     const match = /^#car-([a-z0-9-]+)$/.exec(window.location.hash);
     if (!match) return;
@@ -1505,17 +1385,6 @@ function Index() {
     }, 120);
     return () => window.clearTimeout(timer);
   }, []);
-
-  const setMode = (mode: ViewMode) => {
-    try {
-      window.sessionStorage.setItem("eauto-ansicht", mode);
-    } catch {
-      /* URL remains the source of truth. */
-    }
-    void navigate({ search: { ansicht: mode }, replace: true, hash: "" });
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
   const filteredCars = cars.filter(
     (car) =>
       (manufacturer === "Alle" || car.manufacturer === manufacturer) &&
@@ -1540,7 +1409,6 @@ function Index() {
   };
   const visibleCars = sortCars(filteredCars, direction);
   const mobileCars = visibleCars;
-
   const onSort = (key: SortKey) => {
     if (sortKey === key) setDirection((current) => (current === "asc" ? "desc" : "asc"));
     else {
@@ -1548,7 +1416,6 @@ function Index() {
       setDirection("asc");
     }
   };
-
   const onPhotoSelect = (car: Car) => {
     setManufacturer("Alle");
     setSafety("Alle");
@@ -1565,119 +1432,52 @@ function Index() {
       document.getElementById(targetId)?.scrollIntoView({ behavior: "smooth", block: "center" });
     }, 80);
   };
-
   return (
-    <main
-      className={
-        emotional
-          ? "mode-emotional overflow-x-clip bg-background"
-          : "mode-facts overflow-x-clip bg-background"
-      }
-    >
+    <main className="mode-facts overflow-x-clip bg-background">
       <header className="sticky top-0 z-50 border-b border-border bg-background/95 backdrop-blur">
         <div className="mx-auto grid max-w-7xl gap-3 px-5 py-3 sm:flex sm:items-center sm:justify-between sm:px-8 lg:px-12">
           <div className="min-w-0">
-            <p
-              className={`truncate font-semibold ${emotional ? "font-display text-xl" : "text-base"}`}
-            >
-              Preiswerte E-Autos im Vergleich
-            </p>
-            <p className="text-xs text-muted-foreground">Eine Datenbasis · zwei Perspektiven</p>
+            <p className="truncate font-semibold text-base">Preiswerte E-Autos im Vergleich</p>
+            <p className="text-xs text-muted-foreground">15 Modelle · Zahlen & Fakten</p>
           </div>
-          <ViewToggle mode={ansicht} setMode={setMode} />
         </div>
       </header>
 
-      {emotional ? (
-        <>
-          <section className="relative min-h-[78svh] overflow-hidden bg-foreground text-primary-foreground">
-            <img
-              src={vehiclePhotos["renault-5"].src}
-              alt={vehiclePhotos["renault-5"].alt}
-              width={1920}
-              height={1280}
-              fetchPriority="high"
-              className="absolute inset-0 h-full w-full object-cover object-[64%_center]"
-            />
-            <div className="absolute inset-0 bg-hero-overlay" />
-            <div className="relative mx-auto flex min-h-[78svh] max-w-7xl flex-col justify-between px-5 py-6 sm:px-8 lg:px-12 lg:py-9">
-              <div className="grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 border-b border-primary-foreground/40 pb-4">
-                <p className="min-w-0 truncate text-xs font-bold uppercase tracking-[0.16em]">
-                  Elektrisch. Ehrlich. Charmant.
-                </p>
-                <p className="shrink-0 text-xs">Stand 02.10.2026</p>
-              </div>
-              <div className="max-w-3xl pb-10 pt-20 sm:pb-14 lg:pb-16">
-                <p className="mb-5 text-sm font-semibold uppercase tracking-[0.16em]">
-                  Ein Vergleich mit Gefühl für das Wesentliche
-                </p>
-                <h1 className="font-display text-5xl leading-[0.96] sm:text-7xl lg:text-8xl">
-                  Preiswerte E-Autos
-                  <br />
-                  im Vergleich
+      <>
+        <section className="border-b border-border bg-muted/40">
+          <div className="mx-auto max-w-7xl px-5 py-10 sm:px-8 lg:px-12 lg:py-14">
+            <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-end">
+              <div className="max-w-3xl">
+                <p className="eyebrow">Zahlen &amp; Fakten · Stand 02.10.2026</p>
+                <h1 className="mt-3 text-4xl font-bold leading-tight sm:text-5xl">
+                  E-Autos klar und nachvollziehbar vergleichen
                 </h1>
-                <p className="mt-6 max-w-xl text-base leading-relaxed text-primary-foreground/90 sm:text-lg">
-                  Kompakt, elektrisch und mit Persönlichkeit. Zahlen für den Kopf, Bilder und
-                  redaktionelle Eindrücke für das Bauchgefühl.
+                <p className="mt-4 max-w-2xl leading-relaxed text-muted-foreground">
+                  {totalModels} Modelle, einheitlich auf 36 Monate, 5.000 km/Jahr und 5.000 €
+                  angenommene Förderung bezogen. Fehlende oder vorläufige Angaben werden nicht
+                  ergänzt.
                 </p>
-                <Button
-                  asChild
-                  variant="outline"
-                  className="mt-8 border-primary-foreground bg-transparent text-primary-foreground hover:bg-primary-foreground hover:text-foreground"
-                >
-                  <a href="#vergleich">
-                    Modelle vergleichen <ArrowDown />
-                  </a>
-                </Button>
               </div>
-            </div>
-            <PhotoCredit
-              photo={vehiclePhotos["renault-5"]}
-              hero
-              className="relative mx-auto max-w-7xl px-5 pb-5 text-xs leading-relaxed text-primary-foreground/90 sm:px-8 lg:px-12"
-            />
-          </section>
-          <BasisStrip />
-          <Highlights emotional />
-          <PhotoGallery emotional onSelect={onPhotoSelect} />
-        </>
-      ) : (
-        <>
-          <section className="border-b border-border bg-muted/40">
-            <div className="mx-auto max-w-7xl px-5 py-10 sm:px-8 lg:px-12 lg:py-14">
-              <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-end">
-                <div className="max-w-3xl">
-                  <p className="eyebrow">Zahlen &amp; Fakten · Stand 02.10.2026</p>
-                  <h1 className="mt-3 text-4xl font-bold leading-tight sm:text-5xl">
-                    E-Autos klar und nachvollziehbar vergleichen
-                  </h1>
-                  <p className="mt-4 max-w-2xl leading-relaxed text-muted-foreground">
-                    {totalModels} Modelle, einheitlich auf 36 Monate, 5.000 km/Jahr und 5.000 €
-                    angenommene Förderung bezogen. Fehlende oder vorläufige Angaben werden nicht
-                    ergänzt.
-                  </p>
+              <div className="grid grid-cols-3 gap-4 border-l border-border pl-6">
+                <div>
+                  <strong className="text-2xl">{totalModels}</strong>
+                  <span className="block text-xs text-muted-foreground">Modelle</span>
                 </div>
-                <div className="grid grid-cols-3 gap-4 border-l border-border pl-6">
-                  <div>
-                    <strong className="text-2xl">{totalModels}</strong>
-                    <span className="block text-xs text-muted-foreground">Modelle</span>
-                  </div>
-                  <div>
-                    <strong className="text-2xl">{totalManufacturers}</strong>
-                    <span className="block text-xs text-muted-foreground">Marken</span>
-                  </div>
-                  <div>
-                    <strong className="text-2xl">{fiveStarModels}</strong>
-                    <span className="block text-xs text-muted-foreground">mit 5 Sternen</span>
-                  </div>
+                <div>
+                  <strong className="text-2xl">{totalManufacturers}</strong>
+                  <span className="block text-xs text-muted-foreground">Marken</span>
+                </div>
+                <div>
+                  <strong className="text-2xl">{fiveStarModels}</strong>
+                  <span className="block text-xs text-muted-foreground">mit 5 Sternen</span>
                 </div>
               </div>
             </div>
-          </section>
-          <BasisStrip compact />
-          <Highlights emotional={false} />
-        </>
-      )}
+          </div>
+        </section>
+        <BasisStrip compact />
+        <Highlights />
+      </>
 
       <aside
         className="mx-auto max-w-7xl px-5 pt-6 text-sm leading-relaxed text-muted-foreground sm:px-8 lg:px-12"
@@ -1703,15 +1503,13 @@ function Index() {
         mobileDirection={mobileDirection}
         setMobileDirection={setMobileDirection}
         selectedSlug={selectedSlug}
-        emotional={emotional}
       />
-      {!emotional && <PhotoGallery emotional={false} onSelect={onPhotoSelect} />}
-      <Methodology compact={!emotional} />
+
+      <PhotoGallery onSelect={onPhotoSelect} />
+      <Methodology compact />
       <footer className="bg-foreground text-primary-foreground">
         <div className="mx-auto max-w-7xl px-5 py-10 sm:px-8 lg:px-12">
-          <p className={emotional ? "font-display text-2xl" : "text-lg font-bold"}>
-            Preiswerte E-Autos im Vergleich
-          </p>
+          <p className="text-lg font-bold">Preiswerte E-Autos im Vergleich</p>
           <p className="mt-4 max-w-4xl text-xs leading-relaxed text-primary-foreground/70">
             Momentaufnahme öffentlich auffindbarer Angebote, Stand 2. Oktober 2026. Preise,
             Förderbedingungen, Verfügbarkeiten und Lieferzeiten können sich jederzeit ändern.
@@ -1722,61 +1520,24 @@ function Index() {
     </main>
   );
 }
-
-function CarCard({
-  car,
-  index,
-  selected,
-  emotional,
-}: {
-  car: Car;
-  index: number;
-  selected: boolean;
-  emotional: boolean;
-}) {
+function CarCard({ car, index, selected }: { car: Car; index: number; selected: boolean }) {
   return (
     <article
       id={`mobile-car-${car.slug}`}
       className={`scroll-mt-32 overflow-hidden rounded-md border bg-card transition-shadow ${selected ? "border-primary ring-2 ring-ring" : "border-border"}`}
     >
-      {emotional && (
-        <>
-          <img
-            src={car.photo.src}
-            alt={car.photo.alt}
-            loading="lazy"
-            width={1280}
-            height={800}
-            className="aspect-[16/10] w-full bg-muted/40 object-contain"
-          />
-          <PhotoCredit photo={car.photo} />
-        </>
-      )}
-      <div
-        className={`grid grid-cols-[minmax(0,1fr)_auto] items-start gap-4 border-b border-border px-5 py-5 ${emotional ? "bg-rose-soft" : "bg-muted"}`}
-      >
+      <div className="grid grid-cols-[minmax(0,1fr)_auto] items-start gap-4 border-b border-border px-5 py-5 bg-muted">
         <div className="min-w-0">
           <p className="text-xs font-bold uppercase tracking-[0.12em] text-primary">
             {car.manufacturer}
           </p>
-          <h3
-            className={`mt-1 leading-tight ${emotional ? "font-display text-2xl" : "text-xl font-bold"}`}
-          >
-            {car.model}
-          </h3>
+          <h3 className="mt-1 leading-tight text-xl font-bold">{car.model}</h3>
         </div>
-        <span
-          className={`${emotional ? "font-display" : "font-bold"} shrink-0 text-2xl text-border`}
-        >
+        <span className="font-bold shrink-0 text-2xl text-border">
           {String(index + 1).padStart(2, "0")}
         </span>
       </div>
       <div className="p-5">
-        {emotional && (
-          <p className="mb-5 text-sm italic leading-relaxed text-muted-foreground">
-            {car.character}
-          </p>
-        )}
         <div className="pb-5">
           <p className="text-xs font-semibold uppercase tracking-[0.1em] text-muted-foreground">
             Normierte Leasingrate

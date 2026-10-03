@@ -1,6 +1,6 @@
 # Charmante E-Autos im Vergleich
 
-Unabhängige GitHub-Kopie des bestehenden Lovable-Projekts. 15 Fahrzeuge, zwei URL-adressierbare Ansichten, gemeinsame Fahrzeugdaten, Filter, Sortierung, Galerie und Marken-Serviceinformationen. Die öffentliche Lovable-Seite bleibt unverändert; dieses Repository wird nicht mit Lovable synchronisiert.
+Unabhängige GitHub-Kopie des bestehenden Lovable-Projekts. 15 Fahrzeuge, eine Faktenansicht, gemeinsame Fahrzeugdaten, Filter, Sortierung, Galerie und Marken-Serviceinformationen. Die öffentliche Lovable-Seite bleibt unverändert; dieses Repository wird nicht mit Lovable synchronisiert.
 
 ## Entwicklung
 
@@ -32,7 +32,7 @@ PAGES_BASE_PATH=/carfinder/ pnpm build
 PAGES_BASE_PATH=/carfinder/ pnpm preview
 ```
 
-Anschließend `http://localhost:4173/carfinder/?ansicht=fakten` beziehungsweise `?ansicht=gefuehl` öffnen. Fahrzeuglinks verwenden `#car-mini-cooper-e` oder den entsprechenden Slug. Beide Ansichten liegen auf derselben Route; auf Pages sind daher keine serverseitigen Weiterleitungsregeln nötig. Bei einem anderen Repositorynamen müssen `PAGES_BASE_PATH` in beiden Workflows und die URLs angepasst werden. Bei einer eigenen Domain kann der Basispfad `/` verwendet werden.
+Anschließend `http://localhost:4173/carfinder/?ansicht=fakten` öffnen. Fahrzeuglinks verwenden `#car-mini-cooper-e` oder den entsprechenden Slug. Der Vergleich liegt auf einer einzigen Route; auf Pages sind daher keine serverseitigen Weiterleitungsregeln nötig. Bei einem anderen Repositorynamen müssen `PAGES_BASE_PATH` in beiden Workflows und die URLs angepasst werden. Bei einer eigenen Domain kann der Basispfad `/` verwendet werden.
 
 ## Übernahme und Datenstand
 
@@ -42,4 +42,6 @@ Fahrzeugzahlen und Sicherheitsnotizen stammen unverändert aus der bestehenden D
 
 ## Fahrzeugfotos
 
-Die Webseite zeigt seit 03.10.2026 modellbezogene Aufnahmen für jedes der 15 Modelle: 14 frei lizenzierte Wikimedia-Fotos sowie eine für redaktionelle Nutzung freigegebene Hyundai-Herstelleraufnahme des IONIQ 3. Urheber, Quelle und Lizenz sind unmittelbar bei den Bildern verlinkt; abweichende Ausstattungen werden gekennzeichnet. Das Titelbild zeigt einen echten Renault 5. Details und Wiederverwendungsbedingungen: [Bildnachweise](src/assets/vehicles/README.md). Die ursprünglichen Lovable-Illustrationen bleiben im Migrationsarchiv erhalten.
+Die Webseite zeigt seit 03.10.2026 modellbezogene Aufnahmen für jedes der 15 Modelle: 14 frei lizenzierte Wikimedia-Fotos sowie eine für redaktionelle Nutzung freigegebene Hyundai-Herstelleraufnahme des IONIQ 3. Urheber, Quelle und Lizenz sind unmittelbar bei den Bildern verlinkt; abweichende Ausstattungen werden gekennzeichnet. Details und Wiederverwendungsbedingungen: [Bildnachweise](src/assets/vehicles/README.md). Die ursprünglichen Lovable-Illustrationen bleiben im Migrationsarchiv erhalten.
+
+Die frühere Ansicht „Mit Gefühl“ und der Umschalter wurden entfernt. Alte Links mit `?ansicht=gefuehl` zeigen jetzt ebenfalls die Faktenansicht.

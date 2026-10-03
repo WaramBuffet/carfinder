@@ -35,7 +35,7 @@ describe("Fahrzeugvergleich", () => {
     expect(screen.getAllByRole("link", { name: "Offizielle Herstellerseite" })).toHaveLength(15);
   });
   it("zeigt unterschiedliche Modellaufnahmen mit Bildnachweisen und Variantenhinweisen", async () => {
-    const { container, router } = await renderAt();
+    const { container } = await renderAt();
     await screen.findByRole("heading", { name: "Alle 15 Modelle im Überblick" });
     const gallery = container.querySelector("#fotos")!;
     const images = Array.from(gallery.querySelectorAll("img"));
@@ -50,15 +50,9 @@ describe("Fahrzeugvergleich", () => {
     expect(
       gallery.querySelector('a[href="https://www.hyundai.news/eu/terms-of-use.html"]'),
     ).toHaveTextContent("Redaktionelle Nutzung");
-    fireEvent.click(screen.getByRole("button", { name: "Mit Gefühl" }));
-    await waitFor(() => expect(router.state.location.search).toMatchObject({ ansicht: "gefuehl" }));
-    expect(container.querySelector("#mobile-car-hyundai-ioniq-3")).toHaveTextContent(
-      "© Hyundai Motor Company",
-    );
-    expect(container.querySelector("#mobile-car-mini-aceman-e")).toHaveTextContent("Aceman S");
   });
   it("zeigt technische Daten in Tabelle und Mobilkarten ohne Ladefenster gleichzusetzen", async () => {
-    const { container, router } = await renderAt();
+    const { container } = await renderAt();
     await screen.findByLabelText("Hersteller");
     for (const selector of ["#car-hyundai-inster", "#mobile-car-hyundai-inster"]) {
       const vehicle = container.querySelector(selector)!;
@@ -76,23 +70,6 @@ describe("Fahrzeugvergleich", () => {
       "Batteriezuordnung offen",
     );
     expect(container.querySelectorAll("tbody tr details")).toHaveLength(15);
-    fireEvent.click(screen.getByRole("button", { name: "Mit Gefühl" }));
-    await waitFor(() => expect(router.state.location.search).toMatchObject({ ansicht: "gefuehl" }));
-    expect(container.querySelector("#car-hyundai-inster")).toHaveTextContent("327 km");
-  });
-  it("schaltet die Ansicht über die URL und behält aktive Filter", async () => {
-    const { router, container } = await renderAt();
-    await screen.findByRole("heading", { name: "E-Autos klar und nachvollziehbar vergleichen" });
-    fireEvent.change(screen.getByLabelText("Hersteller"), { target: { value: "MINI" } });
-    expect(container.querySelectorAll("tbody tr")).toHaveLength(2);
-    fireEvent.click(screen.getByRole("button", { name: "Mit Gefühl" }));
-    await waitFor(() => expect(router.state.location.search).toMatchObject({ ansicht: "gefuehl" }));
-    expect(screen.getByRole("button", { name: "Mit Gefühl" })).toHaveAttribute(
-      "aria-pressed",
-      "true",
-    );
-    expect(window.sessionStorage.getItem("eauto-ansicht")).toBe("gefuehl");
-    expect(container.querySelectorAll("tbody tr")).toHaveLength(2);
   });
   it("kombiniert Hersteller und Sicherheit und kann leere Filter zurücksetzen", async () => {
     const { container } = await renderAt();
@@ -113,19 +90,23 @@ describe("Fahrzeugvergleich", () => {
     fireEvent.change(screen.getByLabelText("Richtung"), { target: { value: "asc" } });
     expect(container.querySelector("tbody tr")).toHaveAttribute("id", "car-leapmotor-t03");
   });
-  it("öffnet einen emotionalen Direktlink und normalisiert ungültige Ansichten", async () => {
-    const first = await renderAt("/?ansicht=gefuehl");
-    expect(await screen.findByRole("button", { name: "Mit Gefühl" })).toHaveAttribute(
-      "aria-pressed",
-      "true",
-    );
-    first.unmount();
-    await renderAt("/?ansicht=unbekannt");
-    expect(await screen.findByRole("button", { name: "Zahlen & Fakten" })).toHaveAttribute(
-      "aria-pressed",
-      "true",
-    );
-  });
+  it.each(["gefuehl", "unbekannt"])(
+    "zeigt auch für den alten Modus %s nur Fakten",
+    async (mode) => {
+      window.sessionStorage.setItem("eauto-ansicht", "gefuehl");
+      const { container, router } = await renderAt(`/?ansicht=${mode}`);
+      expect(
+        await screen.findByRole("heading", {
+          name: "E-Autos klar und nachvollziehbar vergleichen",
+        }),
+      ).toBeInTheDocument();
+      expect(router.state.location.search).toMatchObject({ ansicht: "fakten" });
+      expect(screen.queryByRole("button", { name: "Mit Gefühl" })).not.toBeInTheDocument();
+      expect(screen.queryByRole("button", { name: "Zahlen & Fakten" })).not.toBeInTheDocument();
+      expect(container.querySelector(".mode-emotional")).toBeNull();
+      expect(container.querySelectorAll("tbody tr")).toHaveLength(15);
+    },
+  );
   it("springt aus der Galerie zum Fahrzeug und hebt es hervor", async () => {
     const { container } = await renderAt();
     fireEvent.click(
@@ -141,9 +122,11 @@ describe("Fahrzeugvergleich", () => {
     vi.spyOn(Storage.prototype, "setItem").mockImplementation(() => {
       throw new Error("Blocked");
     });
-    const { router } = await renderAt();
-    fireEvent.click(await screen.findByRole("button", { name: "Mit Gefühl" }));
-    await waitFor(() => expect(router.state.location.search).toMatchObject({ ansicht: "gefuehl" }));
+    const { container } = await renderAt("/");
+    expect(
+      await screen.findByRole("heading", { name: "E-Autos klar und nachvollziehbar vergleichen" }),
+    ).toBeInTheDocument();
+    expect(container.querySelectorAll("tbody tr")).toHaveLength(15);
   });
   it("rendert eine deutsche Fehlerseite für unbekannte Routen", async () => {
     vi.spyOn(console, "warn").mockImplementation(() => undefined);
