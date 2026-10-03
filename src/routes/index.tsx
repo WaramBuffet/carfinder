@@ -36,13 +36,13 @@ export const Route = createFileRoute("/")({
   }),
   head: () => ({
     meta: [
-      { title: "Charmante E-Autos im Vergleich – Zahlen oder mit Gefühl" },
+      { title: "Preiswerte E-Autos im Vergleich – Zahlen oder mit Gefühl" },
       {
         name: "description",
         content:
           "15 kompakte Elektroautos in zwei Ansichten: sachlich nach Zahlen und Fakten oder als warme, bildstarke Editorial-Auswahl.",
       },
-      { property: "og:title", content: "Charmante E-Autos im Vergleich" },
+      { property: "og:title", content: "Preiswerte E-Autos im Vergleich" },
       {
         property: "og:description",
         content:
@@ -1228,7 +1228,7 @@ function Index() {
             <p
               className={`truncate font-semibold ${emotional ? "font-display text-xl" : "text-base"}`}
             >
-              Charmante E-Autos im Vergleich
+              Preiswerte E-Autos im Vergleich
             </p>
             <p className="text-xs text-muted-foreground">Eine Datenbasis · zwei Perspektiven</p>
           </div>
@@ -1260,7 +1260,7 @@ function Index() {
                   Ein Vergleich mit Gefühl für das Wesentliche
                 </p>
                 <h1 className="font-display text-5xl leading-[0.96] sm:text-7xl lg:text-8xl">
-                  Charmante E-Autos
+                  Preiswerte E-Autos
                   <br />
                   im Vergleich
                 </h1>
@@ -1352,7 +1352,7 @@ function Index() {
       <footer className="bg-foreground text-primary-foreground">
         <div className="mx-auto max-w-7xl px-5 py-10 sm:px-8 lg:px-12">
           <p className={emotional ? "font-display text-2xl" : "text-lg font-bold"}>
-            Charmante E-Autos im Vergleich
+            Preiswerte E-Autos im Vergleich
           </p>
           <p className="mt-4 max-w-4xl text-xs leading-relaxed text-primary-foreground/70">
             Momentaufnahme öffentlich auffindbarer Angebote, Stand 2. Oktober 2026. Preise,
