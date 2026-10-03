@@ -1,21 +1,10 @@
 # Routes
 
-TanStack Start uses **file-based routing**. Every `.tsx` file in this directory
-defines a route. Do **not** create `src/pages/`, `src/routes/_app/index.tsx`, or
-`app/layout.tsx` — those are Next.js / Remix conventions. The only root layout
-is `src/routes/__root.tsx`.
+Der statische Vergleich nutzt TanStack Router mit dateibasierter Routinggenerierung.
+`index.tsx` ist die einzige Inhaltsroute; `__root.tsx` rendert Provider, Metadaten und `<Outlet />`.
+Die zwei Ansichten sind Suchparameter derselben Route: `?ansicht=fakten` und `?ansicht=gefuehl`.
+Fahrzeug-Sprungziele verwenden `#car-SLUG`; die gemeinsame Fahrzeugdatenbasis liegt in `index.tsx`.
 
-## Conventions
-
-| File                     | URL                                                     |
-| ------------------------ | ------------------------------------------------------- |
-| `index.tsx`              | `/`                                                     |
-| `about.tsx`              | `/about`                                                |
-| `users/index.tsx`        | `/users`                                                |
-| `users/$id.tsx`          | `/users/:id` (dynamic — bare `$`, no curly braces)      |
-| `posts/{-$category}.tsx` | `/posts/:category?` (optional segment)                  |
-| `files/$.tsx`            | `/files/*` (splat — read via `_splat` param, never `*`) |
-| `_layout.tsx`            | layout route (renders children via `<Outlet />`)        |
-| `__root.tsx`             | app shell — wraps every page; preserve `<Outlet />`     |
-
-`routeTree.gen.ts` is auto-generated. Don't edit it by hand.
+`routeTree.gen.ts` wird beim Vite-Build automatisch erzeugt und darf nicht von Hand geändert werden.
+Der Router berücksichtigt `import.meta.env.BASE_URL`, damit dieselbe Route auch unter `/carfinder/` funktioniert.
+Für neue Unterseiten wäre auf GitHub Pages zunächst eine Strategie für Direktaufrufe nötig.
