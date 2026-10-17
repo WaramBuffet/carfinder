@@ -66,10 +66,11 @@ describe("Fahrzeugvergleich", () => {
       expect(vehicle).toHaveTextContent("36 Min. für 30–80 %");
     }
     expect(container.querySelector("#car-dacia-spring")).toHaveTextContent("optionalem 40-kW");
-    expect(container.querySelector("#car-citroen-e-c3")).toHaveTextContent(
-      "Batteriezuordnung offen",
-    );
-    expect(container.querySelectorAll("#fotos article > div details")).toHaveLength(15);
+    expect(container.querySelector("#car-citroen-e-c3")).toHaveTextContent("Standard Range 44 kWh");
+    expect(container.querySelector("#car-citroen-e-c3")).toHaveTextContent("25.950");
+    expect(container.querySelector("#car-leapmotor-t03")).toHaveTextContent("275 km");
+    expect(container.querySelector("#car-kia-ev2")).toHaveTextContent("5★ Euro NCAP (2026)");
+    expect(screen.getAllByText("Variante & Quellen", { exact: true })).toHaveLength(15);
   });
   it("kombiniert Hersteller und Sicherheit und kann leere Filter zurücksetzen", async () => {
     const { container } = await renderAt();
@@ -86,13 +87,43 @@ describe("Fahrzeugvergleich", () => {
   it("sortiert die gemeinsamen Fotokarten mit fehlender Rate am Ende", async () => {
     const { container } = await renderAt();
     await screen.findByLabelText("Richtung");
+    fireEvent.change(screen.getByLabelText("Sortierung"), { target: { value: "rate" } });
     fireEvent.change(screen.getByLabelText("Richtung"), { target: { value: "desc" } });
     const rows = container.querySelectorAll("#fotos > article");
-    expect(rows[0]).toHaveAttribute("id", "car-renault-4");
+    expect(rows[0]).toHaveAttribute("id", "car-citroen-e-c3");
+    expect(rows[1]).toHaveAttribute("id", "car-renault-5");
+    expect(rows[2]).toHaveAttribute("id", "car-hyundai-inster");
+    expect(rows[3]).toHaveAttribute("id", "car-renault-twingo");
     expect(rows[14]).toHaveAttribute("id", "car-dacia-spring");
     expect(screen.getByLabelText("Richtung")).toHaveValue("desc");
     fireEvent.change(screen.getByLabelText("Richtung"), { target: { value: "asc" } });
-    expect(container.querySelector("#fotos > article")).toHaveAttribute("id", "car-leapmotor-t03");
+    expect(container.querySelector("#fotos > article")).toHaveAttribute(
+      "id",
+      "car-fiat-grande-panda",
+    );
+  });
+  it("zeigt Portalangebote, datierte Schnäppchen und Herstellerkonditionen getrennt", async () => {
+    const { container } = await renderAt();
+    await screen.findByLabelText("Hersteller");
+    const inster = container.querySelector("#car-hyundai-inster")!;
+    expect(inster).toHaveTextContent("4.000 € Sonderzahlung");
+    expect(container.querySelector("#car-kia-ev2")).toHaveTextContent("4.030,52 € Sonderzahlung");
+    expect(inster).toHaveTextContent("272,33 € / Monat");
+    expect(inster).toHaveTextContent("10.000 km/Jahr");
+    expect(inster).toHaveTextContent("22 Wochen");
+    expect(container.querySelector("#car-volvo-ex30")).toHaveTextContent("99,00");
+    expect(container.querySelector("#car-volvo-ex30")).toHaveTextContent("6.000 € Förderung");
+    expect(container.querySelector("#car-dacia-spring")).toHaveTextContent(
+      "aktueller Variantenpreis nicht bestätigt",
+    );
+    expect(container.querySelector("#car-leapmotor-t03")).toHaveTextContent("34,22");
+    expect(container.querySelector("#car-leapmotor-t03")).toHaveTextContent("02.10.2026");
+    expect(container.querySelector("#car-fiat-grande-panda")).toHaveTextContent("89,00");
+    expect(container.querySelector("#car-fiat-grande-panda")).toHaveTextContent(
+      "5.000 € Sonderzahlung",
+    );
+    expect(container.querySelectorAll('a[href*="goleasy.de/leasing/marken/"]')).toHaveLength(15);
+    expect(container).not.toHaveTextContent("Normierte Leasingrate");
   });
   it.each(["gefuehl", "unbekannt"])(
     "zeigt auch für den alten Modus %s nur Fakten",

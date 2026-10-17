@@ -14,6 +14,7 @@ import {
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { vehiclePhotos, type VehiclePhoto } from "@/data/vehicle-photos";
+import { marketOffers } from "@/data/market-offers";
 type PageSearch = { ansicht: "fakten" };
 export const Route = createFileRoute("/")({
   validateSearch: (): PageSearch => ({
@@ -40,7 +41,7 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 type Safety = "5 Sterne" | "4 Sterne" | "Kein aktueller Test";
-type SortKey = "rate" | "price" | "length" | "trunk" | "delivery";
+type SortKey = "rate" | "price" | "length" | "trunk";
 type Car = {
   slug: string;
   site: string;
@@ -48,9 +49,17 @@ type Car = {
   model: string;
   price: number;
   rate: number | null;
-  rateApprox?: boolean;
+  lease?: {
+    months: number;
+    kmPerYear: number;
+    upfront: number;
+    source: string;
+    validUntil?: string;
+  };
+  priceNote?: string;
+  reviewNote?: string;
   transfer: number | null;
-  delivery: number;
+  delivery: number | null;
   length: number;
   trunk: string;
   trunkFolded: string;
@@ -142,9 +151,9 @@ const cars: Car[] = [
     manufacturer: "Leapmotor",
     model: "T03",
     price: 18900,
-    rate: 34.22,
-    transfer: 1399,
-    delivery: 4,
+    rate: 175,
+    transfer: null,
+    delivery: null,
     length: 3.62,
     trunk: "210 l",
     trunkFolded: "880 l",
@@ -153,16 +162,23 @@ const cars: Car[] = [
     safetyNote: "Kein Euro NCAP",
     photo: vehiclePhotos["leapmotor-t03"],
     character: "Klein im Format, mit einer heiteren, unkomplizierten Ausstrahlung.",
+    lease: {
+      months: 48,
+      kmPerYear: 5000,
+      upfront: 0,
+      source: "https://www.leapmotor.net/de-de/modelle/t03",
+    },
     electric: {
-      range: "265",
-      consumption: "16,3",
+      range: "bis zu 275",
+      consumption: "15,7",
       chargingMinutes: null,
       chargingAlternative: "36 Min. für 30–80 %",
-      variant: "T03 · 37,3 kWh; Herstellerbroschüre für den europäischen Markt.",
+      variant:
+        "T03 · 37,3 kWh. Aktuelle deutsche Modellseite; ältere europäische Broschüre mit abweichenden WLTP-Werten ersetzt.",
       sources: [
         {
-          label: "Technische Daten",
-          url: "https://lpwebsite-prod-s3cdn.leapmotor-international.com/public/download/t03/en/T03Brochure_EN.pdf",
+          label: "Modell, Preis, technische Daten und Leasing",
+          url: "https://www.leapmotor.net/de-de/modelle/t03",
         },
       ],
     },
@@ -173,9 +189,9 @@ const cars: Car[] = [
     manufacturer: "Fiat",
     model: "Grande Panda Electric La Prima",
     price: 30990,
-    rate: 86,
-    transfer: 1498,
-    delivery: 3.5,
+    rate: null,
+    transfer: null,
+    delivery: null,
     length: 4,
     trunk: "361 l",
     trunkFolded: "1.315 l",
@@ -189,11 +205,12 @@ const cars: Car[] = [
       consumption: "16,8",
       chargingMinutes: null,
       chargingAlternative: "27 Min. für 20–80 %",
-      variant: "La Prima · 44 kWh.",
+      variant:
+        "La Prima · 44 kWh brutto / 43,8 kWh netto. Die ebenfalls angebotene 54-kWh-Variante ist nicht Gegenstand dieses Vergleichs.",
       sources: [
         {
-          label: "Technische Daten",
-          url: "https://www.fiat.de/modelle/grande-panda-elektrisch/technical-data",
+          label: "Preisliste · Preis und technische Daten · 44 kWh",
+          url: "https://www.fiat.de/content/dam/fiat2023/de/pdf/pricelist/Preisliste-Fiat-Grande-Panda.pdf",
         },
       ],
     },
@@ -202,11 +219,11 @@ const cars: Car[] = [
     slug: "citroen-e-c3",
     site: "https://www.citroen.de/modelle/e-C3.html",
     manufacturer: "Citroën",
-    model: "ë-C3 Plus",
-    price: 23750,
-    rate: 96.78,
-    transfer: 1495,
-    delivery: 2,
+    model: "ë-C3 Plus Standard Range 44 kWh",
+    price: 25950,
+    rate: null,
+    transfer: null,
+    delivery: null,
     length: 4.02,
     trunk: "310 l",
     trunkFolded: "1.200 l",
@@ -216,17 +233,16 @@ const cars: Car[] = [
     photo: vehiclePhotos["citroen-e-c3"],
     character: "Weiche Formen und eine gelassene Präsenz für den Alltag.",
     electric: {
-      variantUnconfirmed: true,
       range: "310–322",
       consumption: "16,7–17,3",
       chargingMinutes: null,
       chargingAlternative: "26 Min. für 20–80 %",
       variant:
-        "Standard-Range · 44 kWh. Die Batterie ist im ursprünglichen Angebot nicht benannt; Zuordnung zum Angebot noch bestätigen. Spannen gelten für die Standard-Range-Baureihe.",
+        "Plus · Standard Range · 44 kWh. Preis und Batterie jetzt einheitlich aus der Preisliste vom 24.09.2026. Der frühere Preis von 23.750 € gehört zur Urban-Range-Version mit kleinerer Batterie.",
       sources: [
         {
-          label: "Preisliste · April 2026",
-          url: "https://www.citroen.de/content/dam/citroen/germany/b2c/pricelists/04-26/Preisliste-C3-01.04.2026.pdf",
+          label: "Preisliste · 24. September 2026",
+          url: "https://www.citroen.de/content/dam/citroen/germany/b2c/pricelists/09-26/Preisliste_C3_24-09-2026.pdf",
         },
       ],
     },
@@ -237,23 +253,34 @@ const cars: Car[] = [
     manufacturer: "Kia",
     model: "EV2 Air 42,2 kWh",
     price: 28990,
-    rate: 106.44,
-    transfer: 1290,
-    delivery: 4.5,
+    rate: 199,
+    transfer: null,
+    delivery: null,
     length: 4.06,
     trunk: "362 l",
     trunkFolded: "1.160 l",
     trunkFoldedValue: 1160,
-    safety: "Kein aktueller Test",
-    safetyNote: "Noch kein Euro NCAP",
+    safety: "5 Sterne",
+    safetyNote: "5★ Euro NCAP (2026)",
     photo: vehiclePhotos["kia-ev2"],
     character: "Klar gezeichnet und mit angenehm selbstbewusster Haltung.",
+    lease: {
+      months: 48,
+      kmPerYear: 10000,
+      upfront: 4030.52,
+      source: "https://www.kia.com/de/modelle/ev2/entdecken/",
+      validUntil: "31.12.2026",
+    },
     electric: {
       range: "308–317",
       consumption: "15,1–15,5",
       chargingMinutes: 29,
       variant: "Air · 42,2 kWh; abhängig von 16- oder 18-Zoll-Rädern.",
       sources: [
+        {
+          label: "Euro NCAP · veröffentlicht am 12.10.2026",
+          url: "https://www.euroncap.com/assessments/kia/ev2/1265/",
+        },
         {
           label: "Preisliste",
           url: "https://www.kia.com/content/dam/kwcms/kme/de/de/assets/contents/utility/Preisliste/Kia-Germany-EV2-Preisliste.pdf",
@@ -271,9 +298,9 @@ const cars: Car[] = [
     manufacturer: "Renault",
     model: "Twingo E-Tech Evolution",
     price: 19990,
-    rate: 123.69,
-    transfer: 1250,
-    delivery: 4,
+    rate: null,
+    transfer: null,
+    delivery: null,
     length: 3.79,
     trunk: "260–360 l",
     trunkFolded: "> 1.000 l",
@@ -282,12 +309,18 @@ const cars: Car[] = [
     safetyNote: "Noch kein Euro NCAP",
     photo: vehiclePhotos["renault-twingo"],
     character: "Kompakt, lebendig und wie gemacht für enge Straßen.",
+    reviewNote:
+      "Renault nennt auf der Modellseite 12,8, in der Evolution-Presseinformation 13,1 kWh/100 km. Die abweichenden Angaben bleiben als Spanne sichtbar.",
     electric: {
       range: "bis zu 262",
-      consumption: "13,1",
+      consumption: "12,8–13,1",
       chargingMinutes: 30,
       variant: "Evolution · 27,5 kWh · 50-kW-DC-Lader laut Renault-Presseinformation.",
       sources: [
+        {
+          label: "Modellseite · Preis und aktuelle Verbrauchsangabe",
+          url: "https://www.renault.de/elektromodelle/twingo-e-tech-elektrisch.html",
+        },
         {
           label: "Herstellerangaben · Evolution",
           url: "https://presse.renault.de/renault-twingo-evolution-ab-19990-euro/?lang=deu",
@@ -301,27 +334,33 @@ const cars: Car[] = [
     manufacturer: "Volvo",
     model: "EX30 Essential P3",
     price: 34990,
-    rate: 119,
-    rateApprox: true,
-    transfer: 1490,
-    delivery: 5,
+    rate: null,
+    transfer: null,
+    delivery: null,
     length: 4.23,
     trunk: "318 l",
-    trunkFolded: "623 l",
-    trunkFoldedValue: 623,
+    trunkFolded: "718 l bis Lehnenoberkante / max. 1.000 l",
+    trunkFoldedValue: 1000,
     safety: "5 Sterne",
-    safetyNote: "5★ Euro NCAP",
+    safetyNote: "5★ Euro NCAP (2024)",
     photo: vehiclePhotos["volvo-ex30"],
     character: "Reduziert, ruhig und mit einer souveränen Präsenz.",
+    reviewNote:
+      "Das gefundene Volvo-Leasingangebot gilt für Gewerbekunden und wird hier nicht als Privatleasingrate übernommen.",
     electric: {
       range: "bis zu 335",
-      consumption: "17,0",
+      consumption: "17,0–17,2",
       chargingMinutes: 26,
       chargingNote:
         "Herstellerangabe; Reichweite und Ladezeit auf der Modellseite als vorläufig bezeichnet.",
       variant:
-        "P3 Essential · 51 kWh. Verbrauch der Essential-Angebotsvariante; andere Konfigurationen können abweichen.",
+        "P3 Essential · 51 kWh. Die Angebotsseite nennt 17,0, die P3-Spezifikation 17,2 kWh/100 km. Unterschiedliche Messhöhen beim Gepäckraum beachten.",
       sources: [
+        {
+          label: "P3 · Listenpreis und Spezifikationen",
+          url: "https://www.volvocars.com/de/cars/ex30-electric/specifications/",
+        },
+        { label: "Euro NCAP · EX30", url: "https://www.euroncap.com/assessments/volvo/ex30/1098/" },
         {
           label: "P3 Essential",
           url: "https://www.volvocars.com/de/promotions/details/ex30-leasingangebot-business/",
@@ -337,12 +376,11 @@ const cars: Car[] = [
     slug: "hyundai-ioniq-3",
     site: "https://www.hyundai.com/de/de/modelle/ioniq-3.html",
     manufacturer: "Hyundai",
-    model: "IONIQ 3 Trend 42,2 kWh",
+    model: "IONIQ 3 Trend 42 kWh",
     price: 31950,
-    rate: 131.22,
-    rateApprox: true,
-    transfer: 1290,
-    delivery: 4.5,
+    rate: 209,
+    transfer: null,
+    delivery: null,
     length: 4.16,
     trunk: "441 l",
     trunkFolded: "1.213 l",
@@ -351,13 +389,28 @@ const cars: Car[] = [
     safetyNote: "Noch kein Euro NCAP",
     photo: vehiclePhotos["hyundai-ioniq-3"],
     character: "Modern, klar und mit viel optischer Ruhe.",
+    lease: {
+      months: 48,
+      kmPerYear: 10000,
+      upfront: 4000,
+      source: "https://www.hyundai.com/de/de/modelle/ioniq-3.html",
+      validUntil: "31.12.2026",
+    },
     electric: {
       range: "341",
       consumption: "14,3",
       chargingMinutes: 29,
       variant:
-        "Trend · 42 kWh laut Hersteller (im ursprünglichen Datensatz als 42,2 kWh bezeichnet).",
+        "Trend · 42 kWh laut aktueller Hyundai-Preisliste. Die frühere Angabe 42,2 kWh wurde korrigiert.",
       sources: [
+        {
+          label: "Preisliste · Preis, Batterie und Abmessungen",
+          url: "https://www.hyundai.com/de/de/preislisten/ioniq-3.html",
+        },
+        {
+          label: "Modell und Leasingbeispiel",
+          url: "https://www.hyundai.com/de/de/modelle/ioniq-3.html",
+        },
         {
           label: "Reichweite und Laden",
           url: "https://www.hyundai.com/de/de/modelle/ioniq-3/reichweite-und-laden.html",
@@ -370,10 +423,10 @@ const cars: Car[] = [
     site: "https://www.mini.de/de_DE/home/range/all-electric-mini-cooper.html",
     manufacturer: "MINI",
     model: "Cooper E",
-    price: 27500,
-    rate: 141.94,
-    transfer: 950,
-    delivery: 2,
+    price: 28500,
+    rate: null,
+    transfer: null,
+    delivery: null,
     length: 3.86,
     trunk: "210 l",
     trunkFolded: "800 l",
@@ -390,6 +443,18 @@ const cars: Car[] = [
         "Cooper E · 36,6 kWh netto. Reichweite abhängig von Ausstattung; Verbrauch ist die WLTP-Pflichtangabe.",
       sources: [
         {
+          label: "Modelle und aktuelle Einstiegspreise",
+          url: "https://www.mini.de/de_DE/home/range/electric/models.html",
+        },
+        {
+          label: "Technische Daten · Cooper E",
+          url: "https://www.mini.de/de_DE/home/range/electric/technical-data.html",
+        },
+        {
+          label: "MINI · Euro-NCAP-Ergebnisse",
+          url: "https://www.mini.de/de_DE/home/news/awards.html",
+        },
+        {
           label: "Reichweite und Laden",
           url: "https://www.mini.de/de_DE/home/range/electric/performance.html",
         },
@@ -402,10 +467,9 @@ const cars: Car[] = [
     manufacturer: "Hyundai",
     model: "INSTER 42 kWh Select",
     price: 24650,
-    rate: 123.33,
-    rateApprox: true,
-    transfer: 1254,
-    delivery: 7.5,
+    rate: 189,
+    transfer: null,
+    delivery: null,
     length: 3.83,
     trunk: "280 l",
     trunkFolded: "1.059 l",
@@ -414,6 +478,13 @@ const cars: Car[] = [
     safetyNote: "4★ Euro NCAP (2025)",
     photo: vehiclePhotos["hyundai-inster"],
     character: "Ein sympathischer Stadtbegleiter mit eigenständiger Haltung.",
+    lease: {
+      months: 48,
+      kmPerYear: 10000,
+      upfront: 4000,
+      source: "https://www.hyundai.com/de/de/modelle/inster.html",
+      validUntil: "31.12.2026",
+    },
     electric: {
       range: "327",
       consumption: "14,3",
@@ -422,6 +493,10 @@ const cars: Car[] = [
         "Für die angegebene Ladezeit setzt Hyundai einen HPC-Ladepunkt mit mindestens 350 kW voraus.",
       variant: "Select · 42 kWh.",
       sources: [
+        {
+          label: "Preisliste · Select 42 kWh",
+          url: "https://www.hyundai.com/de/de/preislisten/inster.html",
+        },
         {
           label: "Herstellerangaben",
           url: "https://www.hyundai.com/de/de/modelle/inster.html",
@@ -435,9 +510,9 @@ const cars: Car[] = [
     manufacturer: "Fiat",
     model: "500e Icon 42 kWh",
     price: 32990,
-    rate: 146.78,
-    transfer: 1390,
-    delivery: 3.5,
+    rate: null,
+    transfer: null,
+    delivery: null,
     length: 3.63,
     trunk: "185 l",
     trunkFolded: "550 l",
@@ -467,10 +542,10 @@ const cars: Car[] = [
     site: "https://www.mini.de/de_DE/home/range/all-electric-mini-aceman.html",
     manufacturer: "MINI",
     model: "Aceman E",
-    price: 30000,
-    rate: 180.11,
-    transfer: 950,
-    delivery: 2,
+    price: 31000,
+    rate: null,
+    transfer: null,
+    delivery: null,
     length: 4.08,
     trunk: "300 l",
     trunkFolded: "1.005 l",
@@ -487,6 +562,18 @@ const cars: Car[] = [
         "Aceman E · 38,5 kWh netto. Reichweite abhängig von Ausstattung; Verbrauch ist die WLTP-Pflichtangabe.",
       sources: [
         {
+          label: "Modelle und aktuelle Einstiegspreise",
+          url: "https://www.mini.de/de_DE/home/range/all-electric-mini-aceman/models.html",
+        },
+        {
+          label: "Technische Daten · Aceman E",
+          url: "https://www.mini.de/de_DE/home/range/all-electric-mini-aceman/technical-data.html",
+        },
+        {
+          label: "MINI · Euro-NCAP-Ergebnisse",
+          url: "https://www.mini.de/de_DE/home/news/awards.html",
+        },
+        {
           label: "Technische Daten · September 2026",
           url: "https://www.mini.de/content/dam/MINI/marketDSM_DE/mini_de/brochures/Brochures2026/J05_MINI_Aceman_0926_Ausgabe1_Produktflyer.pdf.asset.1779955654815.pdf",
         },
@@ -499,9 +586,9 @@ const cars: Car[] = [
     manufacturer: "Renault",
     model: "5 E-Tech Evolution",
     price: 26290,
-    rate: 172.78,
-    transfer: 1350,
-    delivery: 5,
+    rate: null,
+    transfer: null,
+    delivery: null,
     length: 3.92,
     trunk: "326 l",
     trunkFolded: "1.106 l",
@@ -519,6 +606,10 @@ const cars: Car[] = [
         "Evolution 120 Urban Range (MY26) · 40 kWh, passend zum Listenpreis von 26.290 €. Werte der Standardkonfiguration.",
       sources: [
         {
+          label: "Euro NCAP · Renault 5",
+          url: "https://www.euroncap.com/assessments/renault/5/1080/",
+        },
+        {
           label: "Konfigurator",
           url: "https://www.renault.de/elektromodelle/r5-e-tech-elektrisch-my26/konfigurator.html",
         },
@@ -535,10 +626,9 @@ const cars: Car[] = [
     manufacturer: "Fiat",
     model: "600e Pop 54 kWh",
     price: 31990,
-    rate: 176.78,
-    rateApprox: true,
-    transfer: 1390,
-    delivery: 2,
+    rate: null,
+    transfer: null,
+    delivery: null,
     length: 4.18,
     trunk: "360 l",
     trunkFolded: "1.231 l",
@@ -555,6 +645,10 @@ const cars: Car[] = [
       variant:
         "Pop · 54 kWh. Reichweite ist der Maximalwert der 54-kWh-Baureihe; ausstattungsabhängig.",
       sources: [
+        {
+          label: "Preisliste · Oktober · Pop 54 kWh",
+          url: "https://www.fiat.de/content/dam/fiat2023/de/pdf/pricelist/Preisliste-Fiat-600_Oktober.pdf",
+        },
         {
           label: "Verbrauch · Pop",
           url: "https://www.fiat.de/modelle/600/pop",
@@ -575,26 +669,30 @@ const cars: Car[] = [
     site: "https://www.renault.de/elektromodelle/r4-e-tech-elektrisch.html",
     manufacturer: "Renault",
     model: "4 E-Tech Evolution",
-    price: 29500,
-    rate: 188.25,
-    transfer: 1350,
-    delivery: 6,
+    price: 27690,
+    rate: null,
+    transfer: null,
+    delivery: null,
     length: 4.14,
     trunk: "420 l",
     trunkFolded: "1.405 l",
     trunkFoldedValue: 1405,
     safety: "4 Sterne",
-    safetyNote: "4★ Euro NCAP",
+    safetyNote: "4★ Euro NCAP (Protokoll 2024)",
     photo: vehiclePhotos["renault-4"],
     character: "Praktisch und entspannt, mit einer angenehm offenen Wirkung.",
     electric: {
-      range: "305",
-      consumption: "14,8",
+      range: "309",
+      consumption: "14,7",
       chargingMinutes: null,
       chargingAlternative: "30 Min. für 15–80 %",
       variant:
-        "Evolution 120 Urban Range · 40 kWh, passend zum Listenpreis von 29.500 €. Werte der Standardkonfiguration.",
+        "Evolution 120 Urban Range MY26 · 40 kWh. Aktuelle Standardkonfiguration: 27.690 €, 309 km, 14,7 kWh/100 km.",
       sources: [
+        {
+          label: "Euro NCAP · Renault 4",
+          url: "https://www.euroncap.com/assessments/renault/4/1142/",
+        },
         {
           label: "Konfigurator",
           url: "https://www.renault.de/elektromodelle/r4-e-tech-elektrisch/konfigurator.html",
@@ -614,7 +712,7 @@ const cars: Car[] = [
     price: 18700,
     rate: null,
     transfer: null,
-    delivery: 4,
+    delivery: null,
     length: 3.7,
     trunk: "308 l",
     trunkFolded: "1.004 l",
@@ -623,6 +721,9 @@ const cars: Car[] = [
     safetyNote: "Kein aktueller Test · frühere Variante 1★ (2021)",
     photo: vehiclePhotos["dacia-spring"],
     character: "Unkompliziert, handlich und ganz auf den Alltag konzentriert.",
+    priceNote: "Altstand 02.10.2026 · aktueller Variantenpreis nicht bestätigt",
+    reviewNote:
+      "Expression electric 70: Verbrauch 12,7 kWh/100 km auf der aktuellen Modellseite bestätigt. Variantenpreis und Reichweitenspanne beim Händler bestätigen; die Modellseite zeigt überwiegend electric 100.",
     electric: {
       range: "221–226",
       consumption: "12,7",
@@ -657,24 +758,118 @@ const monthly = new Intl.NumberFormat("de-DE", {
 const manufacturers = [...new Set(cars.map((car) => car.manufacturer))].sort((a, b) =>
   a.localeCompare(b, "de"),
 );
-function formatDelivery(value: number) {
-  return `${value.toLocaleString("de-DE")} Monate`;
+function effectiveRate(car: Car) {
+  return car.rate !== null && car.lease ? car.rate + car.lease.upfront / car.lease.months : null;
 }
 function Rate({ car }: { car: Car }) {
   if (car.rate === null)
     return (
       <span className="text-sm font-medium text-muted-foreground">
-        Noch kein sauber vergleichbarer Wert
+        Kein aktuelles Privatleasingbeispiel belegt
       </span>
     );
   return (
     <>
-      <strong className="font-semibold text-foreground">
-        {car.rateApprox ? "ca. " : ""}
-        {monthly.format(car.rate)}
-      </strong>
+      <strong className="font-semibold text-foreground">{monthly.format(car.rate)}</strong>
       <span className="text-xs text-muted-foreground"> / Monat</span>
     </>
+  );
+}
+function MarketDeals({ car }: { car: Car }) {
+  const offer = marketOffers[car.slug];
+  if (!offer) return null;
+  return (
+    <div className="pb-5">
+      <p className="text-xs font-semibold uppercase tracking-[0.1em] text-primary">
+        Bundesweiter Angebotsvergleich · GoLeasy
+      </p>
+      <p className="mt-2 text-xl font-semibold">
+        {offer.rate === undefined ? (
+          "Kein neuer passender Treffer bestätigt"
+        ) : (
+          <>
+            {monthly.format(offer.rate)}{" "}
+            <span className="text-xs font-normal text-muted-foreground">/ Monat · Portalrate</span>
+          </>
+        )}
+      </p>
+      <p className="mt-2 text-xs text-muted-foreground">
+        Privat · 36 Monate · 5.000 km/Jahr · Abruf 17.10.2026
+      </p>
+      {offer.rate !== undefined && (
+        <div className="mt-2 space-y-1 text-xs leading-relaxed text-muted-foreground">
+          <p>{offer.variant}</p>
+          <p className="font-medium text-foreground">{offer.grantNote}</p>
+          <p>
+            Überführung:{" "}
+            {(Number.isInteger(offer.transfer) ? money : monthly).format(offer.transfer!)}{" "}
+            zusätzlich.
+          </p>
+          <p>Verfügbarkeit laut Inserat: {offer.delivery}. Keine Lieferzusage.</p>
+          <p>
+            Beobachtetes Angebot; kein Nachweis des bundesweiten Bestpreises. Technische Daten oben
+            beziehen sich auf die Vergleichsvariante.
+          </p>
+        </div>
+      )}
+      <a
+        className="mt-3 inline-block text-sm font-semibold text-primary underline underline-offset-2"
+        href={offer.url}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Passende Angebote auf GoLeasy
+      </a>
+      {offer.directUrl && (
+        <a
+          className="mt-2 block text-xs text-primary underline underline-offset-2"
+          href={offer.directUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Geprüftes Einzelangebot beim Anbieter
+        </a>
+      )}
+      {offer.previousRate !== null && (
+        <details className="mt-3 text-xs leading-relaxed text-muted-foreground">
+          <summary className="cursor-pointer">
+            Bisheriger Schnäppchenvergleich: {monthly.format(offer.previousRate)} / Monat ·
+            02.10.2026
+          </summary>
+          <p className="mt-2">
+            GoLeasy / LeasingMarkt.de laut ursprünglicher Recherche. 36 Monate, 5.000 km/Jahr, auf
+            5.000 € angenommene Förderung bezogen; Überführung separat. Historischer Vergleichswert,
+            das damalige Inserat ist nicht erneut bestätigt.
+          </p>
+        </details>
+      )}
+    </div>
+  );
+}
+function OfferTerms({ car }: { car: Car }) {
+  if (!car.lease) return null;
+  return (
+    <div className="mt-3 space-y-1 text-xs leading-relaxed text-muted-foreground">
+      <p>
+        {car.lease.months} Monate · {car.lease.kmPerYear.toLocaleString("de-DE")} km/Jahr ·{" "}
+        {(Number.isInteger(car.lease.upfront) ? money : monthly).format(car.lease.upfront)}{" "}
+        Sonderzahlung
+      </p>
+      <p>
+        Mit verteilter Sonderzahlung:{" "}
+        <strong className="text-foreground">{monthly.format(effectiveRate(car)!)} / Monat</strong>
+      </p>
+      <p>Inkl. MwSt., zzgl. Überführung und Zulassung. Keine Förderung abgezogen.</p>
+      {car.lease.validUntil && <p>Angebot gültig bis {car.lease.validUntil}.</p>}
+      <a
+        className="inline-block underline underline-offset-2"
+        href={car.lease.source}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Angebot und Bedingungen beim Hersteller
+      </a>
+    </div>
   );
 }
 function ChargingTime({ car }: { car: Car }) {
@@ -700,7 +895,11 @@ function ElectricSources({ car }: { car: Car }) {
         Variante &amp; Quellen{car.electric.variantUnconfirmed ? " · Batteriezuordnung offen" : ""}
       </summary>
       <p className="mt-2 break-words leading-relaxed">{car.electric.variant}</p>
-      <p className="mt-2">Technische Angaben geprüft am 03.10.2026.</p>
+      <p className="mt-2">
+        Herstellerquellen abgerufen am 17.10.2026. Preise inkl. MwSt., zzgl. Überführung; keine
+        Förderung abgezogen.
+      </p>
+      {car.reviewNote && <p className="mt-2">{car.reviewNote}</p>}
       <ul className="mt-2 space-y-2">
         {car.electric.sources.map((source) => (
           <li key={source.url}>
@@ -744,7 +943,7 @@ function ServiceDetails({ car, compact = false }: { car: Car; compact?: boolean 
   return (
     <div className={compact ? "max-w-56" : "col-span-2"}>
       {!compact && (
-        <dt className="text-xs text-muted-foreground">Nächster relevanter Marken-Service</dt>
+        <dt className="text-xs text-muted-foreground">Marken-Service · bisheriger Stand</dt>
       )}
       <dd className={`${compact ? "text-xs" : "mt-1 text-sm"} font-semibold leading-relaxed`}>
         {service.name}
@@ -771,12 +970,12 @@ function BasisStrip({ compact = false }: { compact?: boolean }) {
         </p>
         <div className="grid grid-cols-2 gap-x-5 gap-y-5 md:grid-cols-3 lg:grid-cols-6">
           {[
-            [WalletCards, "Privatleasing", "Vertragsart"],
-            [CalendarDays, "36 Monate", "Laufzeit"],
-            [Ruler, "5.000 km/Jahr", "Fahrleistung"],
-            [Sparkles, "5.000 €", "angenommene Förderung"],
+            [WalletCards, "Privatleasing", "belegte Beispiele"],
+            [CalendarDays, "36 Monate", "Laufzeit im Portalvergleich"],
+            [Ruler, "5.000 km/Jahr", "Fahrleistung im Portalvergleich"],
+            [Sparkles, "Je Angebot", "Förderannahme"],
             [CarFront, "Separat", "Überführung"],
-            [Check, "02.10.2026", "Datenstand"],
+            [Check, "17.10.2026", "letzte Quellenprüfung"],
           ].map(([Icon, value, label]) => {
             const BasisIcon = Icon as typeof WalletCards;
             return (
@@ -805,21 +1004,19 @@ function Highlights() {
         <article className="bg-card p-6 lg:p-8">
           <WalletCards className="h-6 w-6 text-primary" />
           <p className="mt-6 text-xs font-bold uppercase tracking-[0.14em] text-muted-foreground">
-            Niedrigste erfasste Rate
+            Bundesweite Leasing-Schnäppchen
           </p>
-          <h3 className="mt-2 text-xl font-bold">Leapmotor T03</h3>
-          <p className="mt-2 text-xl font-semibold text-primary">
-            34,22 € <span className="text-sm font-normal text-muted-foreground">/ Monat</span>
-          </p>
+          <h3 className="mt-2 text-xl font-bold">Portalangebote im Blick</h3>
+          <p className="mt-2 text-xl font-semibold text-primary">GoLeasy &amp; LeasingMarkt.de</p>
         </article>
         <article className="bg-sage p-6 lg:p-8">
           <CarFront className="h-6 w-6 text-sage-foreground" />
           <p className="mt-6 text-xs font-bold uppercase tracking-[0.14em] text-sage-foreground/70">
-            Größtes erfasstes Ladevolumen
+            Aktueller Listenpreis
           </p>
-          <h3 className="mt-2 text-xl font-bold">Renault 4 E-Tech</h3>
+          <h3 className="mt-2 text-xl font-bold">Renault 4 Evolution</h3>
           <p className="mt-2 text-xl font-semibold text-sage-foreground">
-            1.405 l <span className="text-sm font-normal">umgeklappt</span>
+            27.690 € <span className="text-sm font-normal">zzgl. Überführung</span>
           </p>
         </article>
         <article className="bg-primary p-6 text-primary-foreground lg:p-8">
@@ -827,9 +1024,9 @@ function Highlights() {
           <p className="mt-6 text-xs font-bold uppercase tracking-[0.14em] text-primary-foreground/70">
             Erfasstes 5-Sterne-Ergebnis
           </p>
-          <h3 className="mt-2 text-xl font-bold">Drei Modelle</h3>
+          <h3 className="mt-2 text-xl font-bold">Vier Modelle</h3>
           <p className="mt-2 text-sm leading-relaxed">
-            Volvo EX30, MINI Cooper E und MINI Aceman E
+            Kia EV2, Volvo EX30, MINI Cooper E und MINI Aceman E
           </p>
         </article>
       </div>
@@ -955,8 +1152,8 @@ function Comparison({
         </div>
         <p className="mt-5 max-w-3xl text-sm leading-relaxed text-muted-foreground">
           Reichweite und Durchschnittsverbrauch: WLTP kombiniert. Schnellladen: DC von 10 auf 80 %;
-          abweichende Hersteller-Ladefenster stehen ausdrücklich beim Fahrzeug. Technische Daten
-          geprüft am 03.10.2026.
+          abweichende Hersteller-Ladefenster stehen ausdrücklich beim Fahrzeug. Herstellerquellen
+          geprüft am 17.10.2026; offene Angaben stehen am Fahrzeug.
         </p>
         <div className="mt-6 grid gap-3 sm:max-w-xl sm:grid-cols-2">
           <label className="text-xs font-bold uppercase tracking-[0.12em] text-muted-foreground">
@@ -966,11 +1163,10 @@ function Comparison({
               onChange={(event) => setSortKey(event.target.value as SortKey)}
               className="mt-2 block h-11 w-full min-w-0 rounded-md border border-input bg-background px-3 text-sm font-medium text-foreground"
             >
-              <option value="rate">Monatsrate</option>
+              <option value="rate">Portalrate · Förderannahmen beachten</option>
               <option value="price">Listenpreis</option>
               <option value="length">Länge</option>
               <option value="trunk">Kofferraum umgeklappt</option>
-              <option value="delivery">Lieferzeit</option>
             </select>
           </label>
           <label className="text-xs font-bold uppercase tracking-[0.12em] text-muted-foreground">
@@ -1050,13 +1246,17 @@ function Methodology({ compact }: { compact: boolean }) {
           </span>
           <div>
             <h3 className={compact ? "text-lg font-bold" : "font-display text-2xl"}>
-              Förderung und Rate
+              Leasingbedingungen und Kosten
             </h3>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              Privatleasing über 36 Monate und 5.000 Kilometer pro Jahr. Die Rate ist auf 5.000 €
-              angenommene Förderung normiert. Überführungs- und Bereitstellungskosten werden separat
-              gezeigt. Die Förderung ist eine Rechenannahme, keine Zusage; konkrete Angebote und
-              Förderberechtigung sind hier nicht belegt.
+              Der bundesweite Schnäppchenvergleich nutzt GoLeasy und LeasingMarkt.de. Aktuelle
+              Portalraten werden für 36 Monate und 5.000 km/Jahr erfasst. Unterschiedliche
+              Förderannahmen sind direkt angegeben; eine Förderung ist keine Zusage und kann eine
+              vorzufinanzierende Sonderzahlung voraussetzen. Portalraten mit abweichender Förderung
+              sind nicht direkt vergleichbar. Der alte Vergleich bezog sich auf 5.000 € Förderung
+              und bleibt mit Datum aufklappbar. Ergänzende Herstellerbeispiele zeigen ihre eigenen
+              Konditionen und zusätzlich Rate plus verteilte Sonderzahlung ohne Förderabzug.
+              Überführung und Zulassung sind zu berücksichtigen.
             </p>
           </div>
         </article>
@@ -1068,12 +1268,13 @@ function Methodology({ compact }: { compact: boolean }) {
           </span>
           <div>
             <h3 className={compact ? "text-lg font-bold" : "font-display text-2xl"}>
-              Lieferzeit als Median
+              Liefertermin und Überführung
             </h3>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              Die Lieferzeit soll als Median mehrerer aktueller Anzeigen ermittelt werden. Die
-              Startwerte besitzen noch keine dokumentierte Anzeigenbasis und sind deshalb als
-              „vorläufig · unsicher“ markiert.
+              Die Portalbeispiele nennen Überführung und Verfügbarkeit des jeweiligen Inserats,
+              soweit sichtbar. Diese sind keine Baureihen-Mediane oder verbindlichen Lieferzusagen.
+              Abweichende Angaben zwischen Portal und Anbieter werden genannt. Ohne passendes
+              bestätigtes Inserat bleiben Liefertermin und Nebenkosten offen.
             </p>
           </div>
         </article>
@@ -1105,8 +1306,9 @@ function Methodology({ compact }: { compact: boolean }) {
               Ausgangspunkt ist Untere Seelach, 90562 Heroldsberg. Genannt wird bewusst der
               regelmäßig relevante autorisierte Service- oder Werkstattstandort, nicht ein
               gegebenenfalls näherer einmaliger Verkaufsstandort. Die Fahrzeit ist ein Näherungswert
-              bei normalem Verkehr; der Citroën-Standort bleibt bis zur sicheren Bestätigung als
-              „noch zu verifizieren“ markiert.
+              bei normalem Verkehr. Die Adressen und Fahrzeiten stammen vom 02.10.2026 und wurden
+              bei dieser Fahrzeugdatenprüfung nicht erneut bestätigt. Den aktuellen Standort und die
+              Markenautorisierung bitte vor einem Besuch prüfen.
             </p>
           </div>
         </article>
@@ -1120,7 +1322,7 @@ function Index() {
   const fiveStarModels = cars.filter((car) => car.safety === "5 Sterne").length;
   const [manufacturer, setManufacturer] = useState("Alle");
   const [safety, setSafety] = useState("Alle");
-  const [sortKey, setSortKey] = useState<SortKey>("rate");
+  const [sortKey, setSortKey] = useState<SortKey>("price");
   const [direction, setDirection] = useState<"asc" | "desc">("asc");
   const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
   useEffect(() => {
@@ -1142,17 +1344,17 @@ function Index() {
   );
   const sortCars = (list: Car[], dir: "asc" | "desc") => {
     const values: Record<SortKey, (car: Car) => number> = {
-      rate: (car) => car.rate ?? Number.POSITIVE_INFINITY,
+      rate: (car) => marketOffers[car.slug]?.rate ?? Number.POSITIVE_INFINITY,
       price: (car) => car.price,
       length: (car) => car.length,
       trunk: (car) => car.trunkFoldedValue,
-      delivery: (car) => car.delivery,
     };
     return [...list].sort((a, b) => {
       if (sortKey === "rate") {
-        if (a.rate === null && b.rate === null) return 0;
-        if (a.rate === null) return 1;
-        if (b.rate === null) return -1;
+        if (marketOffers[a.slug]?.rate === undefined && marketOffers[b.slug]?.rate === undefined)
+          return 0;
+        if (marketOffers[a.slug]?.rate === undefined) return 1;
+        if (marketOffers[b.slug]?.rate === undefined) return -1;
       }
       return (values[sortKey](a) - values[sortKey](b)) * (dir === "asc" ? 1 : -1);
     });
@@ -1174,14 +1376,15 @@ function Index() {
           <div className="mx-auto max-w-7xl px-5 py-10 sm:px-8 lg:px-12 lg:py-14">
             <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-end">
               <div className="max-w-3xl">
-                <p className="eyebrow">Zahlen &amp; Fakten · Stand 02.10.2026</p>
+                <p className="eyebrow">Zahlen &amp; Fakten · Prüfung 17.10.2026</p>
                 <h1 className="mt-3 text-4xl font-bold leading-tight sm:text-5xl">
                   E-Autos klar und nachvollziehbar vergleichen
                 </h1>
                 <p className="mt-4 max-w-2xl leading-relaxed text-muted-foreground">
-                  {totalModels} Modelle, einheitlich auf 36 Monate, 5.000 km/Jahr und 5.000 €
-                  angenommene Förderung bezogen. Fehlende oder vorläufige Angaben werden nicht
-                  ergänzt.
+                  {totalModels} kompakte Elektroautos mit Listenpreisen, Reichweite und Ladezeiten.
+                  Bundesweite Portalangebote für 36 Monate und 5.000 km/Jahr zeigen Förderannahmen
+                  und Nebenkosten direkt dazu. Fehlende aktuelle Angebote und Liefertermine sind als
+                  offen gekennzeichnet.
                 </p>
               </div>
               <div className="grid grid-cols-3 gap-4 border-l border-border pl-6">
@@ -1209,11 +1412,32 @@ function Index() {
         className="mx-auto max-w-7xl px-5 pt-6 text-sm leading-relaxed text-muted-foreground sm:px-8 lg:px-12"
         aria-label="Quellenstatus"
       >
-        <strong className="text-foreground">Übernommener Datenstand: 02.10.2026.</strong> Preise,
-        Leasingraten, Abmessungen, Sicherheitsangaben und Serviceadressen stammen aus dem
-        ursprünglichen Projekt und sind nicht unabhängig geprüft. Reichweite, Verbrauch und
-        Ladezeiten wurden am 03.10.2026 anhand von Herstellerquellen ergänzt; Variante und Quellen
-        sind bei jedem Fahrzeug aufklappbar.
+        <strong className="text-foreground">Quellenprüfung: 17.10.2026.</strong> Listenpreise und
+        Elektroangaben wurden mit Herstellerseiten und Preislisten abgeglichen. Der Dacia-Preis und
+        einzelne Variantenangaben bleiben offen. GoLeasy und LeasingMarkt.de bilden die Grundlage
+        des Schnäppchenvergleichs. Aktuelle GoLeasy-Treffer stehen mit Förderhinweisen am Fahrzeug;
+        die ursprünglichen Raten vom 02.10.2026 sind als historischer Vergleich aufklappbar. Vier
+        Herstellerbeispiele ergänzen die Portalangebote. Abmessungen ohne aktuellen Einzelbeleg
+        sowie Serviceadressen stammen aus dem bisherigen Bestand.
+        <span className="mt-2 block">
+          <a
+            className="underline"
+            href="https://www.goleasy.de/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GoLeasy
+          </a>
+          {" · "}
+          <a
+            className="underline"
+            href="https://www.leasingmarkt.de/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            LeasingMarkt.de
+          </a>
+        </span>
       </aside>
       <Comparison
         visibleCars={visibleCars}
@@ -1233,9 +1457,9 @@ function Index() {
         <div className="mx-auto max-w-7xl px-5 py-10 sm:px-8 lg:px-12">
           <p className="text-lg font-bold">Preiswerte E-Autos im Vergleich</p>
           <p className="mt-4 max-w-4xl text-xs leading-relaxed text-primary-foreground/70">
-            Momentaufnahme öffentlich auffindbarer Angebote, Stand 2. Oktober 2026. Preise,
-            Förderbedingungen, Verfügbarkeiten und Lieferzeiten können sich jederzeit ändern.
-            Angaben ohne Gewähr; maßgeblich sind die Bedingungen des jeweiligen Anbieters.
+            Quellen und Angebote zuletzt geprüft am 17. Oktober 2026. Preise, Förderbedingungen,
+            Verfügbarkeiten und Lieferzeiten können sich jederzeit ändern. Angaben ohne Gewähr;
+            maßgeblich sind die Bedingungen des jeweiligen Anbieters.
           </p>
         </div>
       </footer>
@@ -1243,6 +1467,7 @@ function Index() {
   );
 }
 function CarCard({ car, index, selected }: { car: Car; index: number; selected: boolean }) {
+  const marketOffer = marketOffers[car.slug];
   return (
     <article
       id={`car-${car.slug}`}
@@ -1276,14 +1501,18 @@ function CarCard({ car, index, selected }: { car: Car; index: number; selected: 
         </figcaption>
       </figure>
       <div className="p-5">
-        <div className="pb-5">
-          <p className="text-xs font-semibold uppercase tracking-[0.1em] text-muted-foreground">
-            Normierte Leasingrate
-          </p>
-          <p className="mt-2 text-xl">
-            <Rate car={car} />
-          </p>
-        </div>
+        <MarketDeals car={car} />
+        {car.lease && (
+          <details className="mb-5 border-t border-border pt-3 text-xs text-muted-foreground">
+            <summary className="cursor-pointer font-medium">
+              Zusätzliches Hersteller-Leasingbeispiel
+            </summary>
+            <p className="mt-2 text-lg">
+              <Rate car={car} />
+            </p>
+            <OfferTerms car={car} />
+          </details>
+        )}
         <dl className="grid grid-cols-2 gap-x-4 gap-y-5 border-t border-border pt-5 text-sm [&>div]:min-w-0">
           <div>
             <dt className="text-xs text-muted-foreground">WLTP-Reichweite</dt>
@@ -1302,17 +1531,27 @@ function CarCard({ car, index, selected }: { car: Car; index: number; selected: 
           <div>
             <dt className="text-xs text-muted-foreground">Listenpreis</dt>
             <dd className="mt-1 font-semibold">{money.format(car.price)}</dd>
+            <dd className="mt-1 text-xs text-muted-foreground">
+              {car.priceNote ?? "Herstellerpreis geprüft 17.10.2026 · zzgl. Überführung"}
+            </dd>
           </div>
           <div>
             <dt className="text-xs text-muted-foreground">Überführung</dt>
             <dd className="mt-1 font-semibold">
-              {car.transfer === null ? "Noch offen" : money.format(car.transfer)}
+              {marketOffer?.transfer === undefined
+                ? "Noch offen"
+                : monthly.format(marketOffer.transfer)}
+            </dd>
+            <dd className="text-xs text-muted-foreground">
+              Zum Portalbeispiel; Variante und Zusatzkosten prüfen
             </dd>
           </div>
           <div>
             <dt className="text-xs text-muted-foreground">Lieferzeit</dt>
-            <dd className="mt-1 font-semibold">{formatDelivery(car.delivery)}</dd>
-            <dd className="text-xs text-primary">Vorläufig · unsicher</dd>
+            <dd className="mt-1 font-semibold">
+              {marketOffer?.delivery ?? "Beim Händler anfragen"}
+            </dd>
+            <dd className="text-xs text-muted-foreground">Inseratstand · kein Lieferzeit-Median</dd>
           </div>
           <div>
             <dt className="text-xs text-muted-foreground">Länge</dt>

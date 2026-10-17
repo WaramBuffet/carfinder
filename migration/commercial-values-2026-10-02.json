@@ -1,0 +1,111 @@
+{
+  "date": "2026-10-02",
+  "status": "Ursprünglicher bundesweiter Schnäppchenvergleich aus GoLeasy und LeasingMarkt.de laut Nutzer; Stand 02.10.2026, 36 Monate, 5.000 km/Jahr, auf 5.000 € Förderung bezogen. Konkrete frühere Inserate nicht erneut bestätigt.",
+  "vehicles": [
+    {
+      "slug": "leapmotor-t03",
+      "price": 18900,
+      "rate": 34.22,
+      "transfer": 1399,
+      "delivery": 4
+    },
+    {
+      "slug": "fiat-grande-panda",
+      "price": 30990,
+      "rate": 86,
+      "transfer": 1498,
+      "delivery": 3.5
+    },
+    {
+      "slug": "citroen-e-c3",
+      "price": 23750,
+      "rate": 96.78,
+      "transfer": 1495,
+      "delivery": 2
+    },
+    {
+      "slug": "kia-ev2",
+      "price": 28990,
+      "rate": 106.44,
+      "transfer": 1290,
+      "delivery": 4.5
+    },
+    {
+      "slug": "renault-twingo",
+      "price": 19990,
+      "rate": 123.69,
+      "transfer": 1250,
+      "delivery": 4
+    },
+    {
+      "slug": "volvo-ex30",
+      "price": 34990,
+      "rate": 119,
+      "transfer": 1490,
+      "delivery": 5
+    },
+    {
+      "slug": "hyundai-ioniq-3",
+      "price": 31950,
+      "rate": 131.22,
+      "transfer": 1290,
+      "delivery": 4.5
+    },
+    {
+      "slug": "mini-cooper-e",
+      "price": 27500,
+      "rate": 141.94,
+      "transfer": 950,
+      "delivery": 2
+    },
+    {
+      "slug": "hyundai-inster",
+      "price": 24650,
+      "rate": 123.33,
+      "transfer": 1254,
+      "delivery": 7.5
+    },
+    {
+      "slug": "fiat-500e",
+      "price": 32990,
+      "rate": 146.78,
+      "transfer": 1390,
+      "delivery": 3.5
+    },
+    {
+      "slug": "mini-aceman-e",
+      "price": 30000,
+      "rate": 180.11,
+      "transfer": 950,
+      "delivery": 2
+    },
+    {
+      "slug": "renault-5",
+      "price": 26290,
+      "rate": 172.78,
+      "transfer": 1350,
+      "delivery": 5
+    },
+    {
+      "slug": "fiat-600e",
+      "price": 31990,
+      "rate": 176.78,
+      "transfer": 1390,
+      "delivery": 2
+    },
+    {
+      "slug": "renault-4",
+      "price": 29500,
+      "rate": 188.25,
+      "transfer": 1350,
+      "delivery": 6
+    },
+    {
+      "slug": "dacia-spring",
+      "price": 18700,
+      "rate": null,
+      "transfer": null,
+      "delivery": 4
+    }
+  ]
+}
