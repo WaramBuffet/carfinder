@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import {
   ArrowDown,
   ArrowRight,
@@ -140,13 +140,6 @@ export default function PremiumFinder() {
   });
   const [onlySaved, setOnlySaved] = useState(false);
   const [sort, setSort] = useState("editorial");
-  useEffect(() => {
-    const previous = document.title;
-    document.title = "GRAVEL / ELECTRIC — Premium Carfinder";
-    return () => {
-      document.title = previous;
-    };
-  }, []);
   const toggle = (id: string) => {
     const next = saved.includes(id) ? saved.filter((item) => item !== id) : [...saved, id];
     setSaved(next);

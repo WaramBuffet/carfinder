@@ -63,3 +63,5 @@ Umfang und Grenzen der Marktstichprobe sowie die Herkunft der beschriebenen Vide
 Für alle sieben Premium-Fahrzeugvarianten sind ebenfalls frei lizenzierte Modellfotos integriert: sechs unter CC BY-SA 4.0 und eines unter CC0. Urheber, Quellen, Lizenzen und Variantenhinweise stehen direkt an den Bildern. [Bildnachweise der Premium Edition](src/assets/premium/photos/README.md).
 
 Die Premium Edition beginnt mit einer persönlichen Begrüßung für das empfangende Paar und dem unveränderten Nutzerfoto `mfl_25925_pic.png`. Das persönliche Foto gehört nicht zu den frei lizenzierten Fahrzeugaufnahmen; dafür wird keine freie Bildlizenz behauptet.
+
+Die statischen Linkvorschauen (Open Graph / Twitter) zeigen die Premium Edition und das Paarfoto. GitHub Pages liefert für alle Query-Varianten dieselbe HTML-Datei; eine unterschiedliche Vorschau je `ansicht` ist dort ohne separate HTML-Seiten oder Server nicht möglich. Browser-Metadaten folgen weiterhin der gewählten Ansicht. Messenger können Vorschauen zwischenspeichern; ein zusätzlicher Versionsparameter im geteilten Link kann einen neuen Abruf auslösen.

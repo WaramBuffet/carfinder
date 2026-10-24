@@ -26,24 +26,59 @@ export const Route = createFileRoute("/")({
       {
         title:
           match.search.ansicht === "premium"
-            ? "GRAVEL / ELECTRIC – Premium Carfinder"
+            ? "GRAVEL / ELECTRIC – Euer Premium-Carfinder"
             : "Preiswerte E-Autos im Vergleich – Zahlen & Fakten",
       },
       {
         name: "description",
         content:
           match.search.ansicht === "premium"
-            ? "Sportliche Premium-Elektroautos: Taycan Turismo, BMW iX3, Volvo EX60, elektrischer GLC und i5 Touring. Angebotsstichproben 2022–2026, Förderung und Gravel-Ausfahrten."
+            ? "Euer persönlicher Premium-Carfinder: Porsche Taycan Sport und Cross Turismo, BMW iX3, Volvo EX60, elektrischer Mercedes GLC und BMW i5 Touring – mit Angebotspreisen, Leasing und Förderung."
             : "15 kompakte Elektroautos im sachlichen Vergleich mit Preisen, technischen Daten und Modellfotos.",
       },
-      { property: "og:title", content: "Preiswerte E-Autos im Vergleich" },
+      {
+        property: "og:title",
+        content:
+          match.search.ansicht === "premium"
+            ? "GRAVEL / ELECTRIC – Euer Premium-Carfinder"
+            : "Preiswerte E-Autos im Vergleich",
+      },
       {
         property: "og:description",
         content:
-          "Ein transparenter E-Auto-Vergleich mit Preisen, Reichweite, Verbrauch, Ladezeiten und Modellfotos.",
+          match.search.ansicht === "premium"
+            ? "Persönlich für euch: Taycan Sport und Cross Turismo, BMW iX3, Volvo EX60, elektrischer GLC und i5 Touring – mit Angebotspreisen, Leasing und Förderung."
+            : "Ein transparenter E-Auto-Vergleich mit Preisen, Reichweite, Verbrauch, Ladezeiten und Modellfotos.",
       },
       { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
+      {
+        property: "og:image",
+        content: "https://warambuffet.github.io/carfinder/share/premium-recipients.png",
+      },
+      {
+        property: "og:image:alt",
+        content:
+          "Das Paar mit seinem Hund, für das dieser Premium-Carfinder zusammengestellt wurde",
+      },
+      { name: "twitter:card", content: "summary" },
+      {
+        name: "twitter:title",
+        content:
+          match.search.ansicht === "premium"
+            ? "GRAVEL / ELECTRIC – Euer Premium-Carfinder"
+            : "Preiswerte E-Autos im Vergleich",
+      },
+      {
+        name: "twitter:description",
+        content:
+          match.search.ansicht === "premium"
+            ? "Persönlich für euch: sportliche Premium-Elektroautos, Angebotspreise, Leasing und Förderung."
+            : "15 kompakte Elektroautos mit Preisen, technischen Daten und Modellfotos.",
+      },
+      {
+        name: "twitter:image",
+        content: "https://warambuffet.github.io/carfinder/share/premium-recipients.png",
+      },
     ],
   }),
   component: FinderInstance,
