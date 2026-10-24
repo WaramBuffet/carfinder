@@ -15,18 +15,26 @@ import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { vehiclePhotos, type VehiclePhoto } from "@/data/vehicle-photos";
 import { marketOffers } from "@/data/market-offers";
-type PageSearch = { ansicht: "fakten" };
+import PremiumFinder from "@/components/premium/PremiumFinder";
+type PageSearch = { ansicht: "fakten" | "premium" };
 export const Route = createFileRoute("/")({
-  validateSearch: (): PageSearch => ({
-    ansicht: "fakten",
+  validateSearch: (search: Record<string, unknown>): PageSearch => ({
+    ansicht: search["ansicht"] === "premium" ? "premium" : "fakten",
   }),
-  head: () => ({
+  head: ({ match }) => ({
     meta: [
-      { title: "Preiswerte E-Autos im Vergleich – Zahlen & Fakten" },
+      {
+        title:
+          match.search.ansicht === "premium"
+            ? "GRAVEL / ELECTRIC – Premium Carfinder"
+            : "Preiswerte E-Autos im Vergleich – Zahlen & Fakten",
+      },
       {
         name: "description",
         content:
-          "15 kompakte Elektroautos im sachlichen Vergleich mit Preisen, technischen Daten und Modellfotos.",
+          match.search.ansicht === "premium"
+            ? "Sportliche Premium-Elektroautos: Taycan Turismo, BMW iX3, Volvo EX60, elektrischer GLC und i5 Touring. Angebotsstichproben 2022–2026, Förderung und Gravel-Ausfahrten."
+            : "15 kompakte Elektroautos im sachlichen Vergleich mit Preisen, technischen Daten und Modellfotos.",
       },
       { property: "og:title", content: "Preiswerte E-Autos im Vergleich" },
       {
@@ -38,8 +46,12 @@ export const Route = createFileRoute("/")({
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
-  component: Index,
+  component: FinderInstance,
 });
+function FinderInstance() {
+  const { ansicht } = Route.useSearch();
+  return ansicht === "premium" ? <PremiumFinder /> : <Index />;
+}
 type Safety = "5 Sterne" | "4 Sterne" | "Kein aktueller Test";
 type SortKey = "rate" | "price" | "length" | "trunk";
 type Car = {
@@ -1368,6 +1380,9 @@ function Index() {
             <p className="truncate font-semibold text-base">Preiswerte E-Autos im Vergleich</p>
             <p className="text-xs text-muted-foreground">15 Modelle · Zahlen & Fakten</p>
           </div>
+          <a href="?ansicht=premium" className="text-sm font-semibold underline underline-offset-4">
+            Premium Edition · Gravel / Electric ↗
+          </a>
         </div>
       </header>
 
