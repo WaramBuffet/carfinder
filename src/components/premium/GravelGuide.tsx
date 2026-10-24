@@ -42,7 +42,12 @@ export default function GravelGuide() {
           <article>
             <Mountain size={23} />
             <div>
-              <h3>Schotter ist nicht gleich Gelände.</h3>
+              <h3>Grüner Taycan. Schotter. Staub.</h3>
+              <p>
+                Deine Beobachtung aus dem verlinkten Video: Ein grüner Taycan fährt abseits
+                befestigter Straßen durch Staub. Genau dieses Gravel-Gefühl ist die Inspiration für
+                unsere Ausfahrt-Sonderinfo.
+              </p>
               <p>
                 Vor einer Offroad-Ausfahrt Bodenfreiheit, Reifen, Unterbodenschutz und die
                 Herstellerfreigaben des konkreten Fahrzeugs prüfen. Ein Fahrmodus ersetzt weder
@@ -54,7 +59,13 @@ export default function GravelGuide() {
           <article>
             <Bike size={23} />
             <div>
-              <h3>Der richtige Träger. Für genau dieses Auto.</h3>
+              <h3>Grauer Taycan. Fahrräder am Heck.</h3>
+              <p>
+                Als zweite Szene beschreibst du einen grauen Taycan mit Fahrradheckträger — die
+                passende Idee für die Anreise zur nächsten Gravel-Runde. Welches Trägersystem
+                montiert ist und welche Last es tragen darf, lässt sich daraus allein nicht
+                ableiten.
+              </p>
               <p>
                 Vor Kauf Befestigungssystem, modellabhängige Trägerfreigabe und zulässige Gesamtlast
                 bestätigen. Bei einem Kupplungsträger zählen Trägereigengewicht und Fahrräder
@@ -69,10 +80,11 @@ export default function GravelGuide() {
             </div>
           </article>
           <p className="pf-video-review">
-            Inhaltsprüfung des verlinkten Videos noch offen: Der Abruf war gesperrt. Die Hinweise
-            hier sind eine allgemeine Kauf- und Transportcheckliste; sie werden nicht als Aussagen
-            aus dem Video ausgegeben. Zeitmarken und geprüfte Videoerkenntnisse folgen nach
-            zugänglichem Video oder Transkript.
+            Video-Motive nach deiner Beschreibung: grüner Taycan bei einer staubigen Offroad-Fahrt
+            und Fahrradheckträger am grauen Taycan. Der Videoabruf war hier gesperrt; die Szenen
+            wurden nicht unabhängig geprüft. Karosserievariante, Trägermodell, Traglast und
+            Zeitmarken sind damit nicht belegt. Die ergänzenden Prüfhinweise sind allgemeine Kauf-
+            und Transporthinweise.
           </p>
         </div>
       </div>

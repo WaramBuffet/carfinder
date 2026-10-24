@@ -58,4 +58,4 @@ Die zusätzliche Auswahl für sportliche Premium-Elektroautos öffnet sich mit `
 
 Die Premium-Auswahl umfasst Taycan Cross und Sport Turismo, die beiden iX3-Generationen, Volvo EX60, den elektrischen Mercedes GLC und BMW i5 Touring. Filter, lokale Merkliste, Kaufpreis-Stichproben nach Erstzulassung 2022–2026 und separate Neuwagen-/Leasingreferenzen teilen dieselben Fahrzeugdaten. Förderinformationen verweisen auf die BAFA-Regeln von 2026. Das Gravel-Motiv ist eine gekennzeichnete KI-Bearbeitung des Nutzerfotos.
 
-Umfang und Grenzen der Marktstichprobe sowie noch offene Video-Inhaltsprüfung: [Rechercheprotokoll](docs/premium-research-2026-10-24.md). Die Preiszahlen sind keine repräsentative Vollerhebung. Das Video wird erst nach bewusstem Klick eingebettet.
+Umfang und Grenzen der Marktstichprobe sowie die Herkunft der beschriebenen Videoszenen: [Rechercheprotokoll](docs/premium-research-2026-10-24.md). Die Preiszahlen sind keine repräsentative Vollerhebung. Das Video wird erst nach bewusstem Klick eingebettet.
