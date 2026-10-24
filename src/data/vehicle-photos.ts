@@ -155,12 +155,12 @@ export const vehiclePhotos = {
   },
   "hyundai-ioniq-3": {
     src: photo14,
-    alt: "Roter Hyundai IONIQ 3 N Line – Herstelleraufnahme",
-    author: "© Hyundai Motor Company",
-    license: "Redaktionelle Nutzung",
-    licenseUrl: "https://www.hyundai.news/eu/terms-of-use.html",
+    alt: "Innenraum des Hyundai IONIQ 3 N Line beim Autosalon Sindelfingen 2026",
+    author: "Alexander Migl",
+    license: "CC BY-SA 4.0",
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0",
     source:
-      "https://www.hyundai.news/eu/articles/press-releases/ioniq-3-unveil-milan-design-week-2026/images.html",
-    note: "Foto zeigt N Line; verglichen wird Trend. Nur redaktionelle Nutzung.",
+      "https://commons.wikimedia.org/wiki/File:Hyundai_Ioniq_3_N_Line_Sindelfingen_2026_IMG_8255.jpg",
+    note: "Foto zeigt N Line; verglichen wird Trend. Frei lizenzierte Innenraumaufnahme; Ausstattung kann abweichen.",
   },
 } satisfies Record<string, VehiclePhoto>;

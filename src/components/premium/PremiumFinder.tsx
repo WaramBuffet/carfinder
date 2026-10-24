@@ -32,6 +32,8 @@ import {
   leaseExamples,
 } from "@/data/premium-research";
 import GravelGuide from "./GravelGuide";
+import PhotoCredit from "./PhotoCredit";
+import { premiumPhotos } from "@/data/premium-photos";
 import gravelPhoto from "@/assets/premium/gravel-friends.png";
 import "./premium.css";
 
@@ -225,19 +227,38 @@ export default function PremiumFinder() {
                 </span>
               </div>
             </div>
-            <div className="pf-hero-visual">
-              <span className="pf-orbit pf-orbit-one" />
-              <span className="pf-orbit pf-orbit-two" />
-              <span className="pf-visual-text">
-                BEYOND
-                <br />
-                THE ORDINARY.
-              </span>
-              <CarDrawing car={heroCar} hero />
+            <div
+              className={`pf-hero-visual ${premiumPhotos[heroCar.id] ? "pf-hero-has-photo" : ""}`}
+            >
+              {premiumPhotos[heroCar.id] ? (
+                <img
+                  className="pf-hero-photo"
+                  src={premiumPhotos[heroCar.id]!.src}
+                  alt={premiumPhotos[heroCar.id]!.alt}
+                  width="1280"
+                  height="634"
+                  fetchPriority="high"
+                />
+              ) : (
+                <>
+                  <span className="pf-orbit pf-orbit-one" />
+                  <span className="pf-orbit pf-orbit-two" />
+                  <span className="pf-visual-text">
+                    BEYOND
+                    <br />
+                    THE ORDINARY.
+                  </span>
+                  <CarDrawing car={heroCar} hero />
+                </>
+              )}
               <div className="pf-visual-caption">
                 <span>01 / UNSER GRAVEL-FAVORIT</span>
                 <strong>Porsche Taycan Cross Turismo</strong>
-                <small>Stilisierte Illustration · kein Modellfoto</small>
+                {premiumPhotos[heroCar.id] ? (
+                  <PhotoCredit photo={premiumPhotos[heroCar.id]!} />
+                ) : (
+                  <small>Stilisierte Illustration · kein Modellfoto</small>
+                )}
               </div>
               <span className="pf-visual-mark">↗</span>
             </div>
@@ -310,7 +331,7 @@ export default function PremiumFinder() {
           <div className="pf-cards">
             {cars.map((car) => (
               <article key={car.id} className="pf-card" id={`premium-${car.id}`}>
-                <div className="pf-card-visual">
+                <div className={`pf-card-visual ${premiumPhotos[car.id] ? "pf-has-photo" : ""}`}>
                   <span className="pf-car-type">
                     {car.body === "SUV" ? "ELECTRIC SUV" : "ELECTRIC SPORT WAGON"}
                   </span>
@@ -322,15 +343,27 @@ export default function PremiumFinder() {
                   >
                     <Flag size={17} fill={saved.includes(car.id) ? "currentColor" : "none"} />
                   </button>
-                  <CarDrawing car={car} />
+                  {premiumPhotos[car.id] ? (
+                    <img
+                      className="pf-model-photo"
+                      src={premiumPhotos[car.id]!.src}
+                      alt={premiumPhotos[car.id]!.alt}
+                      loading="lazy"
+                      width="1200"
+                      height="800"
+                    />
+                  ) : (
+                    <CarDrawing car={car} />
+                  )}
                   {car.gravel && (
                     <span className="pf-gravel-tag">
                       <Mountain size={12} /> GRAVEL PICK
                     </span>
                   )}
-                  <small>Stilisierte Illustration</small>
+                  {!premiumPhotos[car.id] && <small>Stilisierte Illustration</small>}
                 </div>
                 <div className="pf-card-content">
+                  {premiumPhotos[car.id] && <PhotoCredit photo={premiumPhotos[car.id]!} />}
                   <span className="pf-card-brand">{car.brand}</span>
                   <h3>{car.model}</h3>
                   <p className="pf-character">{car.character}</p>

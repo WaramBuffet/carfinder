@@ -37,7 +37,7 @@ Freunde können nach FAQ 5.8 bevollmächtigt werden, einen Antrag einzureichen; 
 
 ## Foto und Video
 
-Das Gravel-Banner nutzt eine KI-bearbeitete Fassung des vom Nutzer gelieferten Displayfotos, sichtbar gekennzeichnet. Die erste verworfene Bildgenerierung wird nicht verwendet. Modellkarten zeigen eigene stilisierte SVG-Zeichnungen und sind als Illustrationen beschriftet, keine Modellfotos.
+Das Gravel-Banner nutzt eine KI-bearbeitete Fassung des vom Nutzer gelieferten Displayfotos, sichtbar gekennzeichnet. Die erste verworfene Bildgenerierung wird nicht verwendet. Seit der Fotoergänzung zeigen alle sieben Premium-Modellkarten echte, frei lizenzierte Wikimedia-Fotos. Quelle, Urheber und Lizenz stehen direkt am Bild; Variantenabweichungen sind genannt. Bildnachweise und Prüfsummen: [Premium-Fotonachweise](../src/assets/premium/photos/README.md). Stilisierte SVG-Zeichnungen bleiben nur als Fallback für künftige Fahrzeuge ohne freies Foto erhalten.
 
 [Gewünschtes Video](https://www.youtube.com/watch?v=m0793euQNL8): Einbettung nur nach Klick über youtube-nocookie.com. Der Nutzer hat die gewünschten Motive konkretisiert: ein grüner Taycan bei einer staubigen Offroad-Fahrt und ein Fahrradheckträger am grauen Taycan. Diese Beobachtungen sind mit klarer Nutzerattribution in der Sonderinfo integriert. Der Videoabruf war gesperrt; keine unabhängige Bestätigung, keine erfundenen Zeitmarken, Karosserievarianten, Trägermodelle oder Traglasten. Die anschließenden technischen Prüfhinweise sind allgemeine Kauf-/Transporthinweise. Weitere Angaben sind für diese redaktionelle Ergänzung nicht erforderlich.
 

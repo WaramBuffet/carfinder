@@ -1,10 +1,10 @@
 # Fahrzeugfotos und Nutzungsrechte
 
-Stand: 03.10.2026. Die Fotos sind lokal eingebunden, ohne externe Bildanfragen. Quellen, ursprüngliche Metadaten und SHA-256-Prüfsummen stehen in `manifest.json`; sichtbare Credits stammen aus `src/data/vehicle-photos.ts`.
+Stand: 24.10.2026 (IONIQ 3 aktualisiert; übrige Aufnahmen vom 03.10.2026). Die Fotos sind lokal eingebunden, ohne externe Bildanfragen. Quellen, ursprüngliche Metadaten und SHA-256-Prüfsummen stehen in `manifest.json`; sichtbare Credits stammen aus `src/data/vehicle-photos.ts`.
 
 Wikimedia-Fotos wurden als verkleinerte Vorschaudateien übernommen. Die Galerie zeigt das vollständige Bild; ein Titelbild mit Ausschnitt oder Textüberlagerung wird seit Entfernung der Ansicht „Mit Gefühl“ nicht mehr verwendet. Bei CC BY-SA stehen auch diese Bilddarstellungen unter derselben Bildlizenz. Die Bildlizenzen gelten jeweils nur für das betreffende Bild, nicht pauschal für den Quellcode.
 
-Die IONIQ-3-Herstelleraufnahme ist **nicht frei lizenziert**: Hyundai gestattet die redaktionelle öffentliche Verwendung über das Internet (Newsroom-Nutzungsbedingungen, Artikel 1–2), untersagt Werbung/Promotion und erteilt kein Unterlizenzrecht. Dieses Projekt verwendet sie ausschließlich im redaktionellen Modellvergleich. Copyright- und Markenhinweise bleiben erhalten. Bei anderweitiger Wiederverwendung diese Bedingungen gesondert beachten. Die Aufnahme zeigt N Line statt Trend.
+Alle 15 aktuell verwendeten Fotos sind frei lizenziert (CC0, CC BY oder CC BY-SA). Die bisherige nur redaktionell freigegebene Hyundai-Herstelleraufnahme wurde am 24.10.2026 durch ein eigenes Wikimedia-Foto von Alexander Migl unter CC BY-SA 4.0 ersetzt. Es zeigt den Innenraum des IONIQ 3 N Line beim Autosalon Sindelfingen 2026; verglichen wird weiterhin Trend. Namensnennung, Quellen- und Lizenzlinks stehen sichtbar an den Bildern.
 
 ## Nachweise
 
@@ -22,8 +22,8 @@ Die IONIQ-3-Herstelleraufnahme ist **nicht frei lizenziert**: Hyundai gestattet 
 - **fiat-600e** — Fiat 600e.jpg; Alexander-93; [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0); [Quelle](https://commons.wikimedia.org/wiki/File:Fiat_600e.jpg). Ausstattung und Modelljahr nicht als exakte Vergleichsvariante bestätigt.
 - **renault-4** — Renault-4-E-Tech-electric-2025-rouge-carmin-01-byRundvald.jpg; Rundvald; [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0); [Quelle](https://commons.wikimedia.org/wiki/File:Renault-4-E-Tech-electric-2025-rouge-carmin-01-byRundvald.jpg). Ausstattung und Modelljahr nicht als exakte Vergleichsvariante bestätigt.
 - **dacia-spring** — 2024 Dacia Spring DSC 7937.jpg; Alexander Migl; [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0); [Quelle](https://commons.wikimedia.org/wiki/File:2024_Dacia_Spring_DSC_7937.jpg). Foto zeigt das Modell ab 2024; Vergleich: Modelljahr 2026.
-- **hyundai-ioniq-3** — Hyundai IONIQ 3 unveil 0426 exterior 01; © Hyundai Motor Company; [Redaktionelle Nutzung](https://www.hyundai.news/eu/terms-of-use.html); [Quelle](https://www.hyundai.news/eu/articles/press-releases/ioniq-3-unveil-milan-design-week-2026/images.html). Foto zeigt N Line; verglichen wird Trend. Nur redaktionelle Nutzung.
+- **hyundai-ioniq-3** — Hyundai Ioniq 3 N Line Sindelfingen 2026 IMG 8255.jpg; Alexander Migl; [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0); [Quelle](https://commons.wikimedia.org/wiki/File:Hyundai_Ioniq_3_N_Line_Sindelfingen_2026_IMG_8255.jpg). Innenraumaufnahme. Foto zeigt N Line; verglichen wird Trend.
 
 ## Nicht verwendete Quelle
 
-Die Wikimedia-Screenshots des IONIQ 3 nennen eine CC-BY-3.0-YouTube-Lizenz vor August 2025 trotz Aufnahmedatum April 2026. Deshalb wurden sie nicht übernommen; stattdessen gilt die direkte redaktionelle Freigabe des Hyundai Newsrooms.
+Die Wikimedia-Screenshots des IONIQ 3 nennen eine CC-BY-3.0-YouTube-Lizenz vor August 2025 trotz Aufnahmedatum April 2026. Deshalb wurden sie nicht übernommen. Zunächst wurde die redaktionell freigegebene Hyundai-Aufnahme verwendet; seit 24.10.2026 ersetzt sie die frei lizenzierte eigene Aufnahme vom Autosalon Sindelfingen (aufgenommen und hochgeladen am 17.10.2026).

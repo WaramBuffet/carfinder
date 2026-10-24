@@ -43,13 +43,15 @@ describe("Fahrzeugvergleich", () => {
     expect(new Set(images.map((image) => image.src)).size).toBe(15);
     expect(images.every((image) => image.alt.length > 10)).toBe(true);
     expect(gallery.querySelectorAll('a[href*="commons.wikimedia.org/wiki/File:"]')).toHaveLength(
-      14,
+      15,
     );
     expect(gallery).toHaveTextContent("Foto zeigt N Line; verglichen wird Trend");
     expect(gallery).toHaveTextContent("Foto zeigt Aceman S; verglichen wird Aceman E");
+    const ioniq = gallery.querySelector("#car-hyundai-ioniq-3")!;
+    expect(ioniq).toHaveTextContent("Innenraumaufnahme");
     expect(
-      gallery.querySelector('a[href="https://www.hyundai.news/eu/terms-of-use.html"]'),
-    ).toHaveTextContent("Redaktionelle Nutzung");
+      ioniq.querySelector('a[href="https://creativecommons.org/licenses/by-sa/4.0"]'),
+    ).toHaveTextContent("CC BY-SA 4.0");
   });
   it("vereint Fotos und technische Daten ohne Ladefenster gleichzusetzen", async () => {
     const { container } = await renderAt();

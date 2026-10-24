@@ -1258,14 +1258,90 @@
     }
   },
   "hyundai-ioniq-3": {
-    "title": "Hyundai IONIQ 3 unveil 0426 exterior 01",
-    "author": "© Hyundai Motor Company",
-    "license": "Redaktionelle Nutzung",
-    "licenseUrl": "https://www.hyundai.news/eu/terms-of-use.html",
-    "source": "https://www.hyundai.news/eu/articles/press-releases/ioniq-3-unveil-milan-design-week-2026/images.html",
-    "download": "https://dmassets.hyundai.com/is/image/hyundaiautoever/hyundai-ioniq-3-unveil-0426-exterior-01?wid=1024&bfc=off",
-    "sha256": "8b04831a862b1dbcea7a652092a206504a89cf1b21d3fa10ecbcbb46865e9580",
-    "retrieved": "2026-10-03",
-    "restriction": "Nur redaktionelle Verwendung gemäß Hyundai Newsroom Art. 1–2; keine Werbung oder allgemeine freie Bildlizenz. Kein Unterlizenzrecht. Copyright und Marken erhalten."
+    "title": "Hyundai Ioniq 3 N Line Sindelfingen 2026 IMG 8255.jpg",
+    "author": "Alexander Migl",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "source": "https://commons.wikimedia.org/wiki/File:Hyundai_Ioniq_3_N_Line_Sindelfingen_2026_IMG_8255.jpg",
+    "download": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/Hyundai_Ioniq_3_N_Line_Sindelfingen_2026_IMG_8255.jpg/1280px-Hyundai_Ioniq_3_N_Line_Sindelfingen_2026_IMG_8255.jpg",
+    "original": "https://upload.wikimedia.org/wikipedia/commons/1/18/Hyundai_Ioniq_3_N_Line_Sindelfingen_2026_IMG_8255.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+    "sha256": "d71f554acf8cc6701ae615503daef1bfd9cf4c2ebfae7272d56024c933b99df5",
+    "retrieved": "2026-10-24",
+    "metadata": {
+      "DateTime": {
+        "value": "2026-10-17 15:16:51",
+        "source": "mediawiki-metadata",
+        "hidden": ""
+      },
+      "ObjectName": {
+        "value": "Hyundai Ioniq 3 N Line Sindelfingen 2026 IMG 8255",
+        "source": "mediawiki-metadata"
+      },
+      "CommonsMetadataExtension": {
+        "value": 1.2,
+        "source": "extension",
+        "hidden": ""
+      },
+      "Categories": {
+        "value": "Uploaded with pattypan|Hyundai Ioniq 3 N Line|User Alexander Migl - Autosalon Sindelfingen 2026",
+        "source": "commons-categories",
+        "hidden": ""
+      },
+      "Assessments": {
+        "value": "",
+        "source": "commons-categories",
+        "hidden": ""
+      },
+      "ImageDescription": {
+        "value": "Hyundai_Ioniq_3_N_Line at Autosalon Sindelfingen 2026",
+        "source": "commons-desc-page"
+      },
+      "DateTimeOriginal": {
+        "value": "2026-10-17 10:31",
+        "source": "commons-desc-page"
+      },
+      "Credit": {
+        "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+        "source": "commons-desc-page"
+      },
+      "Artist": {
+        "value": "<a href=\"//commons.wikimedia.org/wiki/User:Alexander-93\" title=\"User:Alexander-93\">Alexander Migl</a>",
+        "source": "commons-desc-page"
+      },
+      "LicenseShortName": {
+        "value": "CC BY-SA 4.0",
+        "source": "commons-desc-page",
+        "hidden": ""
+      },
+      "UsageTerms": {
+        "value": "Creative Commons Attribution-Share Alike 4.0",
+        "source": "commons-desc-page"
+      },
+      "AttributionRequired": {
+        "value": "true",
+        "source": "commons-desc-page",
+        "hidden": ""
+      },
+      "LicenseUrl": {
+        "value": "https://creativecommons.org/licenses/by-sa/4.0",
+        "source": "commons-desc-page"
+      },
+      "Copyrighted": {
+        "value": "True",
+        "source": "commons-desc-page",
+        "hidden": ""
+      },
+      "Restrictions": {
+        "value": "",
+        "source": "commons-desc-page",
+        "hidden": ""
+      },
+      "License": {
+        "value": "cc-by-sa-4.0",
+        "source": "commons-templates",
+        "hidden": ""
+      }
+    },
+    "note": "Innenraumaufnahme, N Line statt Trend; keine lokale Bildbearbeitung."
   }
 }

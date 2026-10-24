@@ -3,6 +3,7 @@ import { createMemoryHistory, createRouter, RouterProvider } from "@tanstack/rea
 import { cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 import { routeTree } from "@/routeTree.gen";
+import { premiumPhotos } from "@/data/premium-photos";
 import {
   marketListings,
   premiumCars,
@@ -34,6 +35,24 @@ describe("Premium instance", () => {
     expect(marketListings.length).toBeGreaterThan(200);
     expect(screen.getByText(/öffentlich sichtbare Kauf-Inserate erfasst/)).toBeInTheDocument();
     expect(container.querySelectorAll(".pf-source-grid a")).toHaveLength(5);
+  });
+  it("shows a distinct licensed model photo and visible attribution for every premium vehicle", async () => {
+    const { container } = await openPremium();
+    expect(container.querySelectorAll(".pf-card-visual img")).toHaveLength(7);
+    expect(new Set(premiumCars.map((car) => premiumPhotos[car.id]?.src)).size).toBe(7);
+    for (const car of premiumCars) {
+      const photo = premiumPhotos[car.id]!;
+      const card = container.querySelector(`#premium-${car.id}`)!;
+      expect(card.querySelector("img")).toHaveAttribute("alt", photo.alt);
+      expect(card.querySelector(`a[href="${photo.source}"]`)).toHaveTextContent(photo.author);
+      expect(card.querySelector(`a[href="${photo.licenseUrl}"]`)).toHaveTextContent(photo.license);
+      expect(photo.source).toMatch(/^https:\/\/commons\.wikimedia\.org\/wiki\/File:/);
+      expect(["CC BY-SA 4.0", "CC0"]).toContain(photo.license);
+    }
+    expect(container.querySelector("#premium-taycan-sport")).toHaveTextContent(
+      "GTS Sport Turismo von 2022",
+    );
+    expect(container.querySelector("#premium-ix3-g08")).toHaveTextContent("nicht die Neue Klasse");
   });
   it("filters body styles, saves a vehicle, and resets filters", async () => {
     const { container } = await openPremium();

@@ -44,7 +44,7 @@ Der ursprüngliche Schnäppchenvergleich stammt laut Nutzer von GoLeasy und Leas
 
 ## Fahrzeugfotos
 
-Die Webseite zeigt seit 03.10.2026 modellbezogene Aufnahmen für jedes der 15 Modelle: 14 frei lizenzierte Wikimedia-Fotos sowie eine für redaktionelle Nutzung freigegebene Hyundai-Herstelleraufnahme des IONIQ 3. Urheber, Quelle und Lizenz sind unmittelbar bei den Bildern verlinkt; abweichende Ausstattungen werden gekennzeichnet. Details und Wiederverwendungsbedingungen: [Bildnachweise](src/assets/vehicles/README.md). Die ursprünglichen Lovable-Illustrationen bleiben im Migrationsarchiv erhalten.
+Die kompakte Auswahl zeigt modellbezogene Aufnahmen für alle 15 Modelle. Seit 24.10.2026 sind alle Fotos frei lizenzierte Wikimedia-Aufnahmen; beim IONIQ 3 ersetzt eine Innenraumaufnahme die bisherige nur redaktionell freigegebene Herstelleraufnahme. Urheber, Quelle und Lizenz sind unmittelbar bei den Bildern verlinkt; abweichende Ausstattungen werden gekennzeichnet. Details und Wiederverwendungsbedingungen: [Bildnachweise](src/assets/vehicles/README.md). Die ursprünglichen Lovable-Illustrationen bleiben im Migrationsarchiv erhalten.
 
 Die frühere Ansicht „Mit Gefühl“ und der Umschalter wurden entfernt. Alte Links mit `?ansicht=gefuehl` zeigen jetzt ebenfalls die Faktenansicht.
 
@@ -59,3 +59,5 @@ Die zusätzliche Auswahl für sportliche Premium-Elektroautos öffnet sich mit `
 Die Premium-Auswahl umfasst Taycan Cross und Sport Turismo, die beiden iX3-Generationen, Volvo EX60, den elektrischen Mercedes GLC und BMW i5 Touring. Filter, lokale Merkliste, Kaufpreis-Stichproben nach Erstzulassung 2022–2026 und separate Neuwagen-/Leasingreferenzen teilen dieselben Fahrzeugdaten. Förderinformationen verweisen auf die BAFA-Regeln von 2026. Das Gravel-Motiv ist eine gekennzeichnete KI-Bearbeitung des Nutzerfotos.
 
 Umfang und Grenzen der Marktstichprobe sowie die Herkunft der beschriebenen Videoszenen: [Rechercheprotokoll](docs/premium-research-2026-10-24.md). Die Preiszahlen sind keine repräsentative Vollerhebung. Das Video wird erst nach bewusstem Klick eingebettet.
+
+Für alle sieben Premium-Fahrzeugvarianten sind ebenfalls frei lizenzierte Modellfotos integriert: sechs unter CC BY-SA 4.0 und eines unter CC0. Urheber, Quellen, Lizenzen und Variantenhinweise stehen direkt an den Bildern. [Bildnachweise der Premium Edition](src/assets/premium/photos/README.md).
