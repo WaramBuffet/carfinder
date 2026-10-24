@@ -33,8 +33,10 @@ import {
 } from "@/data/premium-research";
 import GravelGuide from "./GravelGuide";
 import PhotoCredit from "./PhotoCredit";
+import RecipientsWelcome from "./RecipientsWelcome";
 import { premiumPhotos } from "@/data/premium-photos";
 import gravelPhoto from "@/assets/premium/gravel-friends.png";
+import recipientPhoto from "../../../mfl_25925_pic.png";
 import "./premium.css";
 
 function CarDrawing({ car, hero = false }: { car: PremiumCar; hero?: boolean }) {
@@ -197,6 +199,7 @@ export default function PremiumFinder() {
         </a>
       </header>
       <main>
+        <RecipientsWelcome photoSrc={recipientPhoto} />
         <section className="pf-hero">
           <div className="pf-hero-top">
             <span className="pf-kicker">

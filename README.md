@@ -61,3 +61,5 @@ Die Premium-Auswahl umfasst Taycan Cross und Sport Turismo, die beiden iX3-Gener
 Umfang und Grenzen der Marktstichprobe sowie die Herkunft der beschriebenen Videoszenen: [Rechercheprotokoll](docs/premium-research-2026-10-24.md). Die Preiszahlen sind keine repräsentative Vollerhebung. Das Video wird erst nach bewusstem Klick eingebettet.
 
 Für alle sieben Premium-Fahrzeugvarianten sind ebenfalls frei lizenzierte Modellfotos integriert: sechs unter CC BY-SA 4.0 und eines unter CC0. Urheber, Quellen, Lizenzen und Variantenhinweise stehen direkt an den Bildern. [Bildnachweise der Premium Edition](src/assets/premium/photos/README.md).
+
+Die Premium Edition beginnt mit einer persönlichen Begrüßung für das empfangende Paar und dem unveränderten Nutzerfoto `mfl_25925_pic.png`. Das persönliche Foto gehört nicht zu den frei lizenzierten Fahrzeugaufnahmen; dafür wird keine freie Bildlizenz behauptet.
