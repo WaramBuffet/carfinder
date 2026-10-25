@@ -211,7 +211,7 @@ const cars: Car[] = [
     delivery: null,
     length: 2.746,
     trunk: "305 l",
-    trunkFolded: "527 l max. (Zweisitzer ohne Rückbank)",
+    trunkFolded: "527 l (Zweisitzer ohne Rückbank)",
     trunkFoldedValue: 527,
     safety: "Kein aktueller Test",
     safetyNote: "Noch kein Euro-NCAP-Test für smart #2",
