@@ -40,7 +40,7 @@ describe("Fahrzeugvergleich", () => {
     const gallery = container.querySelector("#fotos")!;
     const images = Array.from(gallery.querySelectorAll("img"));
     expect(images).toHaveLength(16);
-    expect(new Set(images.map((image) => image.src)).size).toBe(15);
+    expect(new Set(images.map((image) => image.src)).size).toBe(16);
     expect(images.every((image) => image.alt.length > 10)).toBe(true);
     expect(gallery.querySelectorAll('a[href*="commons.wikimedia.org/wiki/File:"]')).toHaveLength(
       15,
@@ -84,7 +84,7 @@ describe("Fahrzeugvergleich", () => {
     expect(smart).toHaveTextContent("10.000 km/Jahr");
     expect(smart).toHaveTextContent("Stichprobe n=0");
     expect(smart).toHaveTextContent("unsicher");
-    expect(smart).toHaveTextContent("2,75 m");
+    expect(smart).toHaveTextContent("2,746 m");
     expect(smart).toHaveTextContent("305 l");
     expect(smart).toHaveTextContent("527 l");
     expect(smart).toHaveTextContent("Noch kein Euro-NCAP-Test");
