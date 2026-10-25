@@ -35,7 +35,7 @@ describe("Statische Vorschau für Messenger", () => {
   it.each(["fakten", "premium"])("leitet die Vorschauseite %s browserseitig weiter", (mode) => {
     const html = readFileSync(resolve(process.cwd(), `public/${mode}/index.html`), "utf8");
     expect(html).toContain(`new URL("../?ansicht=${mode}", current)`);
-    expect(html).toContain('destination.searchParams.append(key, value)');
-    expect(html).toContain('destination.hash = current.hash');
+    expect(html).toContain("destination.searchParams.append(key, value)");
+    expect(html).toContain("destination.hash = current.hash");
   });
 });
