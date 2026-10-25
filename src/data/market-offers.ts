@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 // Public leasing observations checked on 25.10.2026. Rates are not delivery promises.
 // Normalized rates assume exactly EUR 5,000 actually available EV support.
 // Transfer / provision costs are always shown separately and are never spread over the monthly rate.
