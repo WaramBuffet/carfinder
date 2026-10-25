@@ -22,6 +22,20 @@ export type MarketOffer = {
 const q = (brand: string, model: string) =>
   `https://www.goleasy.de/leasing/marken/${brand}/${model}?sort=preis-aufsteigend&vertragstyp=privat&min_laufzeit=36&max_laufzeit=36&min_fahrleistung=5000&max_fahrleistung=5000`;
 export const marketOffers: Record<string, MarketOffer> = {
+  "smart-2": {
+    url: q("smart", "2"),
+    previousRate: null,
+    rate: 151.63,
+    normalizedRate: 179.41,
+    months: 36,
+    kmPerYear: 10000,
+    transfer: 990,
+    delivery: "Bestellfahrzeug; Markteinführung 2027, keine verlässliche Lieferzeit im Inserat",
+    deliverySample: 0,
+    deliveryUncertain: true,
+    grantNote: "GoLeasy rechnet 6.000 € Förderung ein; Vergleichswert für 5.000 €: 151,63 € + 1.000 €/36. Nur Förderannahme, keine garantierte Bewilligung. 10.000 statt 5.000 km/Jahr.",
+    variant: "smart #2 Pure · 35,8 kWh · 82 PS; Homologation noch offen",
+  },
   "leapmotor-t03": { url:q("leapmotor","t03"), previousRate:34.22, rate:118.86, normalizedRate:63.30, months:36, kmPerYear:5000, transfer:1390, delivery:"Median 4,1 Monate", deliveryMedianMonths:4.1, deliverySample:5, grantNote:"3.000 € Förderung im beobachteten Angebot; auf 5.000 € normiert.", variant:"T03 BEV 37 kWh Design" },
   "citroen-e-c3": { url:q("citroen","e-c3"), previousRate:96.78, delivery:"Keine belastbare Stichprobe", deliverySample:0, deliveryUncertain:true, grantNote:"Kein ausreichend verifiziertes aktuelles Neuwagen-Privatangebot für eine seriöse Förder-Normierung." },
   "kia-ev2": { url:q("kia","ev2"), previousRate:106.44, rate:99, normalizedRate:126.78, months:36, kmPerYear:5000, transfer:1390, delivery:"Median 3,0 Monate", deliveryMedianMonths:3, deliverySample:5, grantNote:"6.000 € Förderung im Angebot; auf 5.000 € normiert.", variant:"EV2 Air 42,2 kWh" },
