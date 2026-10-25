@@ -92,10 +92,10 @@ describe("Fahrzeugvergleich", () => {
     fireEvent.change(screen.getByLabelText("Sortierung"), { target: { value: "rate" } });
     fireEvent.change(screen.getByLabelText("Richtung"), { target: { value: "desc" } });
     const rows = container.querySelectorAll("#fotos > article");
-    expect(rows[0]).toHaveAttribute("id", "car-citroen-e-c3");
+    expect(rows[0]).toHaveAttribute("id", "car-renault-4");
     expect(rows[1]).toHaveAttribute("id", "car-renault-5");
-    expect(rows[2]).toHaveAttribute("id", "car-hyundai-inster");
-    expect(rows[3]).toHaveAttribute("id", "car-renault-twingo");
+    expect(rows[2]).toHaveAttribute("id", "car-fiat-600e");
+    expect(rows[3]).toHaveAttribute("id", "car-hyundai-ioniq-3");
     expect(rows[14]).toHaveAttribute("id", "car-dacia-spring");
     expect(screen.getByLabelText("Richtung")).toHaveValue("desc");
     fireEvent.change(screen.getByLabelText("Richtung"), { target: { value: "asc" } });
