@@ -26,20 +26,20 @@ afterEach(() => {
 });
 
 describe("Fahrzeugvergleich", () => {
-  it("öffnet Fakten und zeigt alle 15 Fahrzeuge auch unter dem Pages-Unterpfad", async () => {
+  it("öffnet Fakten und zeigt alle 16 Fahrzeuge auch unter dem Pages-Unterpfad", async () => {
     const { container } = await renderAt("/carfinder/?ansicht=fakten", "/carfinder/");
     expect(
       await screen.findByRole("heading", { name: "E-Autos klar und nachvollziehbar vergleichen" }),
     ).toBeInTheDocument();
-    expect(container.querySelectorAll("#fotos > article")).toHaveLength(15);
-    expect(screen.getAllByRole("link", { name: "Offizielle Herstellerseite" })).toHaveLength(15);
+    expect(container.querySelectorAll("#fotos > article")).toHaveLength(16);
+    expect(screen.getAllByRole("link", { name: "Offizielle Herstellerseite" })).toHaveLength(16);
   });
   it("zeigt unterschiedliche Modellaufnahmen mit Bildnachweisen und Variantenhinweisen", async () => {
     const { container } = await renderAt();
     await screen.findByRole("heading", { name: "Fotos und Fakten auf einen Blick" });
     const gallery = container.querySelector("#fotos")!;
     const images = Array.from(gallery.querySelectorAll("img"));
-    expect(images).toHaveLength(15);
+    expect(images).toHaveLength(16);
     expect(new Set(images.map((image) => image.src)).size).toBe(15);
     expect(images.every((image) => image.alt.length > 10)).toBe(true);
     expect(gallery.querySelectorAll('a[href*="commons.wikimedia.org/wiki/File:"]')).toHaveLength(
@@ -72,7 +72,25 @@ describe("Fahrzeugvergleich", () => {
     expect(container.querySelector("#car-citroen-e-c3")).toHaveTextContent("25.950");
     expect(container.querySelector("#car-leapmotor-t03")).toHaveTextContent("275 km");
     expect(container.querySelector("#car-kia-ev2")).toHaveTextContent("5★ Euro NCAP (2026)");
-    expect(screen.getAllByText("Variante & Quellen", { exact: true })).toHaveLength(15);
+    expect(screen.getAllByText("Variante & Quellen", { exact: true })).toHaveLength(16);
+  });
+  it("zeigt den neuen smart #2, korrekte Daten und die Widmung", async () => {
+    const { container } = await renderAt();
+    await screen.findByLabelText("Hersteller");
+    const smart = container.querySelector("#car-smart-2")!;
+    expect(smart).toHaveTextContent("19.990");
+    expect(smart).toHaveTextContent("179,41");
+    expect(smart).toHaveTextContent("990,00");
+    expect(smart).toHaveTextContent("10.000 km/Jahr");
+    expect(smart).toHaveTextContent("Stichprobe n=0");
+    expect(smart).toHaveTextContent("unsicher");
+    expect(smart).toHaveTextContent("2,75 m");
+    expect(smart).toHaveTextContent("305 l");
+    expect(smart).toHaveTextContent("527 l");
+    expect(smart).toHaveTextContent("Noch kein Euro-NCAP-Test");
+    expect(container).toHaveTextContent("Marie-Thérèse");
+    expect(container).toHaveTextContent("90562 Heroldsberg");
+    expect(container).toHaveTextContent("Marktstand 25.10.2026");
   });
   it("kombiniert Hersteller und Sicherheit und kann leere Filter zurücksetzen", async () => {
     const { container } = await renderAt();
@@ -82,7 +100,7 @@ describe("Fahrzeugvergleich", () => {
     expect(container.querySelectorAll("#fotos > article")).toHaveLength(0);
     expect(container.querySelectorAll("#fotos img")).toHaveLength(0);
     fireEvent.click(screen.getByRole("button", { name: "Filter zurücksetzen" }));
-    expect(container.querySelectorAll("#fotos > article")).toHaveLength(15);
+    expect(container.querySelectorAll("#fotos > article")).toHaveLength(16);
     fireEvent.change(screen.getByLabelText("Hersteller"), { target: { value: "MINI" } });
     expect(container.querySelectorAll("#fotos img")).toHaveLength(2);
   });
@@ -95,8 +113,8 @@ describe("Fahrzeugvergleich", () => {
     expect(rows[0]).toHaveAttribute("id", "car-renault-4");
     expect(rows[1]).toHaveAttribute("id", "car-renault-5");
     expect(rows[2]).toHaveAttribute("id", "car-fiat-600e");
-    expect(rows[3]).toHaveAttribute("id", "car-hyundai-ioniq-3");
-    expect(rows[14]).toHaveAttribute("id", "car-dacia-spring");
+    expect(rows[3]).toHaveAttribute("id", "car-smart-2");
+    expect(rows[15]).toHaveAttribute("id", "car-dacia-spring");
     expect(screen.getByLabelText("Richtung")).toHaveValue("desc");
     fireEvent.change(screen.getByLabelText("Richtung"), { target: { value: "asc" } });
     expect(container.querySelector("#fotos > article")).toHaveAttribute(
@@ -124,7 +142,7 @@ describe("Fahrzeugvergleich", () => {
     expect(container.querySelector("#car-fiat-grande-panda")).toHaveTextContent(
       "5.000 € Sonderzahlung",
     );
-    expect(container.querySelectorAll('a[href*="goleasy.de/leasing/marken/"]')).toHaveLength(15);
+    expect(container.querySelectorAll('a[href*="goleasy.de/leasing/marken/"]')).toHaveLength(16);
     expect(container).toHaveTextContent("Auf 5.000 € Förderung normiert");
   });
   it.each(["gefuehl", "unbekannt"])(
@@ -141,7 +159,7 @@ describe("Fahrzeugvergleich", () => {
       expect(screen.queryByRole("button", { name: "Mit Gefühl" })).not.toBeInTheDocument();
       expect(screen.queryByRole("button", { name: "Zahlen & Fakten" })).not.toBeInTheDocument();
       expect(container.querySelector(".mode-emotional")).toBeNull();
-      expect(container.querySelectorAll("#fotos > article")).toHaveLength(15);
+      expect(container.querySelectorAll("#fotos > article")).toHaveLength(16);
     },
   );
   it("öffnet einen Fahrzeugdirektlink direkt auf der gemeinsamen Fotokarte", async () => {
@@ -168,7 +186,7 @@ describe("Fahrzeugvergleich", () => {
     expect(
       await screen.findByRole("heading", { name: "E-Autos klar und nachvollziehbar vergleichen" }),
     ).toBeInTheDocument();
-    expect(container.querySelectorAll("#fotos > article")).toHaveLength(15);
+    expect(container.querySelectorAll("#fotos > article")).toHaveLength(16);
   });
   it("rendert eine deutsche Fehlerseite für unbekannte Routen", async () => {
     vi.spyOn(console, "warn").mockImplementation(() => undefined);
