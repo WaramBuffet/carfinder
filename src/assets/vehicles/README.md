@@ -1,10 +1,10 @@
 # Fahrzeugfotos und Nutzungsrechte
 
-Stand: 24.10.2026 (IONIQ 3 aktualisiert; übrige Aufnahmen vom 03.10.2026). Die Fotos sind lokal eingebunden, ohne externe Bildanfragen. Quellen, ursprüngliche Metadaten und SHA-256-Prüfsummen stehen in `manifest.json`; sichtbare Credits stammen aus `src/data/vehicle-photos.ts`.
+Stand: 24.10.2026 (IONIQ 3 aktualisiert; übrige Aufnahmen vom 03.10.2026). Die ursprünglichen 15 Fotos sind lokal eingebunden. Neu seit 25.10.2026: Das frei lizenzierte smart-#2-Foto wird extern über Wikimedia geladen (externe Bildanfrage). Quellen, ursprüngliche Metadaten und SHA-256-Prüfsummen stehen in `manifest.json`; sichtbare Credits stammen aus `src/data/vehicle-photos.ts`.
 
 Wikimedia-Fotos wurden als verkleinerte Vorschaudateien übernommen. Die Galerie zeigt das vollständige Bild; ein Titelbild mit Ausschnitt oder Textüberlagerung wird seit Entfernung der Ansicht „Mit Gefühl“ nicht mehr verwendet. Bei CC BY-SA stehen auch diese Bilddarstellungen unter derselben Bildlizenz. Die Bildlizenzen gelten jeweils nur für das betreffende Bild, nicht pauschal für den Quellcode.
 
-Alle 15 aktuell verwendeten Fotos sind frei lizenziert (CC0, CC BY oder CC BY-SA). Die bisherige nur redaktionell freigegebene Hyundai-Herstelleraufnahme wurde am 24.10.2026 durch ein eigenes Wikimedia-Foto von Alexander Migl unter CC BY-SA 4.0 ersetzt. Es zeigt den Innenraum des IONIQ 3 N Line beim Autosalon Sindelfingen 2026; verglichen wird weiterhin Trend. Namensnennung, Quellen- und Lizenzlinks stehen sichtbar an den Bildern.
+Alle 16 aktuell verwendeten Fotos sind frei lizenziert (CC0, CC BY oder CC BY-SA). Die bisherige nur redaktionell freigegebene Hyundai-Herstelleraufnahme wurde am 24.10.2026 durch ein eigenes Wikimedia-Foto von Alexander Migl unter CC BY-SA 4.0 ersetzt. Es zeigt den Innenraum des IONIQ 3 N Line beim Autosalon Sindelfingen 2026; verglichen wird weiterhin Trend. Namensnennung, Quellen- und Lizenzlinks stehen sichtbar an den Bildern.
 
 ## Nachweise
 
@@ -24,6 +24,6 @@ Alle 15 aktuell verwendeten Fotos sind frei lizenziert (CC0, CC BY oder CC BY-SA
 - **dacia-spring** — 2024 Dacia Spring DSC 7937.jpg; Alexander Migl; [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0); [Quelle](https://commons.wikimedia.org/wiki/File:2024_Dacia_Spring_DSC_7937.jpg). Foto zeigt das Modell ab 2024; Vergleich: Modelljahr 2026.
 - **hyundai-ioniq-3** — Hyundai Ioniq 3 N Line Sindelfingen 2026 IMG 8255.jpg; Alexander Migl; [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0); [Quelle](https://commons.wikimedia.org/wiki/File:Hyundai_Ioniq_3_N_Line_Sindelfingen_2026_IMG_8255.jpg). Innenraumaufnahme. Foto zeigt N Line; verglichen wird Trend.
 
-## Nicht verwendete Quelle
+- **smart-2** — Smart 2 - 02.jpg; Y.Leclercq; [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0); [Quelle](https://commons.wikimedia.org/wiki/File:Smart_2_-_02.jpg). Aufnahme des Serienmodells beim Pariser Autosalon vom 12.10.2026; Bild extern geladen.\n\n## Nicht verwendete Quelle
 
 Die Wikimedia-Screenshots des IONIQ 3 nennen eine CC-BY-3.0-YouTube-Lizenz vor August 2025 trotz Aufnahmedatum April 2026. Deshalb wurden sie nicht übernommen. Zunächst wurde die redaktionell freigegebene Hyundai-Aufnahme verwendet; seit 24.10.2026 ersetzt sie die frei lizenzierte eigene Aufnahme vom Autosalon Sindelfingen (aufgenommen und hochgeladen am 17.10.2026).
