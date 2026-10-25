@@ -227,7 +227,6 @@ const cars: Car[] = [
       sources: [
         { label: "smart Deutschland · technische Daten (vorläufig)", url: "https://de.smart.com/de/models/hashtag-two/specifications/" },
         { label: "smart Deutschland · Bestellstart 13.10.2026 und Preis", url: "https://media.smart.com/de-DE/273131-smart-2-ab-19-990-bestellstart-am-13-10-2026/" },
-        { label: "GoLeasy · smart #2 Privatleasing", url: "https://www.goleasy.de/leasing/marken/smart/2" },
       ],
     },
   },
