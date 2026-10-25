@@ -841,24 +841,39 @@ function MarketDeals({ car }: { car: Car }) {
         )}
       </p>
       <p className="mt-2 text-xs text-muted-foreground">
-        Privat · 36 Monate · 5.000 km/Jahr · Abruf 17.10.2026
+        Privat · bevorzugt 36 Monate · 5.000 km/Jahr · Abruf 25.10.2026
       </p>
-      {offer.rate !== undefined && (
-        <div className="mt-2 space-y-1 text-xs leading-relaxed text-muted-foreground">
-          <p>{offer.variant}</p>
-          <p className="font-medium text-foreground">{offer.grantNote}</p>
-          <p>
-            Überführung:{" "}
-            {(Number.isInteger(offer.transfer) ? money : monthly).format(offer.transfer!)}{" "}
-            zusätzlich.
+      <div className="mt-2 space-y-1 text-xs leading-relaxed text-muted-foreground">
+        {offer.variant && <p>{offer.variant}</p>}
+        {offer.normalizedRate !== undefined && (
+          <p className="font-semibold text-foreground">
+            Auf 5.000 € Förderung normiert: {monthly.format(offer.normalizedRate)} / Monat
           </p>
-          <p>Verfügbarkeit laut Inserat: {offer.delivery}. Keine Lieferzusage.</p>
+        )}
+        {(offer.months || offer.kmPerYear) && (
           <p>
-            Beobachtetes Angebot; kein Nachweis des bundesweiten Bestpreises. Technische Daten oben
-            beziehen sich auf die Vergleichsvariante.
+            Vertragsraster: {offer.months ?? "–"} Monate ·{" "}
+            {offer.kmPerYear?.toLocaleString("de-DE") ?? "–"} km/Jahr
           </p>
-        </div>
-      )}
+        )}
+        <p className="font-medium text-foreground">{offer.grantNote}</p>
+        {offer.transfer !== undefined && (
+          <p>
+            Überführung/Bereitstellung:{" "}
+            {(Number.isInteger(offer.transfer) ? money : monthly).format(offer.transfer)} zusätzlich
+            · nicht in die Monatsrate eingerechnet.
+          </p>
+        )}
+        <p>
+          Lieferzeit: {offer.delivery ?? "keine belastbare Angabe"}
+          {offer.deliverySample !== undefined ? ` · Stichprobe n=${offer.deliverySample}` : ""}
+          {offer.deliveryUncertain ? " · unsicher" : ""}. Keine Lieferzusage.
+        </p>
+        <p>
+          Beobachtetes Angebot; kein Nachweis des bundesweiten Bestpreises. Technische Daten oben
+          beziehen sich auf die Vergleichsvariante.
+        </p>
+      </div>
       <a
         className="mt-3 inline-block text-sm font-semibold text-primary underline underline-offset-2"
         href={offer.url}
@@ -1022,7 +1037,7 @@ function BasisStrip({ compact = false }: { compact?: boolean }) {
             [Ruler, "5.000 km/Jahr", "Fahrleistung im Portalvergleich"],
             [Sparkles, "Je Angebot", "Förderannahme"],
             [CarFront, "Separat", "Überführung"],
-            [Check, "17.10.2026", "letzte Quellenprüfung"],
+            [Check, "25.10.2026", "Leasingmarkt aktualisiert"],
           ].map(([Icon, value, label]) => {
             const BasisIcon = Icon as typeof WalletCards;
             return (
