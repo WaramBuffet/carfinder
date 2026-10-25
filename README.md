@@ -17,13 +17,13 @@ pnpm check
 
 ## GitHub Pages (kostenlos)
 
-Das öffentliche Repository ist für GitHub Free geeignet. Veröffentlichung erfolgt bewusst manuell:
+Das öffentliche Repository ist für GitHub Free geeignet. Der Workflow veröffentlicht bei einem Push auf `main` **automatisch** und lässt sich zusätzlich manuell starten:
 
 1. In [Settings → Pages](https://github.com/WaramBuffet/carfinder/settings/pages) unter **Build and deployment → Source** die Option **GitHub Actions** wählen.
 2. In [Actions](https://github.com/WaramBuffet/carfinder/actions/workflows/pages.yml) den Workflow **GitHub Pages veröffentlichen** öffnen und **Run workflow** auf `main` starten.
 3. Nach erfolgreichem Lauf lautet die Website-URL `https://warambuffet.github.io/carfinder/`.
 
-Jeder Push führt automatische Prüfungen aus, aber veröffentlicht die Website nicht. Spätere Veröffentlichungen starten ebenfalls über den manuellen Workflow. Die Konfiguration folgt der [GitHub-Pages-Dokumentation](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages).
+Jeder Push auf `main` startet die Prüfungen und den GitHub-Pages-Workflow. Der Pages-Workflow veröffentlicht nur nach erfolgreichen Prüfungen; optional kann er zusätzlich manuell gestartet werden. Die Konfiguration folgt der [GitHub-Pages-Dokumentation](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages).
 
 Zum lokalen Prüfen des Pages-Unterpfads:
 
@@ -64,4 +64,13 @@ Für alle sieben Premium-Fahrzeugvarianten sind ebenfalls frei lizenzierte Model
 
 Die Premium Edition beginnt mit einer persönlichen Begrüßung für das empfangende Paar und dem unveränderten Nutzerfoto `mfl_25925_pic.png`. Das persönliche Foto gehört nicht zu den frei lizenzierten Fahrzeugaufnahmen; dafür wird keine freie Bildlizenz behauptet.
 
-Die statischen Linkvorschauen (Open Graph / Twitter) zeigen die Premium Edition und das Paarfoto. GitHub Pages liefert für alle Query-Varianten dieselbe HTML-Datei; eine unterschiedliche Vorschau je `ansicht` ist dort ohne separate HTML-Seiten oder Server nicht möglich. Browser-Metadaten folgen weiterhin der gewählten Ansicht. Messenger können Vorschauen zwischenspeichern; ein zusätzlicher Versionsparameter im geteilten Link kann einen neuen Abruf auslösen.
+### Links in WhatsApp und anderen Messengern
+
+Für **korrekte, voneinander unabhängige Vorschauen** bitte die folgenden stabilen Freigabe-URLs verwenden:
+
+- **Fakten:** https://warambuffet.github.io/carfinder/fakten/
+- **Premium:** https://warambuffet.github.io/carfinder/premium/
+
+Die beiden statischen Vorschauseiten besitzen eigene Open-Graph- und Twitter-Metadaten und leiten im Browser zur bestehenden React-Ansicht (`?ansicht=fakten` bzw. `?ansicht=premium`) weiter. Suchparameter außer `ansicht` und Anker (`#car-…`) werden dabei übernommen. JavaScript-deaktivierte Browser erhalten einen direkten Link.
+
+Für die ursprüngliche URL `/carfinder/?ansicht=fakten` werden jetzt Fakten-Metadaten ausgeliefert. Weil GitHub Pages Query-Parameter **nicht** für die HTML-Auswahl verwendet, bekommt die alte URL `/carfinder/?ansicht=premium` dieselben statischen Fakten-Metadaten; daher **Premium immer über `/carfinder/premium/` teilen**. Bereits gecachte WhatsApp-Vorschauen können bestehen bleiben. Ein zusätzlicher Versionsparameter ist dann ein optionaler neuer Cache-Key, keine dauerhafte Lösung.
