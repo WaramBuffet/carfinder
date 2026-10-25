@@ -35,7 +35,7 @@ export const Route = createFileRoute("/")({
         content:
           match.search.ansicht === "premium"
             ? "Euer persönlicher Premium-Carfinder: Porsche Taycan Sport und Cross Turismo, BMW iX3, Volvo EX60, elektrischer Mercedes GLC und BMW i5 Touring – mit Angebotspreisen, Leasing und Förderung."
-            : "15 kompakte Elektroautos im sachlichen Vergleich mit Preisen, technischen Daten und Modellfotos.",
+            : "16 kompakte Elektroautos im sachlichen Vergleich mit Preisen, technischen Daten und Modellfotos.",
       },
       {
         property: "og:title",
@@ -74,7 +74,7 @@ export const Route = createFileRoute("/")({
         content:
           match.search.ansicht === "premium"
             ? "Persönlich für euch: sportliche Premium-Elektroautos, Angebotspreise, Leasing und Förderung."
-            : "15 kompakte Elektroautos mit Preisen, technischen Daten und Modellfotos.",
+            : "16 kompakte Elektroautos mit Preisen, technischen Daten und Modellfotos.",
       },
       {
         name: "twitter:image",
@@ -155,6 +155,12 @@ const serviceByManufacturer: Record<string, ServiceLocation> = {
     driveTime: "ca. 20–25 Min.",
     verified: true,
   },
+  smart: {
+    name: "smart-Servicepartner · noch zu verifizieren",
+    address: "Standort im Raum Heroldsberg/Nürnberg offen",
+    driveTime: "Noch nicht verifiziert",
+    verified: false,
+  },
   Leapmotor: {
     name: "Autohaus Kropf",
     address: "Bessemerstraße 10, 90411 Nürnberg",
@@ -193,6 +199,38 @@ const serviceByManufacturer: Record<string, ServiceLocation> = {
   },
 };
 const cars: Car[] = [
+  {
+    slug: "smart-2",
+    site: "https://de.smart.com/de/models/hashtag-two/",
+    manufacturer: "smart",
+    model: "#2 Pure · 35,8 kWh",
+    price: 19990,
+    priceNote: "smart-Listenpreis ab 19.990 € · Vorbestellung seit 13.10.2026 · Herstellerstand 25.10.2026",
+    rate: null,
+    transfer: null,
+    delivery: null,
+    length: 2.746,
+    trunk: "305 l",
+    trunkFolded: "527 l max. (Zweisitzer ohne Rückbank)",
+    trunkFoldedValue: 527,
+    safety: "Kein aktueller Test",
+    safetyNote: "Noch kein Euro-NCAP-Test für smart #2",
+    photo: vehiclePhotos["smart-2"],
+    character: "Der besonders kurze, wendige Elektro-Zweisitzer für die Stadt.",
+    reviewNote: "Bestellung seit Oktober 2026 möglich, Auslieferungen erst 2027. Der Hersteller kennzeichnet die technischen Daten als vorläufig (EU-Typgenehmigung läuft). 527 l sind ein maximales Gepäckraummaß, nicht das Ergebnis umgeklappter Rücksitze.",
+    electric: {
+      range: "290 (vorläufig)",
+      consumption: "13,6 (vorläufig)",
+      chargingMinutes: 20,
+      chargingNote: "Hersteller: bis zu 65 kW DC, 10–80 % in höchstens 20 Min. unter Idealbedingungen; Homologation noch nicht abgeschlossen.",
+      variant: "smart #2 Pure · 35,8-kWh-LFP-Batterie · 60 kW (82 PS) · Heckantrieb · 2 Sitze · 7,4 kW AC (Pure). Die Markteinführung ist für 2027 vorgesehen.",
+      sources: [
+        { label: "smart Deutschland · technische Daten (vorläufig)", url: "https://de.smart.com/de/models/hashtag-two/specifications/" },
+        { label: "smart Deutschland · Bestellstart 13.10.2026 und Preis", url: "https://media.smart.com/de-DE/273131-smart-2-ab-19-990-bestellstart-am-13-10-2026/" },
+        { label: "GoLeasy · smart #2 Privatleasing", url: "https://www.goleasy.de/leasing/marken/smart/2" },
+      ],
+    },
+  },
   {
     slug: "leapmotor-t03",
     site: "https://www.leapmotor.net/de/t03",
@@ -842,7 +880,7 @@ function MarketDeals({ car }: { car: Car }) {
         )}
       </p>
       <p className="mt-2 text-xs text-muted-foreground">
-        Privat · bevorzugt 36 Monate · 5.000 km/Jahr · Abruf 25.10.2026
+        Privatleasing · Zielraster 36 Monate / 5.000 km jährlich · Portalstand 25.10.2026
       </p>
       <div className="mt-2 space-y-1 text-xs leading-relaxed text-muted-foreground">
         {offer.variant && <p>{offer.variant}</p>}
@@ -959,7 +997,7 @@ function ElectricSources({ car }: { car: Car }) {
       </summary>
       <p className="mt-2 break-words leading-relaxed">{car.electric.variant}</p>
       <p className="mt-2">
-        Herstellerquellen abgerufen am 17.10.2026. Preise inkl. MwSt., zzgl. Überführung; keine
+        Herstellerdaten: bisherige Prüfung 17.10.2026; smart #2 ergänzt 25.10.2026. Preise inkl. MwSt., zzgl. Überführung; keine
         Förderung abgezogen.
       </p>
       {car.reviewNote && <p className="mt-2">{car.reviewNote}</p>}
@@ -1216,7 +1254,7 @@ function Comparison({
         <p className="mt-5 max-w-3xl text-sm leading-relaxed text-muted-foreground">
           Reichweite und Durchschnittsverbrauch: WLTP kombiniert. Schnellladen: DC von 10 auf 80 %;
           abweichende Hersteller-Ladefenster stehen ausdrücklich beim Fahrzeug. Herstellerquellen
-          geprüft am 17.10.2026; offene Angaben stehen am Fahrzeug.
+          für Bestandsfahrzeuge geprüft am 17.10.2026; smart #2 am 25.10.2026 ergänzt. Offene Angaben stehen beim Fahrzeug.
         </p>
         <div className="mt-6 grid gap-3 sm:max-w-xl sm:grid-cols-2">
           <label className="text-xs font-bold uppercase tracking-[0.12em] text-muted-foreground">
@@ -1429,7 +1467,7 @@ function Index() {
         <div className="mx-auto grid max-w-7xl gap-3 px-5 py-3 sm:flex sm:items-center sm:justify-between sm:px-8 lg:px-12">
           <div className="min-w-0">
             <p className="truncate font-semibold text-base">Preiswerte E-Autos im Vergleich</p>
-            <p className="text-xs text-muted-foreground">15 Modelle · Zahlen & Fakten</p>
+            <p className="text-xs text-muted-foreground">{totalModels} Modelle · Zahlen & Fakten</p>
           </div>
           <a href="?ansicht=premium" className="text-sm font-semibold underline underline-offset-4">
             Premium Edition · Gravel / Electric ↗
@@ -1442,14 +1480,17 @@ function Index() {
           <div className="mx-auto max-w-7xl px-5 py-10 sm:px-8 lg:px-12 lg:py-14">
             <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-end">
               <div className="max-w-3xl">
-                <p className="eyebrow">Zahlen &amp; Fakten · Prüfung 17.10.2026</p>
+                <p className="eyebrow">Zahlen &amp; Fakten · Marktstand 25.10.2026</p>
+                <p className="mt-3 text-sm font-medium text-primary">
+                  Gewidmet Marie-Thérèse aus 90562 Heroldsberg.
+                </p>
                 <h1 className="mt-3 text-4xl font-bold leading-tight sm:text-5xl">
                   E-Autos klar und nachvollziehbar vergleichen
                 </h1>
                 <p className="mt-4 max-w-2xl leading-relaxed text-muted-foreground">
                   {totalModels} kompakte Elektroautos mit Listenpreisen, Reichweite und Ladezeiten.
-                  Bundesweite Portalangebote für 36 Monate und 5.000 km/Jahr zeigen Förderannahmen
-                  und Nebenkosten direkt dazu. Fehlende aktuelle Angebote und Liefertermine sind als
+                  Bundesweite Portalangebote bevorzugt für 36 Monate und 5.000 km/Jahr zeigen Förderannahmen,
+                  abweichende Vertragsraster und Nebenkosten direkt dazu. Fehlende aktuelle Angebote und Liefertermine sind als
                   offen gekennzeichnet.
                 </p>
               </div>
@@ -1478,8 +1519,9 @@ function Index() {
         className="mx-auto max-w-7xl px-5 pt-6 text-sm leading-relaxed text-muted-foreground sm:px-8 lg:px-12"
         aria-label="Quellenstatus"
       >
-        <strong className="text-foreground">Quellenprüfung: 17.10.2026.</strong> Listenpreise und
-        Elektroangaben wurden mit Herstellerseiten und Preislisten abgeglichen. Der Dacia-Preis und
+        <strong className="text-foreground">Leasingmarktstand: 25.10.2026.</strong> Technische
+        Herstellerdaten der bisherigen 15 Fahrzeuge wurden überwiegend am 17.10.2026 geprüft;
+        der neue smart #2 wurde am 25.10.2026 anhand aktueller Herstellerangaben ergänzt. Der Dacia-Preis und
         einzelne Variantenangaben bleiben offen. GoLeasy und LeasingMarkt.de bilden die Grundlage
         des Schnäppchenvergleichs. Aktuelle GoLeasy-Treffer stehen mit Förderhinweisen am Fahrzeug;
         die ursprünglichen Raten vom 02.10.2026 sind als historischer Vergleich aufklappbar. Vier
@@ -1522,8 +1564,10 @@ function Index() {
       <footer className="bg-foreground text-primary-foreground">
         <div className="mx-auto max-w-7xl px-5 py-10 sm:px-8 lg:px-12">
           <p className="text-lg font-bold">Preiswerte E-Autos im Vergleich</p>
+          <p className="mt-2 text-sm text-primary-foreground/90">Für Marie-Thérèse · 90562 Heroldsberg</p>
           <p className="mt-4 max-w-4xl text-xs leading-relaxed text-primary-foreground/70">
-            Quellen und Angebote zuletzt geprüft am 17. Oktober 2026. Preise, Förderbedingungen,
+            Leasingangebote: Stand 25. Oktober 2026. Bestandsfahrzeugdaten: überwiegend geprüft am
+            17. Oktober 2026; smart #2 neu ergänzt am 25. Oktober 2026. Preise, Förderbedingungen,
             Verfügbarkeiten und Lieferzeiten können sich jederzeit ändern. Angaben ohne Gewähr;
             maßgeblich sind die Bedingungen des jeweiligen Anbieters.
           </p>
@@ -1598,7 +1642,7 @@ function CarCard({ car, index, selected }: { car: Car; index: number; selected: 
             <dt className="text-xs text-muted-foreground">Listenpreis</dt>
             <dd className="mt-1 font-semibold">{money.format(car.price)}</dd>
             <dd className="mt-1 text-xs text-muted-foreground">
-              {car.priceNote ?? "Herstellerpreis geprüft 17.10.2026 · zzgl. Überführung"}
+              {car.priceNote ?? "Bestands-Herstellerpreis · Prüfung 17.10.2026 · zzgl. Überführung"}
             </dd>
           </div>
           <div>
@@ -1617,7 +1661,11 @@ function CarCard({ car, index, selected }: { car: Car; index: number; selected: 
             <dd className="mt-1 font-semibold">
               {marketOffer?.delivery ?? "Beim Händler anfragen"}
             </dd>
-            <dd className="text-xs text-muted-foreground">Inseratstand · kein Lieferzeit-Median</dd>
+            <dd className="text-xs text-muted-foreground">
+              {marketOffer?.deliverySample !== undefined
+                ? `Lieferzeit-Stichprobe n=${marketOffer.deliverySample}${marketOffer.deliveryUncertain ? " · unsicher" : " · Median sofern verfügbar"}`
+                : "Keine belastbare Stichprobe"}
+            </dd>
           </div>
           <div>
             <dt className="text-xs text-muted-foreground">Länge</dt>
@@ -1628,7 +1676,7 @@ function CarCard({ car, index, selected }: { car: Car; index: number; selected: 
           <div className="col-span-2">
             <dt className="text-xs text-muted-foreground">Kofferraum</dt>
             <dd className="mt-1 font-semibold">
-              {car.trunk} normal · {car.trunkFolded} umgeklappt
+              {car.trunk} normal · {car.trunkFolded} {car.slug === "smart-2" ? "maximales Volumen" : "umgeklappt"}
             </dd>
           </div>
           <ServiceDetails car={car} />
