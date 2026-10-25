@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Preiswerte E-Autos im Vergleich – Zahlen &amp; Fakten</title>
+    <meta name="description" content="16 kompakte Elektroautos im sachlichen Vergleich mit Preisen, Reichweite, Verbrauch, Ladezeiten, Leasing und Modellfotos." />
+    <!-- Eigene HTML-Antwort für Messenger-Crawler; die Anwendung bleibt auf einer React-Route. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:site_name" content="GRAVEL / ELECTRIC" />
+    <meta property="og:title" content="Preiswerte E-Autos im Vergleich – Zahlen &amp; Fakten" />
+    <meta property="og:description" content="16 kompakte Elektroautos im sachlichen Vergleich mit Preisen, Reichweite, Verbrauch, Ladezeiten, Leasing und Modellfotos." />
+    <meta property="og:url" content="https://warambuffet.github.io/carfinder/fakten/" />
+    <meta property="og:image" content="https://warambuffet.github.io/carfinder/share/fakten.jpg" />
+    <meta property="og:image:secure_url" content="https://warambuffet.github.io/carfinder/share/fakten.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:alt" content="Elektroautos im Überblick – Illustration zum Faktenvergleich" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Preiswerte E-Autos im Vergleich – Zahlen &amp; Fakten" />
+    <meta name="twitter:description" content="16 kompakte Elektroautos mit Preisen, technischen Daten und Modellfotos." />
+    <meta name="twitter:image" content="https://warambuffet.github.io/carfinder/share/fakten.jpg" />
+    <meta name="twitter:image:alt" content="Elektroautos im Überblick – Illustration zum Faktenvergleich" />
+  </head>
+  <body>
+    <main>
+      <h1>Preiswerte E-Autos im Vergleich – Zahlen &amp; Fakten</h1>
+      <p>16 kompakte Elektroautos im sachlichen Vergleich mit Preisen, Reichweite, Verbrauch, Ladezeiten, Leasing und Modellfotos.</p>
+      <p><a href="../?ansicht=fakten">Fahrzeugvergleich öffnen</a></p>
+    </main>
+    <script>
+      (() => {
+        // Nur im Browser weiterleiten: Link-Crawler verwenden die statischen OG-Metadaten.
+        const current = new URL(window.location.href);
+        const destination = new URL("../?ansicht=fakten", current);
+        current.searchParams.forEach((value, key) => {
+          if (key !== "ansicht") destination.searchParams.append(key, value);
+        });
+        destination.hash = current.hash;
+        window.location.replace(destination.href);
+      })();
+    </script>
+  </body>
+</html>

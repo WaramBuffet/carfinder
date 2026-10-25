@@ -53,13 +53,25 @@ export const Route = createFileRoute("/")({
       },
       { property: "og:type", content: "website" },
       {
+        property: "og:url",
+        content:
+          match.search.ansicht === "premium"
+            ? "https://warambuffet.github.io/carfinder/premium/"
+            : "https://warambuffet.github.io/carfinder/fakten/",
+      },
+      {
         property: "og:image",
-        content: "https://warambuffet.github.io/carfinder/share/premium-recipients.png",
+        content:
+          match.search.ansicht === "premium"
+            ? "https://warambuffet.github.io/carfinder/share/premium-recipients.png"
+            : "https://warambuffet.github.io/carfinder/share/fakten.jpg",
       },
       {
         property: "og:image:alt",
         content:
-          "Das Paar mit seinem Hund, für das dieser Premium-Carfinder zusammengestellt wurde",
+          match.search.ansicht === "premium"
+            ? "Das Paar mit seinem Hund, für das dieser Premium-Carfinder zusammengestellt wurde"
+            : "Elektroautos im Überblick – Illustration zum Faktenvergleich",
       },
       { name: "twitter:card", content: "summary" },
       {
@@ -78,7 +90,17 @@ export const Route = createFileRoute("/")({
       },
       {
         name: "twitter:image",
-        content: "https://warambuffet.github.io/carfinder/share/premium-recipients.png",
+        content:
+          match.search.ansicht === "premium"
+            ? "https://warambuffet.github.io/carfinder/share/premium-recipients.png"
+            : "https://warambuffet.github.io/carfinder/share/fakten.jpg",
+      },
+      {
+        name: "twitter:image:alt",
+        content:
+          match.search.ansicht === "premium"
+            ? "Das Paar mit seinem Hund, für das dieser Premium-Carfinder zusammengestellt wurde"
+            : "Elektroautos im Überblick – Illustration zum Faktenvergleich",
       },
     ],
   }),
