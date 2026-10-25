@@ -43,7 +43,7 @@ describe("Fahrzeugvergleich", () => {
     expect(new Set(images.map((image) => image.src)).size).toBe(16);
     expect(images.every((image) => image.alt.length > 10)).toBe(true);
     expect(gallery.querySelectorAll('a[href*="commons.wikimedia.org/wiki/File:"]')).toHaveLength(
-      15,
+      16,
     );
     expect(gallery).toHaveTextContent("Foto zeigt N Line; verglichen wird Trend");
     expect(gallery).toHaveTextContent("Foto zeigt Aceman S; verglichen wird Aceman E");
