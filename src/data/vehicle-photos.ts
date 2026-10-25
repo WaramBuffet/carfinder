@@ -25,6 +25,15 @@ export type VehiclePhoto = {
 };
 
 export const vehiclePhotos = {
+  "smart-2": {
+    src: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Smart_2_-_02.jpg/960px-Smart_2_-_02.jpg",
+    alt: "Neuer smart #2 auf dem Pariser Autosalon 2026",
+    author: "Y.Leclercq",
+    license: "CC BY-SA 4.0",
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0",
+    source: "https://commons.wikimedia.org/wiki/File:Smart_2_-_02.jpg",
+    note: "Serienfahrzeug auf dem Pariser Autosalon am 12.10.2026; externes Wikimedia-Foto mit Quellen- und Lizenznachweis.",
+  },
   "leapmotor-t03": {
     src: photo0,
     alt: "Hellblauer Leapmotor T03 in seitlicher Heckansicht",
