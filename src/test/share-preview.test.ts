@@ -26,7 +26,7 @@ const cases = [
 describe("Statische Vorschau für Messenger", () => {
   it.each(cases)("liefert korrekte Open-Graph-Daten in $path", ({ path, title, url, image }) => {
     const html = readFileSync(resolve(process.cwd(), path), "utf8");
-    expect(html).toContain(`property="og:title" content="${title}"`);
+    expect(html).toContain(`property="og:title" content="${title.replaceAll("&", "&amp;")}"`);
     expect(html).toContain(`property="og:url" content="${url}"`);
     expect(html).toContain(image);
     expect(html).toContain('name="twitter:image"');
