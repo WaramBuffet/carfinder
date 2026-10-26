@@ -90,7 +90,7 @@ describe("Fahrzeugvergleich", () => {
     expect(smart).toHaveTextContent("Noch kein Euro-NCAP-Test");
     expect(container).toHaveTextContent("Marie-Thérèse");
     expect(container).toHaveTextContent("90562 Heroldsberg");
-    expect(container).toHaveTextContent("Marktstand 25.10.2026");
+    expect(container).toHaveTextContent("Marktstand 26.10.2026");
   });
   it("kombiniert Hersteller und Sicherheit und kann leere Filter zurücksetzen", async () => {
     const { container } = await renderAt();
@@ -112,8 +112,8 @@ describe("Fahrzeugvergleich", () => {
     const rows = container.querySelectorAll("#fotos > article");
     expect(rows[0]).toHaveAttribute("id", "car-renault-4");
     expect(rows[1]).toHaveAttribute("id", "car-renault-5");
-    expect(rows[2]).toHaveAttribute("id", "car-fiat-600e");
-    expect(rows[3]).toHaveAttribute("id", "car-smart-2");
+    expect(rows[2]).toHaveAttribute("id", "car-smart-2");
+    expect(rows[3]).toHaveAttribute("id", "car-fiat-600e");
     expect(rows[15]).toHaveAttribute("id", "car-dacia-spring");
     expect(screen.getByLabelText("Richtung")).toHaveValue("desc");
     fireEvent.change(screen.getByLabelText("Richtung"), { target: { value: "asc" } });
@@ -130,9 +130,9 @@ describe("Fahrzeugvergleich", () => {
     expect(container.querySelector("#car-kia-ev2")).toHaveTextContent("4.030,52 € Sonderzahlung");
     expect(inster).toHaveTextContent("272,33 € / Monat");
     expect(inster).toHaveTextContent("10.000 km/Jahr");
-    expect(inster).toHaveTextContent("Median 6,0 Monate");
+    expect(inster).toHaveTextContent("Median 3,0 Monate");
     expect(container.querySelector("#car-volvo-ex30")).toHaveTextContent("99,00");
-    expect(container.querySelector("#car-volvo-ex30")).toHaveTextContent("6.000 € Förderung");
+    expect(container.querySelector("#car-volvo-ex30")).toHaveTextContent("6.000 € im Angebot");
     expect(container.querySelector("#car-dacia-spring")).toHaveTextContent(
       "aktueller Variantenpreis nicht bestätigt",
     );
@@ -140,10 +140,10 @@ describe("Fahrzeugvergleich", () => {
     expect(container.querySelector("#car-leapmotor-t03")).toHaveTextContent("02.10.2026");
     expect(container.querySelector("#car-fiat-grande-panda")).toHaveTextContent("89,00");
     expect(container.querySelector("#car-fiat-grande-panda")).toHaveTextContent(
-      "5.000 € Sonderzahlung",
+      "5.000 € im Angebot",
     );
     expect(container.querySelectorAll('a[href*="goleasy.de/leasing/marken/"]')).toHaveLength(16);
-    expect(container).toHaveTextContent("Auf 5.000 € Förderung normiert");
+    expect(container).toHaveTextContent("bei 5.000 € Förderung");
   });
   it.each(["gefuehl", "unbekannt"])(
     "zeigt auch für den alten Modus %s nur Fakten",
