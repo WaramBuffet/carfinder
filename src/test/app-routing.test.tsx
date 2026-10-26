@@ -117,10 +117,7 @@ describe("Fahrzeugvergleich", () => {
     expect(rows[15]).toHaveAttribute("id", "car-dacia-spring");
     expect(screen.getByLabelText("Richtung")).toHaveValue("desc");
     fireEvent.change(screen.getByLabelText("Richtung"), { target: { value: "asc" } });
-    expect(container.querySelector("#fotos > article")).toHaveAttribute(
-      "id",
-      "car-leapmotor-t03",
-    );
+    expect(container.querySelector("#fotos > article")).toHaveAttribute("id", "car-leapmotor-t03");
   });
   it("zeigt Portalangebote, datierte Schnäppchen und Herstellerkonditionen getrennt", async () => {
     const { container } = await renderAt();
