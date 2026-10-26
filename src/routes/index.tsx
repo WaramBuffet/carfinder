@@ -936,7 +936,7 @@ function MarketDeals({ car }: { car: Car }) {
             <p className="mt-1">Spannen: Mittelpunkt · Wochen / 4,345 · „sofort“ = 0 · Monatsabstand ab Oktober 2026. Nicht repräsentativ.</p>
           </details>
         )}
-        {!offer.deliverySamples?.length && offer.deliveryScope && <p>{offer.deliveryScope}</p>
+        {!offer.deliverySamples?.length && offer.deliveryScope && <p>{offer.deliveryScope}</p>}
         <p>
           Beobachtetes Angebot; kein Nachweis des bundesweiten Bestpreises. Technische Daten oben
           beziehen sich auf die Vergleichsvariante.
