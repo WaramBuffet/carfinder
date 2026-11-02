@@ -916,13 +916,13 @@ function MarketDeals({ car }: { car: Car }) {
           </p>
         )}
         <p className="font-medium text-foreground">{offer.grantNote}</p>
-        {offer.transfer !== undefined && (
-          <p>
-            Überführung/Bereitstellung:{" "}
-            {(Number.isInteger(offer.transfer) ? money : monthly).format(offer.transfer)} zusätzlich
-            · nicht in die Monatsrate eingerechnet.
-          </p>
-        )}
+        <p>
+          Überführung/Bereitstellung:{" "}
+          {offer.transfer == null
+            ? "im ausgewählten Inserat nicht beziffert"
+            : `${(Number.isInteger(offer.transfer) ? money : monthly).format(offer.transfer)} zusätzlich`}
+          · nicht in die Monatsrate eingerechnet.
+        </p>
         <p>
           Lieferzeit: {offer.delivery ?? "keine belastbare Angabe"}
           {offer.deliverySample !== undefined ? ` · Stichprobe n=${offer.deliverySample}` : ""}
@@ -933,7 +933,7 @@ function MarketDeals({ car }: { car: Car }) {
             <summary className="cursor-pointer font-medium text-foreground">Lieferzeit-Stichprobe anzeigen</summary>
             <p className="mt-2">{offer.deliverySamples.join(" · ")}</p>
             <p className="mt-1">{offer.deliveryScope}</p>
-            <p className="mt-1">Spannen: Mittelpunkt · Wochen / 4,345 · „sofort“ = 0 · Monatsabstand ab Oktober 2026. Nicht repräsentativ.</p>
+            <p className="mt-1">Spannen: Mittelpunkt · Wochen / 4,345 · „sofort“ = 0 · Monatsabstand ab November 2026. Nicht repräsentativ.</p>
           </details>
         )}
         {!offer.deliverySamples?.length && offer.deliveryScope && <p>{offer.deliveryScope}</p>}
