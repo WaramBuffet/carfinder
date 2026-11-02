@@ -129,7 +129,9 @@ describe("Fahrzeugvergleich", () => {
     expect(inster).toHaveTextContent("10.000 km/Jahr");
     expect(inster).toHaveTextContent("Median 5 Monate");
     expect(container.querySelector("#car-volvo-ex30")).toHaveTextContent("99,00");
-    expect(container.querySelector("#car-volvo-ex30")).toHaveTextContent("6.000 € im Inserat eingerechnet");
+    expect(container.querySelector("#car-volvo-ex30")).toHaveTextContent(
+      "6.000 € im Inserat eingerechnet",
+    );
     expect(container.querySelector("#car-dacia-spring")).toHaveTextContent(
       "aktueller Variantenpreis nicht bestätigt",
     );
