@@ -129,7 +129,7 @@ describe("Fahrzeugvergleich", () => {
     expect(inster).toHaveTextContent("10.000 km/Jahr");
     expect(inster).toHaveTextContent("Median 5 Monate");
     expect(container.querySelector("#car-volvo-ex30")).toHaveTextContent("99,00");
-    expect(container.querySelector("#car-volvo-ex30")).toHaveTextContent("6.000 € im Angebot");
+    expect(container.querySelector("#car-volvo-ex30")).toHaveTextContent("6.000 € im Inserat eingerechnet");
     expect(container.querySelector("#car-dacia-spring")).toHaveTextContent(
       "aktueller Variantenpreis nicht bestätigt",
     );
@@ -137,7 +137,7 @@ describe("Fahrzeugvergleich", () => {
     expect(container.querySelector("#car-leapmotor-t03")).toHaveTextContent("02.10.2026");
     expect(container.querySelector("#car-fiat-grande-panda")).toHaveTextContent("89,00");
     expect(container.querySelector("#car-fiat-grande-panda")).toHaveTextContent(
-      "5.000 € im Angebot",
+      "5.000 € im Inserat eingerechnet",
     );
     expect(container.querySelectorAll('a[href*="goleasy.de/leasing/marken/"]')).toHaveLength(16);
     expect(container).toHaveTextContent("bei 5.000 € Förderung");
