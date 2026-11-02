@@ -90,7 +90,7 @@ describe("Fahrzeugvergleich", () => {
     expect(smart).toHaveTextContent("Noch kein Euro-NCAP-Test");
     expect(container).toHaveTextContent("Marie-Thérèse");
     expect(container).toHaveTextContent("90562 Heroldsberg");
-    expect(container).toHaveTextContent("Marktstand 26.10.2026");
+    expect(container).toHaveTextContent("Marktstand 02.11.2026");
   });
   it("kombiniert Hersteller und Sicherheit und kann leere Filter zurücksetzen", async () => {
     const { container } = await renderAt();
@@ -127,7 +127,7 @@ describe("Fahrzeugvergleich", () => {
     expect(container.querySelector("#car-kia-ev2")).toHaveTextContent("4.030,52 € Sonderzahlung");
     expect(inster).toHaveTextContent("272,33 € / Monat");
     expect(inster).toHaveTextContent("10.000 km/Jahr");
-    expect(inster).toHaveTextContent("Median 3 Monate");
+    expect(inster).toHaveTextContent("Median 5 Monate");
     expect(container.querySelector("#car-volvo-ex30")).toHaveTextContent("99,00");
     expect(container.querySelector("#car-volvo-ex30")).toHaveTextContent("6.000 € im Angebot");
     expect(container.querySelector("#car-dacia-spring")).toHaveTextContent(

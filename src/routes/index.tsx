@@ -1105,7 +1105,7 @@ function BasisStrip({ compact = false }: { compact?: boolean }) {
             [Ruler, "5.000 km/Jahr", "Fahrleistung im Portalvergleich"],
             [Sparkles, "5.000 €", "Förder-Normierung (bedingt)"],
             [CarFront, "Separat", "Überführung"],
-            [Check, "26.10.2026", "Leasingmarkt geprüft"],
+            [Check, "02.11.2026", "Leasingmarkt geprüft"],
           ].map(([Icon, value, label]) => {
             const BasisIcon = Icon as typeof WalletCards;
             return (
@@ -1510,7 +1510,7 @@ function Index() {
           <div className="mx-auto max-w-7xl px-5 py-10 sm:px-8 lg:px-12 lg:py-14">
             <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-end">
               <div className="max-w-3xl">
-                <p className="eyebrow">Zahlen &amp; Fakten · Marktstand 26.10.2026</p>
+                <p className="eyebrow">Zahlen &amp; Fakten · Marktstand 02.11.2026</p>
                 <p className="mt-3 text-sm font-medium text-primary">
                   Gewidmet Marie-Thérèse aus 90562 Heroldsberg.
                 </p>
@@ -1547,7 +1547,7 @@ function Index() {
         className="mx-auto max-w-7xl px-5 pt-6 text-sm leading-relaxed text-muted-foreground sm:px-8 lg:px-12"
         aria-label="Quellenstatus"
       >
-        <strong className="text-foreground">Leasingmarktstand: 26.10.2026.</strong> Technische
+        <strong className="text-foreground">Leasingmarktstand: 02.11.2026.</strong> Technische
         Herstellerdaten der bisherigen 15 Fahrzeuge wurden überwiegend am 17.10.2026 geprüft;
         der neue smart #2 wurde am 25.10.2026 anhand aktueller Herstellerangaben ergänzt. Der Dacia-Preis und
         einzelne Variantenangaben bleiben offen. GoLeasy und LeasingMarkt.de bilden die Grundlage
