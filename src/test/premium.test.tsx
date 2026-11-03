@@ -4,7 +4,11 @@ import { cleanup, fireEvent, render, screen, waitFor } from "@testing-library/re
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 import { routeTree } from "@/routeTree.gen";
 import { premiumPhotos } from "@/data/premium-photos";
-import { currentMarketIsComplete, currentPremiumCohorts, currentPremiumObservations } from "@/data/premium-current-observations";
+import {
+  currentMarketIsComplete,
+  currentPremiumCohorts,
+  currentPremiumObservations,
+} from "@/data/premium-current-observations";
 import { premiumLeasingObservations20261103 } from "@/data/premium-lease-observations-2026-11-03";
 import { technicalSpotChecks } from "@/data/premium-technical-spotchecks";
 import {
@@ -205,8 +209,7 @@ describe("New market observations remain gated", () => {
         continue;
       }
       const n = stat.length;
-      const median =
-        n % 2 ? stat[(n - 1) / 2]! : (stat[n / 2 - 1]! + stat[n / 2]!) / 2;
+      const median = n % 2 ? stat[(n - 1) / 2]! : (stat[n / 2 - 1]! + stat[n / 2]!) / 2;
       expect(cohort.median).toBe(median);
       expect(cohort.min).toBe(stat[0]);
       expect(cohort.max).toBe(stat.at(-1));
