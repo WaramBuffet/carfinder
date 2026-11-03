@@ -100,3 +100,10 @@ Die folgenden Befunde wurden aus dem vorangegangenen [Entwurfs-PR #2](https://gi
 - Desktop/Mobil-Browser, Merkliste, Filter, Pfade und Social-Vorschauen sowie `pnpm check` vor jeglichem Produktiv-Merge verifizieren
 
 **Konsolidierungsentscheidung:** PR #3 bleibt der einzige aktive Entwurf. `researchDate` und 262 historische Inserate bleiben 24.10.2026, solange die neue Markterhebung nicht vollständig ist.
+
+
+## Nachtrag: neue Kaufpreis-Teilstichprobe 03.11.2026
+
+Es wurden **26 eindeutige Kleinanzeigen-Inserats-IDs** mit den in der Suche ausgewiesenen URLs, Preisen, Kilometerständen und Erstzulassungsjahren erfasst, offensichtliche Fremdmodelle ausgeschlossen und getrennte **n/Mittelwert/Median/Minimum/Maximum-Werte je Variante und EZ-Jahr** berechnet. Alle Einzelbelege und alle 35 Modell-Jahrgangszellen (auch n=0) stehen in [premium-market-sample-2026-11-03.md](premium-market-sample-2026-11-03.md). Der Datensatz ist **nur eine nicht repräsentative Teilstichprobe aus Kleinanzeigen**, ohne vollständige mobile.de-Neuerhebung, ohne jede Inseratdetailseite separat auf Live-Erreichbarkeit prüfen zu können. Für EX60 und elektrischen GLC gab es in der gefilterten Suche keine passenden bestätigten Einzelangebote; alte n=20/n=22 dürfen nicht durch 0 neue Datensätze als verschwunden interpretiert werden. Kein Ersatz der Oktober-Statistik und kein neues Premium-RECHERCHESTAND-Datum.
+
+**Browser-Live-Prüfung:** Ein direkter Versuch, `https://warambuffet.github.io/carfinder/premium/` und `/fakten/` öffentlich aufzurufen, wurde technisch nicht erfolgreich abgeschlossen (Cache-miss/Abruffehler). Ohne reale Seitenprüfung kein behaupteter vollständiger Deploymentnachweis. 
