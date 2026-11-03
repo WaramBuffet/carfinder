@@ -19,10 +19,12 @@ export const premiumLeasingObservations20261103 = [
     deliveryText: "Sofort",
     deliveryMonths: 0,
     used: true,
-    notes: "Leasingrate für Gebrauchtwagen, kein Neuwagen-Förderanspruch; Sonderzahlung nicht gesondert belegt. Gebrauchtwagen: keine Normierung auf staatliche Neuwagenförderung zulässig.",
+    notes:
+      "Leasingrate für Gebrauchtwagen, kein Neuwagen-Förderanspruch; Sonderzahlung nicht gesondert belegt. Gebrauchtwagen: keine Normierung auf staatliche Neuwagenförderung zulässig.",
     normalizedHypothetical5000: null,
     grossContractTotalKnown: null,
-    limitations: "Nicht direkt beim Händler vertraglich bestätigt; Originalquelle prüfen; tatsächliche Förderung nicht nachgewiesen.",
+    limitations:
+      "Nicht direkt beim Händler vertraglich bestätigt; Originalquelle prüfen; tatsächliche Förderung nicht nachgewiesen.",
   },
   {
     id: "premium-lease-20261103-2",
@@ -42,10 +44,12 @@ export const premiumLeasingObservations20261103 = [
     deliveryText: "Sofort",
     deliveryMonths: 0,
     used: null,
-    notes: "Förderung nur als wahrscheinlich möglich bezeichnet; nicht als bereits eingerechnet oder verfügbar behandeln.",
+    notes:
+      "Förderung nur als wahrscheinlich möglich bezeichnet; nicht als bereits eingerechnet oder verfügbar behandeln.",
     normalizedHypothetical5000: null,
     grossContractTotalKnown: null,
-    limitations: "Nicht direkt beim Händler vertraglich bestätigt; Originalquelle prüfen; tatsächliche Förderung nicht nachgewiesen.",
+    limitations:
+      "Nicht direkt beim Händler vertraglich bestätigt; Originalquelle prüfen; tatsächliche Förderung nicht nachgewiesen.",
   },
   {
     id: "premium-lease-20261103-3",
@@ -65,10 +69,12 @@ export const premiumLeasingObservations20261103 = [
     deliveryText: "Sofort",
     deliveryMonths: 0,
     used: true,
-    notes: "Keine Förderannahme für zugelassenen Gebrauchtwagen; Überführung nicht beziffert. Gebrauchtwagen: keine Normierung auf staatliche Neuwagenförderung zulässig.",
+    notes:
+      "Keine Förderannahme für zugelassenen Gebrauchtwagen; Überführung nicht beziffert. Gebrauchtwagen: keine Normierung auf staatliche Neuwagenförderung zulässig.",
     normalizedHypothetical5000: null,
     grossContractTotalKnown: null,
-    limitations: "Nicht direkt beim Händler vertraglich bestätigt; Originalquelle prüfen; tatsächliche Förderung nicht nachgewiesen.",
+    limitations:
+      "Nicht direkt beim Händler vertraglich bestätigt; Originalquelle prüfen; tatsächliche Förderung nicht nachgewiesen.",
   },
   {
     id: "premium-lease-20261103-4",
@@ -88,10 +94,12 @@ export const premiumLeasingObservations20261103 = [
     deliveryText: "Sofort verfügbar (Drittportal, Angebot 28.10.2026)",
     deliveryMonths: 0,
     used: true,
-    notes: "G08, ausdrücklich gebraucht; Drittportal zuletzt 28.10. geprüft, Auslieferung und Rate beim Anbieter bestätigen. Gebrauchtwagen: keine Normierung auf staatliche Neuwagenförderung zulässig.",
+    notes:
+      "G08, ausdrücklich gebraucht; Drittportal zuletzt 28.10. geprüft, Auslieferung und Rate beim Anbieter bestätigen. Gebrauchtwagen: keine Normierung auf staatliche Neuwagenförderung zulässig.",
     normalizedHypothetical5000: null,
     grossContractTotalKnown: null,
-    limitations: "Nicht direkt beim Händler vertraglich bestätigt; Originalquelle prüfen; tatsächliche Förderung nicht nachgewiesen.",
+    limitations:
+      "Nicht direkt beim Händler vertraglich bestätigt; Originalquelle prüfen; tatsächliche Förderung nicht nachgewiesen.",
   },
   {
     id: "premium-lease-20261103-5",
@@ -111,10 +119,12 @@ export const premiumLeasingObservations20261103 = [
     deliveryText: "2–6 Monate",
     deliveryMonths: 4,
     used: false,
-    notes: "Förderung nur wahrscheinlich; Einmalzahlungen laut Portal in Rate eingerechnet, Höhe nicht beziffert; keine Normrate.",
+    notes:
+      "Förderung nur wahrscheinlich; Einmalzahlungen laut Portal in Rate eingerechnet, Höhe nicht beziffert; keine Normrate.",
     normalizedHypothetical5000: null,
     grossContractTotalKnown: null,
-    limitations: "Nicht direkt beim Händler vertraglich bestätigt; Originalquelle prüfen; tatsächliche Förderung nicht nachgewiesen.",
+    limitations:
+      "Nicht direkt beim Händler vertraglich bestätigt; Originalquelle prüfen; tatsächliche Förderung nicht nachgewiesen.",
   },
   {
     id: "premium-lease-20261103-6",
@@ -134,10 +144,12 @@ export const premiumLeasingObservations20261103 = [
     deliveryText: "9–12 Monate",
     deliveryMonths: 10.5,
     used: false,
-    notes: "Förderung nur als möglicherweise erhältlich gekennzeichnet; nicht mit G08 mischen.",
+    notes:
+      "Förderung nur als möglicherweise erhältlich gekennzeichnet; nicht mit G08 mischen.",
     normalizedHypothetical5000: null,
     grossContractTotalKnown: null,
-    limitations: "Nicht direkt beim Händler vertraglich bestätigt; Originalquelle prüfen; tatsächliche Förderung nicht nachgewiesen.",
+    limitations:
+      "Nicht direkt beim Händler vertraglich bestätigt; Originalquelle prüfen; tatsächliche Förderung nicht nachgewiesen.",
   },
   {
     id: "premium-lease-20261103-7",
@@ -157,10 +169,12 @@ export const premiumLeasingObservations20261103 = [
     deliveryText: "7–9 Monate in einigen Portalansichten, Bestellfahrzeug in anderen",
     deliveryMonths: 8,
     used: false,
-    notes: "6.000 € Förderung im Portal berücksichtigt, Höhe der separaten Vertragssonderzahlung ungeprüft. Normrate rein hypothetisch bei 5.000 €.",
+    notes:
+      "6.000 € Förderung im Portal berücksichtigt, Höhe der separaten Vertragssonderzahlung ungeprüft. Normrate rein hypothetisch bei 5.000 €.",
     normalizedHypothetical5000: 475.67,
     grossContractTotalKnown: null,
-    limitations: "Nicht direkt beim Händler vertraglich bestätigt; Originalquelle prüfen; tatsächliche Förderung nicht nachgewiesen.",
+    limitations:
+      "Nicht direkt beim Händler vertraglich bestätigt; Originalquelle prüfen; tatsächliche Förderung nicht nachgewiesen.",
   },
   {
     id: "premium-lease-20261103-8",
@@ -180,10 +194,12 @@ export const premiumLeasingObservations20261103 = [
     deliveryText: "7–9 Monate in einer Portalansicht, Bestellfahrzeug in anderer",
     deliveryMonths: 8,
     used: false,
-    notes: "3.000 € Förderannahme laut Inserat; individuelle Verfügbarkeit 5.000 € nicht gesichert.",
+    notes:
+      "3.000 € Förderannahme laut Inserat; individuelle Verfügbarkeit 5.000 € nicht gesichert.",
     normalizedHypothetical5000: 507.33,
     grossContractTotalKnown: null,
-    limitations: "Nicht direkt beim Händler vertraglich bestätigt; Originalquelle prüfen; tatsächliche Förderung nicht nachgewiesen.",
+    limitations:
+      "Nicht direkt beim Händler vertraglich bestätigt; Originalquelle prüfen; tatsächliche Förderung nicht nachgewiesen.",
   },
   {
     id: "premium-lease-20261103-9",
@@ -203,10 +219,12 @@ export const premiumLeasingObservations20261103 = [
     deliveryText: "2–6 Monate",
     deliveryMonths: 4,
     used: false,
-    notes: "Förderung als vermutlich möglich markiert; Angebotsdatum und Sonderzahlungsbetrag nicht nachweisbar.",
+    notes:
+      "Förderung als vermutlich möglich markiert; Angebotsdatum und Sonderzahlungsbetrag nicht nachweisbar.",
     normalizedHypothetical5000: null,
     grossContractTotalKnown: null,
-    limitations: "Nicht direkt beim Händler vertraglich bestätigt; Originalquelle prüfen; tatsächliche Förderung nicht nachgewiesen.",
+    limitations:
+      "Nicht direkt beim Händler vertraglich bestätigt; Originalquelle prüfen; tatsächliche Förderung nicht nachgewiesen.",
   },
   {
     id: "premium-lease-20261103-10",
@@ -226,10 +244,12 @@ export const premiumLeasingObservations20261103 = [
     deliveryText: "Nicht angegeben",
     deliveryMonths: null,
     used: false,
-    notes: "Angebot: 40.000 Gesamtkilometer über 48 Monate. Vertrag verlangt 6.000 € Sonderzahlung, keine bestätigte 6.000-€-Förderbewilligung. 5.000 € als Rechenannahme möglich.",
+    notes:
+      "Angebot: 40.000 Gesamtkilometer über 48 Monate. Vertrag verlangt 6.000 € Sonderzahlung, keine bestätigte 6.000-€-Förderbewilligung. 5.000 € als Rechenannahme möglich.",
     normalizedHypothetical5000: 664.83,
     grossContractTotalKnown: null,
-    limitations: "Nicht direkt beim Händler vertraglich bestätigt; Originalquelle prüfen; tatsächliche Förderung nicht nachgewiesen.",
+    limitations:
+      "Nicht direkt beim Händler vertraglich bestätigt; Originalquelle prüfen; tatsächliche Förderung nicht nachgewiesen.",
   },
   {
     id: "premium-lease-20261103-11",
@@ -249,10 +269,12 @@ export const premiumLeasingObservations20261103 = [
     deliveryText: "Nicht angegeben",
     deliveryMonths: null,
     used: false,
-    notes: "40.000 Gesamtkilometer, 6.000 € vertragliche Sonderzahlung; 5.000 € Förderung nicht individuell gesichert. Überführung offen.",
+    notes:
+      "40.000 Gesamtkilometer, 6.000 € vertragliche Sonderzahlung; 5.000 € Förderung nicht individuell gesichert. Überführung offen.",
     normalizedHypothetical5000: 739.83,
     grossContractTotalKnown: null,
-    limitations: "Nicht direkt beim Händler vertraglich bestätigt; Originalquelle prüfen; tatsächliche Förderung nicht nachgewiesen.",
+    limitations:
+      "Nicht direkt beim Händler vertraglich bestätigt; Originalquelle prüfen; tatsächliche Förderung nicht nachgewiesen.",
   },
   {
     id: "premium-lease-20261103-12",
@@ -272,10 +294,12 @@ export const premiumLeasingObservations20261103 = [
     deliveryText: "2–6 Monate",
     deliveryMonths: 4,
     used: false,
-    notes: "6.000 € im Portalangebot eingerechnet. Verschiedene Förderbeträge können Varianten derselben Händlerkalkulation sein und zählen nicht als unabhängige Lieferproben.",
+    notes:
+      "6.000 € im Portalangebot eingerechnet. Verschiedene Förderbeträge können Varianten derselben Händlerkalkulation sein und zählen nicht als unabhängige Lieferproben.",
     normalizedHypothetical5000: 437.78,
     grossContractTotalKnown: null,
-    limitations: "Nicht direkt beim Händler vertraglich bestätigt; Originalquelle prüfen; tatsächliche Förderung nicht nachgewiesen.",
+    limitations:
+      "Nicht direkt beim Händler vertraglich bestätigt; Originalquelle prüfen; tatsächliche Förderung nicht nachgewiesen.",
   },
   {
     id: "premium-lease-20261103-13",
@@ -295,9 +319,11 @@ export const premiumLeasingObservations20261103 = [
     deliveryText: "2–6 Monate",
     deliveryMonths: 4,
     used: false,
-    notes: "4.000 € im Angebot berücksichtigt; möglicherweise dieselbe Händlerkalkulation wie 410-€-Angebot; keine separate Lieferprobe.",
+    notes:
+      "4.000 € im Angebot berücksichtigt; möglicherweise dieselbe Händlerkalkulation wie 410-€-Angebot; keine separate Lieferprobe.",
     normalizedHypothetical5000: 453.22,
     grossContractTotalKnown: null,
-    limitations: "Nicht direkt beim Händler vertraglich bestätigt; Originalquelle prüfen; tatsächliche Förderung nicht nachgewiesen.",
+    limitations:
+      "Nicht direkt beim Händler vertraglich bestätigt; Originalquelle prüfen; tatsächliche Förderung nicht nachgewiesen.",
   },
 ] as const;
