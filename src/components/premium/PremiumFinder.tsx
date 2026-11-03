@@ -495,8 +495,8 @@ export default function PremiumFinder() {
             <div>
               <strong>Transparenz vor Scheingenauigkeit.</strong>
               <p>
-                Kaufpreis-Stichprobe und RECHERCHESTAND weiterhin 24.10.2026: eine vollständige
-                neue Erhebung für alle sieben Modellvarianten und EZ-Jahre steht aus.
+                Kaufpreis-Stichprobe und RECHERCHESTAND weiterhin 24.10.2026: eine vollständige neue
+                Erhebung für alle sieben Modellvarianten und EZ-Jahre steht aus.
                 Herstellerdaten-Einzelprüfungen vom 03.11.2026 erscheinen getrennt bei den
                 Fahrzeugen. Die alten Inseratspreise sind keine heutigen Händlerzusagen.
               </p>
