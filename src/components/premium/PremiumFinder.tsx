@@ -35,6 +35,7 @@ import GravelGuide from "./GravelGuide";
 import PhotoCredit from "./PhotoCredit";
 import RecipientsWelcome from "./RecipientsWelcome";
 import { premiumPhotos } from "@/data/premium-photos";
+import { technicalSpotChecks } from "@/data/premium-technical-spotchecks";
 import gravelPhoto from "@/assets/premium/gravel-friends.png";
 import recipientPhoto from "../../../mfl_25925_pic.png";
 import "./premium.css";
@@ -368,6 +369,31 @@ export default function PremiumFinder() {
                     <span>GENERATION</span>
                     {car.generation}
                   </div>
+                  {technicalSpotChecks[car.id] && (
+                    <details className="pf-car-detail">
+                      <summary>
+                        Technik-Einzelprüfung 03.11.2026 <ChevronRight size={14} />
+                      </summary>
+                      <p>{technicalSpotChecks[car.id]!.variant}</p>
+                      <ul className="list-disc pl-5">
+                        {technicalSpotChecks[car.id]!.facts.map((fact) => (
+                          <li key={fact}>{fact}</li>
+                        ))}
+                      </ul>
+                      <p>{technicalSpotChecks[car.id]!.caveat}</p>
+                      <p>
+                        Einzelprüfung: {technicalSpotChecks[car.id]!.checkedAt}. Diese Informationen
+                        ersetzen keine vollständige Neuaufnahme der Kauf- und Leasingangebote.
+                      </p>
+                      <a
+                        href={technicalSpotChecks[car.id]!.sourceUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {technicalSpotChecks[car.id]!.sourceLabel} <ArrowUpRight size={14} />
+                      </a>
+                    </details>
+                  )}
                   <div className="pf-card-bottom">
                     <div>
                       <span>Ø Kaufangebot · EZ {year}</span>
@@ -468,6 +494,12 @@ export default function PremiumFinder() {
             <ShieldCheck size={22} />
             <div>
               <strong>Transparenz vor Scheingenauigkeit.</strong>
+              <p>
+                Kaufpreis-Stichprobe und RECHERCHESTAND weiterhin 24.10.2026: eine vollständige
+                neue Erhebung für alle sieben Modellvarianten und EZ-Jahre steht aus.
+                Herstellerdaten-Einzelprüfungen vom 03.11.2026 erscheinen getrennt bei den
+                Fahrzeugen. Die alten Inseratspreise sind keine heutigen Händlerzusagen.
+              </p>
               <p>
                 {marketListings.length} öffentlich sichtbare Kauf-Inserate erfasst. Die Werte sind
                 Mittelwerte einer Stichprobe aus mobile.de und Kleinanzeigen, kein vollständiger
@@ -658,7 +690,7 @@ export default function PremiumFinder() {
                     {row.year} · {portals.find((p) => p.id === row.portal)?.name}
                   </span>
                   <small>
-                    {row.condition} · {row.availability} · abgerufen {researchDate}
+                    {row.condition} · {row.availability} · abgerufen {row.observedAt}
                   </small>
                 </a>
               ))}
@@ -760,7 +792,7 @@ export default function PremiumFinder() {
               eigene Förderberechtigung.
             </p>
             <div className="pf-funding-status">
-              <span>BAFA 2026 / GEPRÜFT AM {researchDate}</span>
+              <span>Förderregeln · zusätzliche amtliche Prüfung 03.11.2026</span>
               <strong>3.000–6.000 € für förderfähige neue Elektroautos</strong>
               <p>
                 Nur zuvor unzugelassene Neuwagen der Klasse M1, erstmals ab 01.01.2026 in
@@ -781,6 +813,13 @@ export default function PremiumFinder() {
               </p>
             </div>
             <div className="pf-official-links">
+              <a
+                href="https://www.bundesumweltministerium.de/das-foerderprogramm-fuer-elektroautos"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                BMUKN · Förderhöhe und Voraussetzungen <ArrowUpRight size={14} />
+              </a>
               <a href={bafaRules} target="_blank" rel="noopener noreferrer">
                 BAFA Fördervoraussetzungen <ArrowUpRight size={14} />
               </a>
