@@ -144,8 +144,7 @@ export const premiumLeasingObservations20261103 = [
     deliveryText: "9–12 Monate",
     deliveryMonths: 10.5,
     used: false,
-    notes:
-      "Förderung nur als möglicherweise erhältlich gekennzeichnet; nicht mit G08 mischen.",
+    notes: "Förderung nur als möglicherweise erhältlich gekennzeichnet; nicht mit G08 mischen.",
     normalizedHypothetical5000: null,
     grossContractTotalKnown: null,
     limitations:
