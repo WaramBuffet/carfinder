@@ -90,7 +90,7 @@ describe("Fahrzeugvergleich", () => {
     expect(smart).toHaveTextContent("Noch kein Euro-NCAP-Test");
     expect(container).toHaveTextContent("Marie-Thérèse");
     expect(container).toHaveTextContent("90562 Heroldsberg");
-    expect(container).toHaveTextContent("Marktstand 02.11.2026");
+    expect(container).toHaveTextContent("Marktprüfung 03.11.2026");
   });
   it("kombiniert Hersteller und Sicherheit und kann leere Filter zurücksetzen", async () => {
     const { container } = await renderAt();
@@ -137,9 +137,19 @@ describe("Fahrzeugvergleich", () => {
     );
     expect(container.querySelector("#car-leapmotor-t03")).toHaveTextContent("34,22");
     expect(container.querySelector("#car-leapmotor-t03")).toHaveTextContent("02.10.2026");
-    expect(container.querySelector("#car-fiat-grande-panda")).toHaveTextContent("89,00");
+    expect(container.querySelector("#car-fiat-grande-panda")).toHaveTextContent("86,78");
     expect(container.querySelector("#car-fiat-grande-panda")).toHaveTextContent(
-      "5.000 € im Inserat eingerechnet",
+      "6.000 €",
+    );
+    expect(container.querySelector("#car-fiat-grande-panda")).toHaveTextContent("59,00");
+    expect(container.querySelector("#car-fiat-grande-panda")).toHaveTextContent("Stichprobe n=6");
+    expect(container.querySelector("#car-fiat-600e")).toHaveTextContent("166,78");
+    expect(container.querySelector("#car-fiat-600e")).toHaveTextContent("139,00");
+    expect(container.querySelector("#car-citroen-e-c3")).toHaveTextContent("269,00");
+    expect(container.querySelector("#car-citroen-e-c3")).toHaveTextContent("Stichprobe n=2");
+    expect(container.querySelector("#car-citroen-e-c3")).toHaveTextContent("unsicher");
+    expect(container.querySelector("#car-citroen-e-c3")).toHaveTextContent(
+      "Keine belastbar normierbare Privatleasingrate",
     );
     expect(container.querySelectorAll('a[href*="goleasy.de/leasing/marken/"]')).toHaveLength(16);
     expect(container).toHaveTextContent("bei 5.000 € Förderung");
