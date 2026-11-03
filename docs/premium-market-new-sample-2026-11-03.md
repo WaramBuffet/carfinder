@@ -106,3 +106,19 @@ Die neue Teilstichprobe umfasst **28 eindeutige Kleinanzeigen-IDs** und **13 Lea
 ## Freigabesperre
 
 Für alle Modellvarianten/EZ-Jahre fehlen noch die lückenlose mobile.de-Detaillinkprüfung, vollständige Kleinanzeigen-Suchabdeckung, VIN-/Dubletten-/Unfall-/Lieferstatuskontrolle sowie die verifizierte aktuelle Händler-Privatleasing-Matrix. Erst danach kann die historische Marktdatei `src/data/premium-market.ts` ersetzt und das globale `RECHERCHESTAND`-Datum nach grünem `pnpm check`, CI und öffentlicher Browser-/Pages-Kontrolle angehoben werden. **Aktueller Status: NICHT VOLLSTÄNDIG AKTUALISIERT.**
+
+
+## Ergänzung: Originalhändlerangebote für EX60 und elektrischen GLC
+
+Ergänzend zur 28er-Kleinanzeigen-Stichprobe wurden am 03.11.2026 **vier eindeutig nummerierte Fahrzeug-Einzelseiten deutscher Originalhändler** über ihren indexierten Seiteninhalt geprüft. Sie sind **nicht in die oben separat ausgewiesenen Kleinanzeigen-n eingerechnet**; eine VIN- und tatsächliche Verfügbarkeitsprüfung war nicht möglich.
+
+| Modell | EZ | km | Preis | Original-Inserat | Verfügbarkeit laut Händler |
+|---|---|---:|---:|---|---|
+| Volvo EX60 P10 AWD Ultra | 07/2026 | 7.500 | 72.850 € | [Krüll #10456513](https://www.kruell.com/fahrzeuge/volvo-ex60-p10-awd-ultra-2/) | ungeklärt; Drittquelle nennt abweichend 2.321 km |
+| Mercedes GLC 400 4M EQ AMG-Line (BEV) | 07/2026 | 3.500 | 83.290 € | [Arnold #0301G17874](https://www.autohaus-arnold.de/fahrzeuge/fahrzeugdetail/fahrzeug/MzE4MTY6MDMwMUcxNzg3NA-mercedes-benz-glc-400-4m-eq-amg-line-suv-gelaendewagen-elektro-schwarz-07-2026-3-500-km) | Vorlauffahrzeug laut Detail; Lagerfahrzeug laut Liste |
+| Mercedes GLC 400 EQ 4M AMG-Line (BEV) | 07/2026 | 5.000 | 84.950 € | [Arnold #0359G26332](https://www.autohaus-arnold.de/fahrzeuge/fahrzeugdetail/fahrzeug/MzE4MTQ6MDM1OUcyNjMzMg-mercedes-benz-glc-400-eq-4m-amg-l-distr-360deg-pano-hyperscre-suv-gelaendewagen-elektro-silber-07-2026-5-000-km) | Lagerfahrzeug laut Händler |
+| Mercedes GLC 400 4M EQ AMG-Line (BEV) | 10/2026 | 4.500 | 93.350 € | [Arnold #0301G18193](https://www.autohaus-arnold.de/fahrzeuge/fahrzeugdetail/fahrzeug/MzE4MTY6MDMwMUcxODE5Mw-mercedes-benz-glc-400-4m-eq-amg-line-suv-gelaendewagen-elektro-grau-10-2026-4-500-km) | Vorlauffahrzeug laut Händler |
+
+**Separate Händler-Teilstichproben für EZ 2026:** Volvo EX60 P10 **n=1, Mittelwert/Median/Min/Max je 72.850 €**. Mercedes GLC elektrisch 400 4MATIC **n=3, Mittelwert 87.196,67 €, Median 84.950 €, Minimum 83.290 €, Maximum 93.350 €**. Alle drei GLC-Angebote stammen aus derselben Autohaus-Gruppe; eine Verzerrung der Stichprobe ist wahrscheinlich. Das weitere Händler-Inserat **#0359G26334** hat mit **#0359G26332** identischen Preis, Farbe, EZ, km und Standort und wurde wegen erkennbarem Dublettenrisiko bewusst **nicht** gezählt. Die Anzahl der **einzigartigen neu identifizierten Inserate beträgt damit 32 über beide Quellen** (28 Kleinanzeigen + 4 originale Händlerseiten). Auch dies ist keine lückenlose Markt-Neuerhebung.
+
+Maschinenlesbare Rohdaten, alle eindeutigen Original-URLs und Konflikte: [premium-raw-dealers-2026-11-03.json](premium-raw-dealers-2026-11-03.json). Die öffentlichen Premium-Statistiken und das globale Recherchedatum bleiben unverändert.
