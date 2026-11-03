@@ -15,8 +15,7 @@ export const currentPremiumObservations: MarketListing[] = [
     priceEur: 62500,
     mileageKm: 51500,
     variant: "Porsche Taycan 4 Cross Turismo - Schwarz - Approved",
-    url:
-      "https://www.kleinanzeigen.de/s-anzeige/porsche-taycan-4-cross-turismo-schwarz-approved/3498941015",
+    url: "https://www.kleinanzeigen.de/s-anzeige/porsche-taycan-4-cross-turismo-schwarz-approved/3498941015",
     observedAt: "2026-11-03",
     kind: "purchase",
     deduplicationKey: "klein-3498941015",
@@ -31,8 +30,7 @@ export const currentPremiumObservations: MarketListing[] = [
     priceEur: 63999,
     mileageKm: 49999,
     variant: "Porsche TAYCAN 4S CROSS TURISMO *APPROVED 11/27*",
-    url:
-      "https://www.kleinanzeigen.de/s-anzeige/porsche-taycan-4s-cross-turismo-approved-11-27/3456141974",
+    url: "https://www.kleinanzeigen.de/s-anzeige/porsche-taycan-4s-cross-turismo-approved-11-27/3456141974",
     observedAt: "2026-11-03",
     kind: "purchase",
     deduplicationKey: "klein-3456141974",
@@ -47,8 +45,7 @@ export const currentPremiumObservations: MarketListing[] = [
     priceEur: 64000,
     mileageKm: 40700,
     variant: "Porsche Taycan Cross Turismo 21”Sommer, 20” Winter Approved",
-    url:
-      "https://www.kleinanzeigen.de/s-anzeige/porsche-taycan-cross-turismo-21-sommer-20-winter-approved/3552434252",
+    url: "https://www.kleinanzeigen.de/s-anzeige/porsche-taycan-cross-turismo-21-sommer-20-winter-approved/3552434252",
     observedAt: "2026-11-03",
     kind: "purchase",
     deduplicationKey: "klein-3552434252",
@@ -63,8 +60,7 @@ export const currentPremiumObservations: MarketListing[] = [
     priceEur: 64000,
     mileageKm: 13277,
     variant: "Porsche Taycan GTS Sport Turismo Exclusive/Carbon/Luftfederung",
-    url:
-      "https://www.kleinanzeigen.de/s-anzeige/porsche-taycan-gts-sport-turismo-exclusive-carbon-luftfederung/3540886447",
+    url: "https://www.kleinanzeigen.de/s-anzeige/porsche-taycan-gts-sport-turismo-exclusive-carbon-luftfederung/3540886447",
     observedAt: "2026-11-03",
     kind: "purchase",
     deduplicationKey: "klein-3540886447",
@@ -79,8 +75,7 @@ export const currentPremiumObservations: MarketListing[] = [
     priceEur: 59890,
     mileageKm: 43000,
     variant: "Porsche Taycan Sport Turismo*20Zoll*PANORAMA*Wärmepumpe*",
-    url:
-      "https://www.kleinanzeigen.de/s-anzeige/porsche-taycan-sport-turismo-20zoll-panorama-waermepumpe/3542519274",
+    url: "https://www.kleinanzeigen.de/s-anzeige/porsche-taycan-sport-turismo-20zoll-panorama-waermepumpe/3542519274",
     observedAt: "2026-11-03",
     kind: "purchase",
     deduplicationKey: "klein-3542519274",
@@ -95,8 +90,7 @@ export const currentPremiumObservations: MarketListing[] = [
     priceEur: 59971,
     mileageKm: 60000,
     variant: "Porsche Taycan Sport Turismo *Wärmepumpe*Motor-Sound*20",
-    url:
-      "https://www.kleinanzeigen.de/s-anzeige/porsche-taycan-sport-turismo-waermepumpe-motor-sound-20/3539519551",
+    url: "https://www.kleinanzeigen.de/s-anzeige/porsche-taycan-sport-turismo-waermepumpe-motor-sound-20/3539519551",
     observedAt: "2026-11-03",
     kind: "purchase",
     deduplicationKey: "klein-3539519551",
@@ -126,8 +120,7 @@ export const currentPremiumObservations: MarketListing[] = [
     priceEur: 98870,
     mileageKm: 33900,
     variant: "Porsche Taycan Turbo S Sport Turismo*Beif.Display*Pano*Approved*",
-    url:
-      "https://www.kleinanzeigen.de/s-anzeige/porsche-taycan-turbo-s-sport-turismo-beif-display-pano-approved/3554274462",
+    url: "https://www.kleinanzeigen.de/s-anzeige/porsche-taycan-turbo-s-sport-turismo-beif-display-pano-approved/3554274462",
     observedAt: "2026-11-03",
     kind: "purchase",
     deduplicationKey: "klein-3554274462",
@@ -142,8 +135,7 @@ export const currentPremiumObservations: MarketListing[] = [
     priceEur: 68489,
     mileageKm: 26500,
     variant: "Porsche Taycan Sport Turismo Luftfeder Pano Performance+",
-    url:
-      "https://www.kleinanzeigen.de/s-anzeige/porsche-taycan-sport-turismo-luftfeder-pano-performance/3552631396",
+    url: "https://www.kleinanzeigen.de/s-anzeige/porsche-taycan-sport-turismo-luftfeder-pano-performance/3552631396",
     observedAt: "2026-11-03",
     kind: "purchase",
     deduplicationKey: "klein-3552631396",
@@ -158,8 +150,7 @@ export const currentPremiumObservations: MarketListing[] = [
     priceEur: 86960,
     mileageKm: 40000,
     variant: "Porsche Taycan Sport Turismo /  BOSE® / Matrix / ACC / L",
-    url:
-      "https://www.kleinanzeigen.de/s-anzeige/porsche-taycan-sport-turismo-bose-matrix-acc-l/3449644077",
+    url: "https://www.kleinanzeigen.de/s-anzeige/porsche-taycan-sport-turismo-bose-matrix-acc-l/3449644077",
     observedAt: "2026-11-03",
     kind: "purchase",
     deduplicationKey: "klein-3449644077",
@@ -174,8 +165,7 @@ export const currentPremiumObservations: MarketListing[] = [
     priceEur: 110000,
     mileageKm: 34900,
     variant: "Porsche Taycan 4S Sport Turismo InnoDrive Sitzbelüftung",
-    url:
-      "https://www.kleinanzeigen.de/s-anzeige/porsche-taycan-4s-sport-turismo-innodrive-sitzbelueftung/3357192193",
+    url: "https://www.kleinanzeigen.de/s-anzeige/porsche-taycan-4s-sport-turismo-innodrive-sitzbelueftung/3357192193",
     observedAt: "2026-11-03",
     kind: "purchase",
     deduplicationKey: "klein-3357192193",
@@ -190,8 +180,7 @@ export const currentPremiumObservations: MarketListing[] = [
     priceEur: 119700,
     mileageKm: 26000,
     variant: "Porsche Taycan 4S Sport Turismo*Performanceb.*Beifahrerd",
-    url:
-      "https://www.kleinanzeigen.de/s-anzeige/porsche-taycan-4s-sport-turismo-performanceb-beifahrerd/3449639324",
+    url: "https://www.kleinanzeigen.de/s-anzeige/porsche-taycan-4s-sport-turismo-performanceb-beifahrerd/3449639324",
     observedAt: "2026-11-03",
     kind: "purchase",
     deduplicationKey: "klein-3449639324",
@@ -206,8 +195,7 @@ export const currentPremiumObservations: MarketListing[] = [
     priceEur: 39450,
     mileageKm: 55376,
     variant: "BMW iX3 M-Sport Impressive*1.Hd*ACC*AHK*360°LED*PANO",
-    url:
-      "https://www.kleinanzeigen.de/s-anzeige/bmw-ix3-m-sport-impressive-1-hd-acc-ahk-360-led-pano/3539326053",
+    url: "https://www.kleinanzeigen.de/s-anzeige/bmw-ix3-m-sport-impressive-1-hd-acc-ahk-360-led-pano/3539326053",
     observedAt: "2026-11-03",
     kind: "purchase",
     deduplicationKey: "klein-3539326053",
@@ -222,8 +210,7 @@ export const currentPremiumObservations: MarketListing[] = [
     priceEur: 43890,
     mileageKm: 48742,
     variant: "BMW Impressive 74kWh erw. Shadowline HuD360° DA Pro",
-    url:
-      "https://www.kleinanzeigen.de/s-anzeige/bmw-impressive-74kwh-erw-shadowline-hud360-da-pro/3552637468",
+    url: "https://www.kleinanzeigen.de/s-anzeige/bmw-impressive-74kwh-erw-shadowline-hud360-da-pro/3552637468",
     observedAt: "2026-11-03",
     kind: "purchase",
     deduplicationKey: "klein-3552637468",
@@ -238,8 +225,7 @@ export const currentPremiumObservations: MarketListing[] = [
     priceEur: 43970,
     mileageKm: 22000,
     variant: "BMW iX3 G08 Inspiring",
-    url:
-      "https://www.kleinanzeigen.de/s-anzeige/bmw-ix3-inspiring-20zoll-panorama-ahk-shadow-line/3542519278",
+    url: "https://www.kleinanzeigen.de/s-anzeige/bmw-ix3-inspiring-20zoll-panorama-ahk-shadow-line/3542519278",
     observedAt: "2026-11-03",
     kind: "purchase",
     deduplicationKey: "klein-3542519278",
@@ -254,8 +240,7 @@ export const currentPremiumObservations: MarketListing[] = [
     priceEur: 44590,
     mileageKm: 39781,
     variant: "BMW Impressive 74kWh erw. Shadowline HuD360° DA Pro",
-    url:
-      "https://www.kleinanzeigen.de/s-anzeige/bmw-impressive-74kwh-erw-shadowline-hud360-da-pro/3552637473",
+    url: "https://www.kleinanzeigen.de/s-anzeige/bmw-impressive-74kwh-erw-shadowline-hud360-da-pro/3552637473",
     observedAt: "2026-11-03",
     kind: "purchase",
     deduplicationKey: "klein-3552637473",
@@ -270,8 +255,7 @@ export const currentPremiumObservations: MarketListing[] = [
     priceEur: 48999,
     mileageKm: 25574,
     variant: "BMW iX3 G08 Impressive",
-    url:
-      "https://www.kleinanzeigen.de/s-anzeige/bmw-ix3-impressive-m-sport-pano-360-hud-dab-h-k-20/3554447643",
+    url: "https://www.kleinanzeigen.de/s-anzeige/bmw-ix3-impressive-m-sport-pano-360-hud-dab-h-k-20/3554447643",
     observedAt: "2026-11-03",
     kind: "purchase",
     deduplicationKey: "klein-3554447643",
@@ -286,8 +270,7 @@ export const currentPremiumObservations: MarketListing[] = [
     priceEur: 49000,
     mileageKm: 47000,
     variant: "BMW G08 IX3 Impressive / Finanzierung mögl.",
-    url:
-      "https://www.kleinanzeigen.de/s-anzeige/bmw-g08-ix3-impressive-finanzierung-moegl/3535386037",
+    url: "https://www.kleinanzeigen.de/s-anzeige/bmw-g08-ix3-impressive-finanzierung-moegl/3535386037",
     observedAt: "2026-11-03",
     kind: "purchase",
     deduplicationKey: "klein-3535386037",
@@ -317,8 +300,7 @@ export const currentPremiumObservations: MarketListing[] = [
     priceEur: 83980,
     mileageKm: 1600,
     variant: "BMW iX3 xDrive50 M Pro sofort verfügbar !!!",
-    url:
-      "https://www.kleinanzeigen.de/s-anzeige/bmw-ix3-xdrive50-m-pro-sofort-verfuegbar/3535150322",
+    url: "https://www.kleinanzeigen.de/s-anzeige/bmw-ix3-xdrive50-m-pro-sofort-verfuegbar/3535150322",
     observedAt: "2026-11-03",
     kind: "purchase",
     deduplicationKey: "klein-3535150322",
@@ -348,8 +330,7 @@ export const currentPremiumObservations: MarketListing[] = [
     priceEur: 75000,
     mileageKm: 9000,
     variant: "BMW iX3 NA5 50 xDrive",
-    url:
-      "https://www.kleinanzeigen.de/s-anzeige/bmw-ix3-50-xdrive-m-sportpaket-winterkomplettreifen/3548005826",
+    url: "https://www.kleinanzeigen.de/s-anzeige/bmw-ix3-50-xdrive-m-sportpaket-winterkomplettreifen/3548005826",
     observedAt: "2026-11-03",
     kind: "purchase",
     deduplicationKey: "klein-3548005826",
@@ -379,8 +360,7 @@ export const currentPremiumObservations: MarketListing[] = [
     priceEur: 82500,
     mileageKm: 9500,
     variant: "BMW iX3 NA5 Neue Klasse",
-    url:
-      "https://www.kleinanzeigen.de/s-anzeige/bmw-ix3-na5-neue-klasse-halbjahreswagen-sehr-gute-ausstattung/3515413975",
+    url: "https://www.kleinanzeigen.de/s-anzeige/bmw-ix3-na5-neue-klasse-halbjahreswagen-sehr-gute-ausstattung/3515413975",
     observedAt: "2026-11-03",
     kind: "purchase",
     deduplicationKey: "klein-3515413975",
@@ -395,8 +375,7 @@ export const currentPremiumObservations: MarketListing[] = [
     priceEur: 49999,
     mileageKm: 8500,
     variant: "BMW i5 Touring eDrive40 G61",
-    url:
-      "https://www.kleinanzeigen.de/s-anzeige/bmw-i5-touring-edrive40-hud-inno-paket-fahrwerk-prof-assistant/3543053697",
+    url: "https://www.kleinanzeigen.de/s-anzeige/bmw-i5-touring-edrive40-hud-inno-paket-fahrwerk-prof-assistant/3543053697",
     observedAt: "2026-11-03",
     kind: "purchase",
     deduplicationKey: "klein-3543053697",
@@ -410,9 +389,8 @@ export const currentPremiumObservations: MarketListing[] = [
     year: 2025,
     priceEur: 58980,
     mileageKm: 37640,
-    variant: "BMW i5 eDrive40 Touring M-Sport Pro \"AHK 20\"LM BW 22",
-    url:
-      "https://www.kleinanzeigen.de/s-anzeige/bmw-i5-edrive40-touring-m-sport-pro-ahk-20-lm-bw-22/3482050767",
+    variant: 'BMW i5 eDrive40 Touring M-Sport Pro "AHK 20"LM BW 22',
+    url: "https://www.kleinanzeigen.de/s-anzeige/bmw-i5-edrive40-touring-m-sport-pro-ahk-20-lm-bw-22/3482050767",
     observedAt: "2026-11-03",
     kind: "purchase",
     deduplicationKey: "klein-3482050767",
@@ -427,8 +405,7 @@ export const currentPremiumObservations: MarketListing[] = [
     priceEur: 59199,
     mileageKm: 28070,
     variant: "BMW i5 xDrive40 Touring M Sport AHK Harman/K Kamera",
-    url:
-      "https://www.kleinanzeigen.de/s-anzeige/bmw-i5-xdrive40-touring-m-sport-ahk-harman-k-kamera/3523190009",
+    url: "https://www.kleinanzeigen.de/s-anzeige/bmw-i5-xdrive40-touring-m-sport-ahk-harman-k-kamera/3523190009",
     observedAt: "2026-11-03",
     kind: "purchase",
     deduplicationKey: "klein-3523190009",
@@ -443,8 +420,7 @@ export const currentPremiumObservations: MarketListing[] = [
     priceEur: 59900,
     mileageKm: 31584,
     variant: "BMW i5 eDrive40 Touring M Sport AHK Harman/K Kamera",
-    url:
-      "https://www.kleinanzeigen.de/s-anzeige/bmw-i5-edrive40-touring-m-sport-ahk-harman-k-kamera/3560235899",
+    url: "https://www.kleinanzeigen.de/s-anzeige/bmw-i5-edrive40-touring-m-sport-ahk-harman-k-kamera/3560235899",
     observedAt: "2026-11-03",
     kind: "purchase",
     deduplicationKey: "klein-3560235899",
