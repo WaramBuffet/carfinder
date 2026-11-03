@@ -77,11 +77,13 @@ export const technicalSpotChecks: Partial<Record<string, TechnicalSpotCheck>> = 
       "P10: ab 67.790 € UVP · 375 kW · 95 kWh nominal · bis 660 km WLTP · AWD",
       "P6/P10: Dachlast jeweils 100 kg; gebremste Anhängelast 2.000 kg (P6) bzw. 2.400 kg (P10)",
       "Hersteller nennt für beide Varianten 10–80 % DC unter optimalen Bedingungen ab 16 Minuten.",
+      "EX60 Cross Country P10 AWD: ab 68.990 € UVP · Modelljahr 2028, Auslieferung ab Mitte 2027.",
+      "EX60 Cross Country: serienmäßige adaptive Luftfederung, 20 mm höher als EX60; Offroad-Modus unter 40 km/h mit weiteren 20 mm Anhebung.",
     ],
     caveat:
-      "P12 AWD ist eine weitere Variante mit anderen Werten. Nominale Batterieenergie ist nicht gleich netto nutzbar. Die SUV-Karosserie beweist keine Gravel-Eignung.",
-    sourceLabel: "Volvo · technische Daten EX60",
-    sourceUrl: "https://www.volvocars.com/de/cars/ex60-electric/specifications/",
+      "EX60 Cross Country ist eine separate, outdoor-orientierte Variante und darf nicht mit P6/P10/P12 Standard-Modellen oder deren Kaufpreisstatistik vermischt werden. P12 AWD besitzt andere Werte; nominale Batterieenergie ist nicht gleich netto nutzbar. Keine pauschale Geländefreigabe aus SUV-Karosserie ableiten.",
+    sourceLabel: "Volvo · EX60 und EX60 Cross Country (Varianten und Fahrwerk)",
+    sourceUrl: "https://www.volvocars.com/de/cars/ex60-electric/",
   },
   "glc-electric": {
     variant: "Mercedes-Benz GLC 400 4MATIC elektrisch (nicht GLC PHEV)",
