@@ -21,9 +21,11 @@ export const technicalSpotChecks: Partial<Record<string, TechnicalSpotCheck>> = 
       "Bodenfreiheit mit Luftfederung ca. 146 mm (Normalniveau), bis 176 mm (Sondergeländeniveau)",
       "Porsche bestätigt ausdrücklich einen Gravel-Modus für leichtes Gelände.",
     ],
-    caveat: "Die genannten Lasten und Niveaus gelten für die verlinkte Variante/Ausstattung; keine generelle Geländezulassung. Fahrradheckträger und tatsächliche Nutzlast der eigenen Konfiguration separat prüfen.",
+    caveat:
+      "Die genannten Lasten und Niveaus gelten für die verlinkte Variante/Ausstattung; keine generelle Geländezulassung. Fahrradheckträger und tatsächliche Nutzlast der eigenen Konfiguration separat prüfen.",
     sourceLabel: "Porsche Taycan 4 Cross Turismo · Hersteller-Fahrzeugdaten",
-    sourceUrl: "https://finder.porsche.com/de/de-DE/details/porsche-taycan-4-cross-turismo-neu-327W4W",
+    sourceUrl:
+      "https://finder.porsche.com/de/de-DE/details/porsche-taycan-4-cross-turismo-neu-327W4W",
   },
   "taycan-sport": {
     variant: "Taycan Sport Turismo · aktuelle Modellgeneration",
@@ -33,9 +35,11 @@ export const technicalSpotChecks: Partial<Record<string, TechnicalSpotCheck>> = 
       "Bodenfreiheit bei Luftfederung: 127 mm Normalniveau, bis 147 mm Geländeniveau",
       "Rückbank umgeklappt: 1.212 l; die Variante ist kein Cross Turismo.",
     ],
-    caveat: "Kein Cross-Turismo-spezifischer Gravel-Modus belegt. Keine Anhängelast oder Fahrradsystem-Zulassung allein aus der Karosserie ableiten.",
+    caveat:
+      "Kein Cross-Turismo-spezifischer Gravel-Modus belegt. Keine Anhängelast oder Fahrradsystem-Zulassung allein aus der Karosserie ableiten.",
     sourceLabel: "Porsche Taycan Sport Turismo · Hersteller-Fahrzeugdaten",
-    sourceUrl: "https://finder.porsche.com/de/de-DE/details/porsche-taycan-sport-turismo-neu-908M8W",
+    sourceUrl:
+      "https://finder.porsche.com/de/de-DE/details/porsche-taycan-sport-turismo-neu-908M8W",
   },
   "ix3-g08": {
     variant: "BMW iX3 G08 Inspiring · ältere Generation (Referenzjahr 2021)",
@@ -45,9 +49,11 @@ export const technicalSpotChecks: Partial<Record<string, TechnicalSpotCheck>> = 
       "Dachlast 100 kg · gebremste Anhängelast 750 kg · Stützlast 75 kg",
       "Fahrzeugzuladung laut geprüfter Referenz 465 kg.",
     ],
-    caveat: "ADAC referenziert die Inspiring-Version 01/2021–08/2021, nicht die neue BMW iX3 NA5 und nicht sämtliche G08-Modelljahre. Anhängerkupplung, Zulassungsdaten und Fahrradtransport fahrzeugindividuell prüfen.",
+    caveat:
+      "ADAC referenziert die Inspiring-Version 01/2021–08/2021, nicht die neue BMW iX3 NA5 und nicht sämtliche G08-Modelljahre. Anhängerkupplung, Zulassungsdaten und Fahrradtransport fahrzeugindividuell prüfen.",
     sourceLabel: "ADAC · BMW iX3 G08 technische Daten",
-    sourceUrl: "https://www.adac.de/rund-ums-fahrzeug/autokatalog/marken-modelle/bmw/ix3/g08/313831/",
+    sourceUrl:
+      "https://www.adac.de/rund-ums-fahrzeug/autokatalog/marken-modelle/bmw/ix3/g08/313831/",
   },
   "ix3-neue-klasse": {
     variant: "BMW iX3 40 · Neue Klasse NA5 (nicht G08)",
@@ -58,7 +64,8 @@ export const technicalSpotChecks: Partial<Record<string, TechnicalSpotCheck>> = 
       "4.782 mm lang · Kofferraum 520–1.750 l + Frunk 58 l · Zuladung 540 kg",
       "Dachlast 75 kg · gebremste Anhängelast 2.000 kg · Stützlast 80 kg",
     ],
-    caveat: "Daten für iX3 40, nicht pauschal für iX3 50 xDrive (andere Batterie-/DC-Werte). Eine hohe Anhängelast sagt nichts über Schottertauglichkeit, Böschungswinkel oder Fahrradheckträgerfreigabe aus.",
+    caveat:
+      "Daten für iX3 40, nicht pauschal für iX3 50 xDrive (andere Batterie-/DC-Werte). Eine hohe Anhängelast sagt nichts über Schottertauglichkeit, Böschungswinkel oder Fahrradheckträgerfreigabe aus.",
     sourceLabel: "BMW · technische Daten iX3 Neue Klasse",
     sourceUrl: "https://www.bmw.de/de/neufahrzeuge/x/ix3/bmw-ix3-technische-daten.html",
   },
@@ -71,7 +78,8 @@ export const technicalSpotChecks: Partial<Record<string, TechnicalSpotCheck>> = 
       "P6/P10: Dachlast jeweils 100 kg; gebremste Anhängelast 2.000 kg (P6) bzw. 2.400 kg (P10)",
       "Hersteller nennt für beide Varianten 10–80 % DC unter optimalen Bedingungen ab 16 Minuten.",
     ],
-    caveat: "P12 AWD ist eine weitere Variante mit anderen Werten. Nominale Batterieenergie ist nicht gleich netto nutzbar. Die SUV-Karosserie beweist keine Gravel-Eignung.",
+    caveat:
+      "P12 AWD ist eine weitere Variante mit anderen Werten. Nominale Batterieenergie ist nicht gleich netto nutzbar. Die SUV-Karosserie beweist keine Gravel-Eignung.",
     sourceLabel: "Volvo · technische Daten EX60",
     sourceUrl: "https://www.volvocars.com/de/cars/ex60-electric/specifications/",
   },
@@ -84,7 +92,8 @@ export const technicalSpotChecks: Partial<Record<string, TechnicalSpotCheck>> = 
       "4.845 mm lang · Kofferraum 570–1.740 l + Frunk 128 l",
       "Dachlast 75 kg · gebremste Anhängelast bis 2.400 kg; Fahrzeugzuladung 505 kg.",
     ],
-    caveat: "GLC 250 (Heckantrieb) und GLC 300 4MATIC sind weitere elektrische Varianten mit 85-kWh-Akku und anderer Leistung; Verbrenner/PHEV-Leasingangebote ausschließen. Verfügbarkeit und tatsächliche Kupplungsausführung beim Fahrzeug prüfen.",
+    caveat:
+      "GLC 250 (Heckantrieb) und GLC 300 4MATIC sind weitere elektrische Varianten mit 85-kWh-Akku und anderer Leistung; Verbrenner/PHEV-Leasingangebote ausschließen. Verfügbarkeit und tatsächliche Kupplungsausführung beim Fahrzeug prüfen.",
     sourceLabel: "Mercedes-Benz · GLC elektrisch Modellvergleich",
     sourceUrl: "https://www.mercedes-benz.de/passengercars/models/suv/glc-electric/overview.html",
   },
@@ -97,7 +106,8 @@ export const technicalSpotChecks: Partial<Record<string, TechnicalSpotCheck>> = 
       "Beide: 5.060 mm lang · Kofferraum 570–1.700 l · Dachlast 100 kg",
       "Gebremste Anhängelast: 1.500 kg (eDrive40) bzw. 2.000 kg (xDrive40), Stützlast jeweils 80 kg.",
     ],
-    caveat: "Batteriewert nach Hersteller, nicht ohne Zusatzbeleg als Netto- oder Bruttoenergie deklarieren. Anhängerlast nur mit entsprechend ausgestatteter Variante; keine besondere Gravel-Freigabe belegt.",
+    caveat:
+      "Batteriewert nach Hersteller, nicht ohne Zusatzbeleg als Netto- oder Bruttoenergie deklarieren. Anhängerlast nur mit entsprechend ausgestatteter Variante; keine besondere Gravel-Freigabe belegt.",
     sourceLabel: "BMW · i5 Touring G61 technische Daten",
     sourceUrl: "https://www.bmw.de/de/neufahrzeuge/bmw-i/i5/bmw-i5-touring-technische-daten.html",
   },
