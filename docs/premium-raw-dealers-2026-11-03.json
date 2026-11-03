@@ -1,0 +1,65 @@
+{
+  "title": "Zusätzliche Originalhändler-Einzelbelege 03.11.2026",
+  "status": "Nicht vollständig aktualisiert; vorläufige Suchergebnisse; keine neue veröffentlichte Marktstatistik",
+  "method": "Zwei direkt identifizierbare Händler-Fahrzeugseiten mit Original-Inseratnummer; technisch nicht live geöffnet, jeweils dokumentierter Indexstand. Separate Quellenkategorie, nicht als Kleinanzeigen-Angebote etikettieren und nicht als n=0 der Portalsuche behandeln.",
+  "rows": [
+    {
+      "observationId": "dealer-kruell-10456513",
+      "carId": "ex60",
+      "variant": "Volvo EX60 P10 AWD Ultra 375 kW",
+      "modelGeneration": "EX60",
+      "firstRegistration": "07/2026",
+      "year": 2026,
+      "km": 7500,
+      "priceEur": 72850,
+      "status": "Gebrauchtfahrzeug, 1 Vorbesitzer",
+      "availability": "Unbestätigt; Händler nennt Irrtümer/Zwischenverkauf",
+      "seller": "AMC Krüll GmbH Hamburg",
+      "internalNumber": "10456513",
+      "originalUrl": "https://www.kruell.com/fahrzeuge/volvo-ex60-p10-awd-ultra-2/",
+      "evidence": "Original-Händlerangebot in indexierter Seite, Suchprüfung 03.11.2026; Seite direkt technisch nicht abrufbar",
+      "risk": "Drittportal-Index zeigte für möglicherweise dasselbe Fahrzeug 2.321 km, Händlerseite 7.500 km. VIN und Kilometerzahl vor Zählung gegenprüfen."
+    },
+    {
+      "observationId": "dealer-arnold-0301G17874",
+      "carId": "glc-electric",
+      "variant": "Mercedes-Benz GLC 400 4MATIC EQ AMG-Line 360 kW",
+      "modelGeneration": "GLC mit EQ-Technologie (reines BEV, kein PHEV)",
+      "firstRegistration": "07/2026",
+      "year": 2026,
+      "km": 3500,
+      "priceEur": 83290,
+      "status": "Vorführwagen",
+      "availability": "Vorlauffahrzeug laut Einzelansicht; Lagerfahrzeug laut Autohaus-Suchliste – Widerspruch offen",
+      "seller": "Autohaus Arnold GmbH Neufahrn",
+      "internalNumber": "0301G17874",
+      "originalUrl": "https://www.autohaus-arnold.de/fahrzeuge/fahrzeugdetail/fahrzeug/MzE4MTY6MDMwMUcxNzg3NA-mercedes-benz-glc-400-4m-eq-amg-line-suv-gelaendewagen-elektro-schwarz-07-2026-3-500-km",
+      "evidence": "Original-Händler-Einzelseite plus aktuelle Händlersuchliste, Suchprüfung 03.11.2026; direkte Abrufmöglichkeit gesperrt",
+      "risk": "Händler bezeichnet identisches Fahrzeug als Lager- und Vorlauffahrzeug. Lieferbarkeit ungeklärt, telefonische Prüfung nötig."
+    }
+  ],
+  "summary": [
+    {
+      "carId": "ex60",
+      "year": 2026,
+      "n": 1,
+      "mean": 72850,
+      "median": 72850,
+      "min": 72850,
+      "max": 72850,
+      "source": "Originalhändler Krüll",
+      "status": "kleine Stichprobe / nicht VIN-verifiziert"
+    },
+    {
+      "carId": "glc-electric",
+      "year": 2026,
+      "n": 1,
+      "mean": 83290,
+      "median": 83290,
+      "min": 83290,
+      "max": 83290,
+      "source": "Originalhändler Arnold",
+      "status": "kleine Stichprobe / Verfügbarkeitswiderspruch"
+    }
+  ]
+}
