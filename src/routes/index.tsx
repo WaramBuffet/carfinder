@@ -908,7 +908,7 @@ function MarketDeals({ car }: { car: Car }) {
         {offer.rate !== undefined && (
           <p>Beobachtete Portalrate: {monthly.format(offer.rate)} / Monat{offer.includedGrant !== undefined ? ` · im Inserat kalkulierte Förderung: ${money.format(offer.includedGrant)}` : ""}</p>
         )}
-        <p>Die Vergleichsrate setzt eine tatsächlich bewilligte Förderung von 5.000 € voraus; keine Förderzusage. Eine Förder-Sonderzahlung kann vorzufinanzieren sein.</p>
+        <p>Die Vergleichsrate setzt eine tatsächlich bewilligte Förderung von 5.000 € voraus; keine Förderzusage und keine automatisch angepasste Vertragsrate. Fehlt Geld zur im Inserat verlangten Sonderzahlung, ist die Differenz selbst zu tragen oder eine neue Händlerkalkulation erforderlich.</p>
         {(offer.months || offer.kmPerYear) && (
           <p>
             Vertragsraster: {offer.months ?? "–"} Monate ·{" "}
@@ -957,7 +957,7 @@ function MarketDeals({ car }: { car: Car }) {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Geprüftes Einzelangebot beim Anbieter
+          Angebotsübersicht beim Anbieter (Konditionen erneut prüfen)
         </a>
       )}
       {offer.previousRate !== null && (
@@ -1105,7 +1105,7 @@ function BasisStrip({ compact = false }: { compact?: boolean }) {
             [Ruler, "5.000 km/Jahr", "Fahrleistung im Portalvergleich"],
             [Sparkles, "5.000 €", "Förder-Normierung (bedingt)"],
             [CarFront, "Separat", "Überführung"],
-            [Check, "02.11.2026", "Leasingmarkt geprüft"],
+            [Check, "03.11.2026", "Leasingmarkt teilaktualisiert"],
           ].map(([Icon, value, label]) => {
             const BasisIcon = Icon as typeof WalletCards;
             return (
@@ -1510,7 +1510,7 @@ function Index() {
           <div className="mx-auto max-w-7xl px-5 py-10 sm:px-8 lg:px-12 lg:py-14">
             <div className="grid gap-6 lg:grid-cols-[1fr_auto] lg:items-end">
               <div className="max-w-3xl">
-                <p className="eyebrow">Zahlen &amp; Fakten · Marktstand 02.11.2026</p>
+                <p className="eyebrow">Zahlen &amp; Fakten · Marktprüfung 03.11.2026</p>
                 <p className="mt-3 text-sm font-medium text-primary">
                   Gewidmet Marie-Thérèse aus 90562 Heroldsberg.
                 </p>
@@ -1547,7 +1547,7 @@ function Index() {
         className="mx-auto max-w-7xl px-5 pt-6 text-sm leading-relaxed text-muted-foreground sm:px-8 lg:px-12"
         aria-label="Quellenstatus"
       >
-        <strong className="text-foreground">Leasingmarktstand: 02.11.2026.</strong> Technische
+        <strong className="text-foreground">Leasingmarkt: teilweise neu geprüft am 03.11.2026; übrige Angebotsstichproben vom 02.11.2026.</strong> Technische
         Herstellerdaten der bisherigen 15 Fahrzeuge wurden überwiegend am 17.10.2026 geprüft;
         der neue smart #2 wurde am 25.10.2026 anhand aktueller Herstellerangaben ergänzt. Der Dacia-Preis und
         einzelne Variantenangaben bleiben offen. GoLeasy und LeasingMarkt.de bilden die Grundlage
@@ -1556,9 +1556,11 @@ function Index() {
         Herstellerbeispiele ergänzen die Portalangebote. Abmessungen ohne aktuellen Einzelbeleg
         sowie Serviceadressen stammen aus dem bisherigen Bestand.
         <span className="mt-2 block font-medium text-foreground">
-          Änderungen seit 25.10.: IONIQ 3 normiert 147,30 statt 171,28 €; Liefermediane
-          Twingo 3,0 statt 3,7, Fiat 500e 3,2 statt 1,8, Fiat 600e 2,3 statt 0,5,
-          Renault 5 3,3 statt 4,0 Monate. INSTER 3,0 statt 6,0 Monate (nur Gewerbe, unsicher).
+          Änderungen seit 02.11.: Grande Panda La Prima neues 59-€-Sonderangebot mit 6.000 € Förderannahme
+          (bei 5.000 € rechnerisch 86,78 statt 89,00 €; Hauptansicht zeigt teils noch 89 €).
+          Fiat 600e Pop neu bei 166,78 statt 168,82 € im gewünschten 36-Monats-/5.000-km-Raster.
+          ë-C3 Plus: Privatangebot mit 269 € Portalrate, aber ohne bezifferte Förderanrechnung;
+          Liefermedian aus nur zwei Plus-Anzeigen unsicher.
         </span>
         <span className="mt-2 block">
           <a
@@ -1599,8 +1601,9 @@ function Index() {
           <p className="text-lg font-bold">Preiswerte E-Autos im Vergleich</p>
           <p className="mt-2 text-sm text-primary-foreground/90">Für Marie-Thérèse · 90562 Heroldsberg</p>
           <p className="mt-4 max-w-4xl text-xs leading-relaxed text-primary-foreground/70">
-            Leasingangebote: Stand 26. Oktober 2026. Bestandsfahrzeugdaten: überwiegend geprüft am
-            17. Oktober 2026; smart #2 neu ergänzt am 25. Oktober 2026. Preise, Förderbedingungen,
+            Leasingangebote: Teilaktualisierung 3. November 2026, übriger Inseratstand 2. November
+            2026. Bestandsfahrzeugdaten: überwiegend geprüft am 17. Oktober 2026;
+            smart #2 ergänzt am 25. Oktober 2026. Preise, Förderbedingungen,
             Verfügbarkeiten und Lieferzeiten können sich jederzeit ändern. Angaben ohne Gewähr;
             maßgeblich sind die Bedingungen des jeweiligen Anbieters.
           </p>
