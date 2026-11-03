@@ -1,6 +1,6 @@
 # Charmante E-Autos im Vergleich
 
-Unabhängige GitHub-Kopie des bestehenden Lovable-Projekts. 15 Fahrzeuge, eine Faktenansicht, gemeinsame Fahrzeugdaten, Filter, Sortierung, gemeinsame Foto-/Detailkarten und Marken-Serviceinformationen. Die öffentliche Lovable-Seite bleibt unverändert; dieses Repository wird nicht mit Lovable synchronisiert.
+Unabhängige GitHub-Kopie des bestehenden Lovable-Projekts. 16 Fahrzeuge (15 ursprüngliche Modelle plus smart #2), eine Faktenansicht, gemeinsame Fahrzeugdaten, Filter, Sortierung, gemeinsame Foto-/Detailkarten und Marken-Serviceinformationen. Die öffentliche Lovable-Seite bleibt unverändert; dieses Repository wird nicht mit Lovable synchronisiert.
 
 ## Entwicklung
 
@@ -33,6 +33,12 @@ PAGES_BASE_PATH=/carfinder/ pnpm preview
 ```
 
 Anschließend `http://localhost:4173/carfinder/?ansicht=fakten` öffnen. Fahrzeuglinks verwenden `#car-mini-cooper-e` oder den entsprechenden Slug. Der Vergleich liegt auf einer einzigen Route; auf Pages sind daher keine serverseitigen Weiterleitungsregeln nötig. Bei einem anderen Repositorynamen müssen `PAGES_BASE_PATH` in beiden Workflows und die URLs angepasst werden. Bei einer eigenen Domain kann der Basispfad `/` verwendet werden.
+
+## Letzte Aktualisierung
+
+**03.11.2026:** Fiat Grande Panda La Prima (neues 59-€-Angebot; auf 5.000 € kalkulatorisch 86,78 €), Fiat 600e Pop (36 Monate/5.000 km, 166,78 € normiert) und Citroën ë-C3 Plus (269 € unnormierte Rate, Förderhöhe offen) nachgeprüft. Lieferzeiten: Grande Panda Median 3,6 Monate aus sechs Anzeigen; ë-C3 Plus 2,0 Monate aus nur zwei Anzeigen, daher unsicher. Sonstige Angebots- und Lieferstichproben stammen weiter vom 02.11.2026. Überführung/Bereitstellung bleibt separat. Die bedingte Förder-Normierung entspricht keiner Händler-Vertragsrate oder persönlichen Förderbewilligung.
+
+[Rechercheprotokoll 03.11.2026](docs/leasing-research-2026-11-03.md) · [vorheriger Stand 02.11.2026](docs/leasing-research-2026-11-02.md)
 
 ## Übernahme und Datenstand
 
