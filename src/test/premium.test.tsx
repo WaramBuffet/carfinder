@@ -4,11 +4,14 @@ import { cleanup, fireEvent, render, screen, waitFor } from "@testing-library/re
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 import { routeTree } from "@/routeTree.gen";
 import { premiumPhotos } from "@/data/premium-photos";
+import { currentMarketIsComplete, currentPremiumCohorts, currentPremiumObservations } from "@/data/premium-current-observations";
+import { premiumLeasingObservations20261103 } from "@/data/premium-lease-observations-2026-11-03";
 import { technicalSpotChecks } from "@/data/premium-technical-spotchecks";
 import {
   marketListings,
   premiumCars,
   priceSummary,
+  researchDate,
   type MarketListing,
 } from "@/data/premium-market";
 
@@ -173,5 +176,50 @@ describe("Evidence-based purchase aggregation", () => {
       min: null,
       max: null,
     });
+  });
+});
+
+describe("New market observations remain gated", () => {
+  it("has 35 independent cohorts, unique source IDs and does not change old research date", () => {
+    expect(currentMarketIsComplete).toBe(false);
+    expect(researchDate).toBe("24.10.2026");
+    expect(currentPremiumCohorts).toHaveLength(35);
+    expect(new Set(currentPremiumObservations.map((row) => row.id)).size).toBe(
+      currentPremiumObservations.length,
+    );
+    for (const row of currentPremiumObservations) {
+      expect(row.observedAt).toBe("2026-11-03");
+      expect(row.url).toMatch(/^https:\/\/www\.kleinanzeigen\.de\/s-anzeige\//);
+      expect(row.mileageKm).toBeLessThanOrEqual(60000);
+      expect(row.priceEur).toBeGreaterThan(10000);
+    }
+    for (const cohort of currentPremiumCohorts) {
+      const stat = currentPremiumObservations
+        .filter((row) => row.carId === cohort.carId && row.year === cohort.year)
+        .map((row) => row.priceEur)
+        .sort((a, b) => a - b);
+      expect(cohort.n).toBe(stat.length);
+      if (!cohort.n) {
+        expect(cohort.mean).toBeNull();
+        expect(cohort.median).toBeNull();
+        continue;
+      }
+      const n = stat.length;
+      const median =
+        n % 2 ? stat[(n - 1) / 2]! : (stat[n / 2 - 1]! + stat[n / 2]!) / 2;
+      expect(cohort.median).toBe(median);
+      expect(cohort.min).toBe(stat[0]);
+      expect(cohort.max).toBe(stat.at(-1));
+    }
+  });
+  it("never normalizes used vehicles to EV subsidies and keeps delivery separate", () => {
+    expect(premiumLeasingObservations20261103.length).toBeGreaterThanOrEqual(7);
+    for (const offer of premiumLeasingObservations20261103) {
+      expect(offer.url).toMatch(/^https:\/\//);
+      expect(offer.months).toBeGreaterThanOrEqual(24);
+      expect(offer.monthly).toBeGreaterThan(0);
+      if (offer.used === true) expect(offer.normalizedHypothetical5000).toBeNull();
+      if (offer.transfer !== null) expect(offer.transfer).toBeGreaterThanOrEqual(0);
+    }
   });
 });
