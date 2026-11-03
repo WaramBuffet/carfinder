@@ -77,3 +77,26 @@ Neu relevante Untervarianten: EX60 **P12 AWD**; elektrischer GLC **250 Heckantri
 Ein anschließender vollständiger Testlauf des PR (TypeScript, ESLint, Vitest, Vite-Build) ist nötig. Auch bei grünen Tests: **kein Merge/Pages-Deploy vor vollständiger Premium-Markterhebung**, außer nach ausdrücklich abgegrenzter anderweitiger Freigabe. Die bestehende Pages-Automatik auf `main` bleibt unverändert. Keine neuen Tokens, Sessions, GitHub-Rollen oder Secrets eingerichtet; für einen späteren Abschluss deren Erforderlichkeit erneut prüfen.
 
 **Nächster zwingender Schritt zur vollständigen Premium-Aktualisierung:** eine neue originalseitenbasierte Erhebung pro Modellvariante und EZ-Jahr inklusive VIN-/Ausstattungs-Deduplizierung, Gebraucht-/Neuwagenstatus, Inseratlinks, Lieferzeitstichproben und gebundenen Angebotskonditionen; erst danach die Preisstatistiken in `src/data/premium-market.ts` ersetzen, `researchDate` aktualisieren, Tests/Browserprüfung und Live-Deploy durchführen.
+
+
+---
+## Konsolidierter Vorläufer: Erst-Audit aus PR #2
+
+Die folgenden Befunde wurden aus dem vorangegangenen [Entwurfs-PR #2](https://github.com/WaramBuffet/carfinder/pull/2) unverändert als **historische Einzelprüfungen vom 03.11.2026** übernommen. Der frühere Entwurf wurde dokumentarisch konsolidiert; seine Quelle wird nicht als neue Markterhebung bewertet.
+
+### Gesichert anhand Repository und Primärquellen
+
+1. Die Marktstichprobe in `premium-market.ts` ist ausdrücklich auf **24.10.2026** datiert und wurde nicht erneut vollständig erhoben. Ihre Angebotspreise dürfen nicht als aktuelle Preise vom 03.11.2026 bezeichnet werden. Die Jahresauswahl `years` lautet weiterhin 2026–2022. Sie ist eine **Erstzulassungsjahres-Auswahl**, nicht dasselbe wie das von Herstellern verwendete Modelljahr.
+2. **Volvo EX60:** Volvo nennt aktuell P6 ab **62.990 € UVP**, P10 AWD ab **67.790 € UVP** und P12 AWD ab **74.290 € UVP** auf der deutschen Spezifikationsseite. Die Volvo-Fahrzeugseite führt **Modelljahr 2027**. Die 2027er Modelljahr-Angabe ist **kein Grund**, Erstzulassungsjahr 2027 schon vor 2027 als beobachteten Gebrauchtwagenjahrgang einzutragen. Volvo listet unter anderem für P6 **2.000 kg** Anhängelast und **100 kg** Dachlast, für P10 AWD **2.400 kg** Anhängelast und **100 kg** Dachlast. Quellen (abgerufen 03.11.2026): https://www.volvocars.com/de/cars/ex60-electric/specifications/ und https://www.volvocars.com/de/cars/ex60-electric/
+3. **BMW iX3 Neue Klasse:** BMW weist den iX3 50 xDrive mit einem Einstiegspreis von **70.900 € UVP inkl. MwSt., ohne Überführungskosten**, als bestellbar und seit **März 2026** bei ausgewählten Händlern verfügbar aus. Dies ist nicht mit dem separaten, in `premium-research.ts` hinterlegten **carwow-Abpreis von 56.882 €** gleichzusetzen; beide Zahlen beziehen sich auf unterschiedliche Preisarten und müssen entsprechend bezeichnet werden. Quelle (abgerufen 03.11.2026): https://www.bmw.de/de/neufahrzeuge/x/ix3/bmw-ix3.html
+4. **Mercedes-Benz GLC elektrisch:** Mercedes listet bereits **GLC 250 elektrisch, GLC 300 4MATIC elektrisch und GLC 400 4MATIC elektrisch**. Die bisherige Marktstichprobe konzentriert sich auf GLC 400; für die Modellabdeckung ist zu prüfen, ob die anderen elektrischen Varianten aufgenommen werden sollten. Die Quelle nennt u. a. WLTP-Spannen 541–650 km (GLC 250), 523–616 km (GLC 300 4MATIC) und 568–715 km (GLC 400 4MATIC). Quelle (abgerufen 03.11.2026): https://www.mercedes-benz.de/passengercars/models/suv/glc-electric/overview.html
+
+### Ergänzende Prüfaufträge des Vorläufer-Audits
+
+- Vor Freigabe alle vorhandenen Einzelangebote auf Erreichbarkeit, Varianten- und EZ-Zuordnung, Kauf- statt Leasingstatus und tatsächliche Verfügbarkeit prüfen; ausgesonderte Treffer transparent archivieren
+- Neue vollständige EZ-Jahrgangsstichproben mit links zu konkreten Inseraten, Dublettenprüfung, n, Mittel/Median/Min/Max bilden
+- Leasing mit Laufzeit, km/Jahr, Sonderzahlung, Überführung und jeweiligem Liefertermin getrennt erfassen
+- Mercedes- und Volvo-Untermotorisierungen, Garantie, Fahrzeug-/Fahrradträgerfreigaben, Förder- und Steuerbedingungen anhand zuständiger amtlicher/Herstellerquellen prüfen
+- Desktop/Mobil-Browser, Merkliste, Filter, Pfade und Social-Vorschauen sowie `pnpm check` vor jeglichem Produktiv-Merge verifizieren
+
+**Konsolidierungsentscheidung:** PR #3 bleibt der einzige aktive Entwurf. `researchDate` und 262 historische Inserate bleiben 24.10.2026, solange die neue Markterhebung nicht vollständig ist.
