@@ -4,6 +4,7 @@ import { cleanup, fireEvent, render, screen, waitFor } from "@testing-library/re
 import { afterEach, beforeEach, describe, expect, it } from "vitest";
 import { routeTree } from "@/routeTree.gen";
 import { premiumPhotos } from "@/data/premium-photos";
+import { technicalSpotChecks } from "@/data/premium-technical-spotchecks";
 import {
   marketListings,
   premiumCars,
@@ -53,6 +54,17 @@ describe("Premium instance", () => {
       "GTS Sport Turismo von 2022",
     );
     expect(container.querySelector("#premium-ix3-g08")).toHaveTextContent("nicht die Neue Klasse");
+  });
+  it("keeps October market dates while showing individually checked November technical facts", async () => {
+    const { container } = await openPremium();
+    expect(container).toHaveTextContent("RECHERCHESTAND 24.10.2026");
+    expect(container).toHaveTextContent("vollständige neue Erhebung");
+    expect(container.querySelectorAll(".pf-card .pf-car-detail")).toHaveLength(14);
+    expect(container.querySelector("#premium-taycan-cross")).toHaveTextContent("Gravel-Modus");
+    expect(container.querySelector("#premium-ix3-neue-klasse")).toHaveTextContent("2.000 kg");
+    expect(container.querySelector("#premium-i5-touring")).toHaveTextContent("1.500 kg");
+    expect(container).toHaveTextContent("BMUKN · Förderhöhe und Voraussetzungen");
+    expect(Object.keys(technicalSpotChecks)).toHaveLength(7);
   });
   it("filters body styles, saves a vehicle, and resets filters", async () => {
     const { container } = await openPremium();
