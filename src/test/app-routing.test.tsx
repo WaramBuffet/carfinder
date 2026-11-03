@@ -138,9 +138,7 @@ describe("Fahrzeugvergleich", () => {
     expect(container.querySelector("#car-leapmotor-t03")).toHaveTextContent("34,22");
     expect(container.querySelector("#car-leapmotor-t03")).toHaveTextContent("02.10.2026");
     expect(container.querySelector("#car-fiat-grande-panda")).toHaveTextContent("86,78");
-    expect(container.querySelector("#car-fiat-grande-panda")).toHaveTextContent(
-      "6.000 €",
-    );
+    expect(container.querySelector("#car-fiat-grande-panda")).toHaveTextContent("6.000 €");
     expect(container.querySelector("#car-fiat-grande-panda")).toHaveTextContent("59,00");
     expect(container.querySelector("#car-fiat-grande-panda")).toHaveTextContent("Stichprobe n=6");
     expect(container.querySelector("#car-fiat-600e")).toHaveTextContent("166,78");
