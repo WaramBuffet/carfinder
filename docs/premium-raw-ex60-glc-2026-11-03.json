@@ -1,0 +1,406 @@
+{
+  "note": "Kleinanzeigen-Suchergebnisse keine Vollerhebung, fehlende Treffer bedeuten nicht Markt-Abwesenheit",
+  "observedAt": "2026-11-03",
+  "queries": [
+    {
+      "carId": "ex60",
+      "year": 2026,
+      "totalResults": 7,
+      "returned": 7,
+      "error": null
+    },
+    {
+      "carId": "glc-electric",
+      "year": 2026,
+      "totalResults": 6150,
+      "returned": 10,
+      "error": null
+    },
+    {
+      "carId": "ex60",
+      "year": 2025,
+      "totalResults": 45,
+      "returned": 10,
+      "error": null
+    },
+    {
+      "carId": "glc-electric",
+      "year": 2025,
+      "totalResults": 11,
+      "returned": 10,
+      "error": null
+    }
+  ],
+  "listings": [],
+  "excluded": [
+    {
+      "id": 3557016273,
+      "title": "Volvo EX40 Twin Performance Ultra Dark ACC 360° PANO",
+      "eur": 54890,
+      "details": "14.400 km · EZ 01/2026",
+      "url": "https://www.kleinanzeigen.de/s-anzeige/volvo-ex40-twin-performance-ultra-dark-acc-360-pano/3557016273",
+      "yearWanted": 2026,
+      "carWanted": "ex60",
+      "reason": "Fremdmodell/Elektrovariante unklar"
+    },
+    {
+      "id": 3541391459,
+      "title": "Volvo ES90 Ultra,Bowers &amp;W,22 Zoll 2,99 Finanzierung",
+      "eur": 55900,
+      "details": "6.005 km · EZ 01/2026",
+      "url": "https://www.kleinanzeigen.de/s-anzeige/volvo-es90-ultra-bowers-w-22-zoll-2-99-finanzierung/3541391459",
+      "yearWanted": 2026,
+      "carWanted": "ex60",
+      "reason": "Fremdmodell/Elektrovariante unklar"
+    },
+    {
+      "id": 3527757851,
+      "title": "Volvo ES90 Extended Range Ultra B&amp;W 360° LUFTFEDERUNG",
+      "eur": 65890,
+      "details": "25.000 km · EZ 01/2026",
+      "url": "https://www.kleinanzeigen.de/s-anzeige/volvo-es90-extended-range-ultra-b-w-360-luftfederung/3527757851",
+      "yearWanted": 2026,
+      "carWanted": "ex60",
+      "reason": "Fremdmodell/Elektrovariante unklar"
+    },
+    {
+      "id": 3558030538,
+      "title": "Volvo EX30 Ultra Single Motor Extended Range +PANO",
+      "eur": 39890,
+      "details": "18.560 km · EZ 02/2026",
+      "url": "https://www.kleinanzeigen.de/s-anzeige/volvo-ex30-ultra-single-motor-extended-range-pano/3558030538",
+      "yearWanted": 2026,
+      "carWanted": "ex60",
+      "reason": "Fremdmodell/Elektrovariante unklar"
+    },
+    {
+      "id": 3558006901,
+      "title": "Volvo EX30 Cross Country Ultra Twin Performance AWD Ga",
+      "eur": 44222,
+      "details": "4.262 km · EZ 02/2026",
+      "url": "https://www.kleinanzeigen.de/s-anzeige/volvo-ex30-cross-country-ultra-twin-performance-awd-ga/3558006901",
+      "yearWanted": 2026,
+      "carWanted": "ex60",
+      "reason": "Fremdmodell/Elektrovariante unklar"
+    },
+    {
+      "id": 3545115270,
+      "title": "EX30 P5 Long Range(69KW) Black Edition Ultra",
+      "eur": 40750,
+      "details": "6.000 km · EZ 05/2026",
+      "url": "https://www.kleinanzeigen.de/s-anzeige/ex30-p5-long-range-69kw-black-edition-ultra/3545115270",
+      "yearWanted": 2026,
+      "carWanted": "ex60",
+      "reason": "Fremdmodell/Elektrovariante unklar"
+    },
+    {
+      "id": 3522324715,
+      "title": "Volvo EX 40 Ultra",
+      "eur": 49999,
+      "details": "7.000 km · EZ 07/2026",
+      "url": "https://www.kleinanzeigen.de/s-anzeige/volvo-ex-40-ultra/3522324715",
+      "yearWanted": 2026,
+      "carWanted": "ex60",
+      "reason": "Fremdmodell/Elektrovariante unklar"
+    },
+    {
+      "id": 3560501958,
+      "title": "Mercedes-Benz ML 350 BlueTEC 4MATIC",
+      "eur": 14750,
+      "details": "244.000 km · EZ 12/2014",
+      "url": "https://www.kleinanzeigen.de/s-anzeige/mercedes-benz-ml-350-bluetec-4matic/3560501958",
+      "yearWanted": 2026,
+      "carWanted": "glc-electric",
+      "reason": "Fremdmodell/Elektrovariante unklar; EZ nicht passend; km über 60.000/fehlend"
+    },
+    {
+      "id": 3560501182,
+      "title": "Mercedes-Benz GLE 400 d STHZG*Luftfeder*Pano*Distro*Burmest*HU",
+      "eur": 42950,
+      "details": "167.200 km · EZ 09/2021",
+      "url": "https://www.kleinanzeigen.de/s-anzeige/mercedes-benz-gle-400-d-sthzg-luftfeder-pano-distro-burmest-hu/3560501182",
+      "yearWanted": 2026,
+      "carWanted": "glc-electric",
+      "reason": "Fremdmodell/Elektrovariante unklar; EZ nicht passend; km über 60.000/fehlend"
+    },
+    {
+      "id": 3560499696,
+      "title": "Mercedes ML 320cdi W164",
+      "eur": 4500,
+      "details": "228.000 km · EZ 01/2006",
+      "url": "https://www.kleinanzeigen.de/s-anzeige/mercedes-ml-320cdi-w164/3560499696",
+      "yearWanted": 2026,
+      "carWanted": "glc-electric",
+      "reason": "Fremdmodell/Elektrovariante unklar; EZ nicht passend; km über 60.000/fehlend; kein Kaufpreis"
+    },
+    {
+      "id": 3546605562,
+      "title": "Mercedes Benz GLC 300de 4Matic AMG-Line Plugin-Hybrid",
+      "eur": 31310,
+      "details": "129.000 km · EZ 08/2022",
+      "url": "https://www.kleinanzeigen.de/s-anzeige/mercedes-benz-glc-300de-4matic-amg-line-plugin-hybrid/3546605562",
+      "yearWanted": 2026,
+      "carWanted": "glc-electric",
+      "reason": "Fremdmodell/Elektrovariante unklar; EZ nicht passend; km über 60.000/fehlend"
+    },
+    {
+      "id": 3560498699,
+      "title": "Mercedes-Benz Vito Tourer 109/110/111/114 CDI FWD lang  AHK",
+      "eur": 16999,
+      "details": "75.241 km · EZ 10/2018",
+      "url": "https://www.kleinanzeigen.de/s-anzeige/mercedes-benz-vito-tourer-109-110-111-114-cdi-fwd-lang-ahk/3560498699",
+      "yearWanted": 2026,
+      "carWanted": "glc-electric",
+      "reason": "Fremdmodell/Elektrovariante unklar; EZ nicht passend; km über 60.000/fehlend"
+    },
+    {
+      "id": 3548462134,
+      "title": "Mercedes  GLE 350d AMG Paket",
+      "eur": 46500,
+      "details": "134.000 km · EZ 01/2021",
+      "url": "https://www.kleinanzeigen.de/s-anzeige/mercedes-gle-350d-amg-paket/3548462134",
+      "yearWanted": 2026,
+      "carWanted": "glc-electric",
+      "reason": "Fremdmodell/Elektrovariante unklar; EZ nicht passend; km über 60.000/fehlend"
+    },
+    {
+      "id": 3544414482,
+      "title": "Mercedes-Benz GLE 350 CDI 4 Matic 2020 W167",
+      "eur": 36000,
+      "details": "189.500 km · EZ 09/2020",
+      "url": "https://www.kleinanzeigen.de/s-anzeige/mercedes-benz-gle-350-cdi-4-matic-2020-w167/3544414482",
+      "yearWanted": 2026,
+      "carWanted": "glc-electric",
+      "reason": "Fremdmodell/Elektrovariante unklar; EZ nicht passend; km über 60.000/fehlend"
+    },
+    {
+      "id": 3542084003,
+      "title": "Mercedes-Benz EQS SUV 450 4M*7-SITZER*PANO*AHK HYPERSCREEN",
+      "eur": 78299,
+      "details": "38.374 km · EZ 09/2024",
+      "url": "https://www.kleinanzeigen.de/s-anzeige/mercedes-benz-eqs-suv-450-4m-7-sitzer-pano-ahk-hyperscreen/3542084003",
+      "yearWanted": 2026,
+      "carWanted": "glc-electric",
+      "reason": "Fremdmodell/Elektrovariante unklar; EZ nicht passend"
+    },
+    {
+      "id": 3560488087,
+      "title": "Mercedes-Benz GLE 350d 4 MATIC * AMG Line* 63er AMG Umbau *",
+      "details": "212.000 km · EZ 10/2020",
+      "url": "https://www.kleinanzeigen.de/s-anzeige/mercedes-benz-gle-350d-4-matic-amg-line-63er-amg-umbau/3560488087",
+      "yearWanted": 2026,
+      "carWanted": "glc-electric",
+      "reason": "Fremdmodell/Elektrovariante unklar; EZ nicht passend; km über 60.000/fehlend; kein Kaufpreis"
+    },
+    {
+      "id": 3560487674,
+      "title": "Mercedes-Benz GLE 350 d 4Matic*SHZ*Kamera*",
+      "eur": 17850,
+      "details": "253.000 km · EZ 03/2017",
+      "url": "https://www.kleinanzeigen.de/s-anzeige/mercedes-benz-gle-350-d-4matic-shz-kamera/3560487674",
+      "yearWanted": 2026,
+      "carWanted": "glc-electric",
+      "reason": "Fremdmodell/Elektrovariante unklar; EZ nicht passend; km über 60.000/fehlend"
+    },
+    {
+      "id": 3515746974,
+      "title": "Volvo EX30 Ultra Panoramadach | 360° | ACC",
+      "eur": 39990,
+      "details": "9.146 km · EZ 11/2025",
+      "url": "https://www.kleinanzeigen.de/s-anzeige/volvo-ex30-ultra-panoramadach-360-acc/3515746974",
+      "yearWanted": 2025,
+      "carWanted": "ex60",
+      "reason": "Fremdmodell/Elektrovariante unklar"
+    },
+    {
+      "id": 3557016273,
+      "title": "Volvo EX40 Twin Performance Ultra Dark ACC 360° PANO",
+      "eur": 54890,
+      "details": "14.400 km · EZ 01/2026",
+      "url": "https://www.kleinanzeigen.de/s-anzeige/volvo-ex40-twin-performance-ultra-dark-acc-360-pano/3557016273",
+      "yearWanted": 2025,
+      "carWanted": "ex60",
+      "reason": "Fremdmodell/Elektrovariante unklar; EZ nicht passend"
+    },
+    {
+      "id": 3554444357,
+      "title": "Volvo EX30 Single Motor Plus 19ZOLL BLIS H&amp;K PILOT LED",
+      "eur": 34879,
+      "details": "15.400 km · EZ 01/2025",
+      "url": "https://www.kleinanzeigen.de/s-anzeige/volvo-ex30-single-motor-plus-19zoll-blis-h-k-pilot-led/3554444357",
+      "yearWanted": 2025,
+      "carWanted": "ex60",
+      "reason": "Fremdmodell/Elektrovariante unklar"
+    },
+    {
+      "id": 3547213615,
+      "title": "Volvo EX30 Single Motor Plus 19ZOLL H&amp;K PILOT LED ALAR",
+      "eur": 33990,
+      "details": "21.756 km · EZ 03/2025",
+      "url": "https://www.kleinanzeigen.de/s-anzeige/volvo-ex30-single-motor-plus-19zoll-h-k-pilot-led-alar/3547213615",
+      "yearWanted": 2025,
+      "carWanted": "ex60",
+      "reason": "Fremdmodell/Elektrovariante unklar"
+    },
+    {
+      "id": 3546293456,
+      "title": "Volvo XC40 Single Motor Ultimate STANDHZG PRIVACY PANO",
+      "eur": 37740,
+      "details": "28.637 km · EZ 08/2023",
+      "url": "https://www.kleinanzeigen.de/s-anzeige/volvo-xc40-single-motor-ultimate-standhzg-privacy-pano/3546293456",
+      "yearWanted": 2025,
+      "carWanted": "ex60",
+      "reason": "Fremdmodell/Elektrovariante unklar; EZ nicht passend"
+    },
+    {
+      "id": 3534282981,
+      "title": "Volvo EX30 Single Motor Plus 19ZOLL BLIS H&amp;K PILOT LED",
+      "eur": 32980,
+      "details": "27.204 km · EZ 02/2025",
+      "url": "https://www.kleinanzeigen.de/s-anzeige/volvo-ex30-single-motor-plus-19zoll-blis-h-k-pilot-led/3534282981",
+      "yearWanted": 2025,
+      "carWanted": "ex60",
+      "reason": "Fremdmodell/Elektrovariante unklar"
+    },
+    {
+      "id": 3520682800,
+      "title": "Volvo EX30 Single Motor Ultra PANO 360° H&amp;K 19ZOLL LED",
+      "eur": 35440,
+      "details": "33.060 km · EZ 06/2024",
+      "url": "https://www.kleinanzeigen.de/s-anzeige/volvo-ex30-single-motor-ultra-pano-360-h-k-19zoll-led/3520682800",
+      "yearWanted": 2025,
+      "carWanted": "ex60",
+      "reason": "Fremdmodell/Elektrovariante unklar; EZ nicht passend"
+    },
+    {
+      "id": 3520682784,
+      "title": "Volvo C40 Twin Motor AWD Core PANO AHK 20ZOLL PILOT LE",
+      "eur": 33530,
+      "details": "58.822 km · EZ 08/2023",
+      "url": "https://www.kleinanzeigen.de/s-anzeige/volvo-c40-twin-motor-awd-core-pano-ahk-20zoll-pilot-le/3520682784",
+      "yearWanted": 2025,
+      "carWanted": "ex60",
+      "reason": "Fremdmodell/Elektrovariante unklar; EZ nicht passend"
+    },
+    {
+      "id": 3552435642,
+      "title": "Volvo XC40 Recharge Ultimate Single Motor",
+      "eur": 30650,
+      "details": "54.900 km · EZ 07/2022",
+      "url": "https://www.kleinanzeigen.de/s-anzeige/volvo-xc40-recharge-ultimate-single-motor/3552435642",
+      "yearWanted": 2025,
+      "carWanted": "ex60",
+      "reason": "Fremdmodell/Elektrovariante unklar; EZ nicht passend"
+    },
+    {
+      "id": 3555744856,
+      "title": "Volvo C40 Recharge 82 kWh Single M. Extended Range RWD",
+      "eur": 31980,
+      "details": "30.305 km · EZ 07/2023",
+      "url": "https://www.kleinanzeigen.de/s-anzeige/volvo-c40-recharge-82-kwh-single-m-extended-range-rwd/3555744856",
+      "yearWanted": 2025,
+      "carWanted": "ex60",
+      "reason": "Fremdmodell/Elektrovariante unklar; EZ nicht passend"
+    },
+    {
+      "id": 3550350423,
+      "title": "Mercedes EQE 350 4MATIC SUV AMG Premium Pano Burmester TOP!",
+      "eur": 69800,
+      "details": "4.372 km · EZ 12/2025",
+      "url": "https://www.kleinanzeigen.de/s-anzeige/mercedes-eqe-350-4matic-suv-amg-premium-pano-burmester-top/3550350423",
+      "yearWanted": 2025,
+      "carWanted": "glc-electric",
+      "reason": "Fremdmodell/Elektrovariante unklar"
+    },
+    {
+      "id": 3555330745,
+      "title": "Mercedes-Benz EQE 500 4M SUV Airmatic HYPESCREEN Burmester",
+      "eur": 79900,
+      "details": "3.053 km · EZ 06/2025",
+      "url": "https://www.kleinanzeigen.de/s-anzeige/mercedes-benz-eqe-500-4m-suv-airmatic-hypescreen-burmester/3555330745",
+      "yearWanted": 2025,
+      "carWanted": "glc-electric",
+      "reason": "Fremdmodell/Elektrovariante unklar"
+    },
+    {
+      "id": 3559379006,
+      "title": "Mercedes-Benz EQE 43 AMG Premium Plus Night II Keramik+Hyper !",
+      "eur": 71940,
+      "details": "4.283 km · EZ 07/2025",
+      "url": "https://www.kleinanzeigen.de/s-anzeige/mercedes-benz-eqe-43-amg-premium-plus-night-ii-keramik-hyper/3559379006",
+      "yearWanted": 2025,
+      "carWanted": "glc-electric",
+      "reason": "Fremdmodell/Elektrovariante unklar"
+    },
+    {
+      "id": 3556167205,
+      "title": "Mercedes-Benz EQE 500 500 4M AMG Line Night Hyperscreen AIRMAT",
+      "eur": 83900,
+      "details": "5.304 km · EZ 07/2025",
+      "url": "https://www.kleinanzeigen.de/s-anzeige/mercedes-benz-eqe-500-500-4m-amg-line-night-hyperscreen-airmat/3556167205",
+      "yearWanted": 2025,
+      "carWanted": "glc-electric",
+      "reason": "Fremdmodell/Elektrovariante unklar"
+    },
+    {
+      "id": 3554442559,
+      "title": "Mercedes-Benz G 580 EQ AMG Line tiefgrün SUPERIOR Walnuss 360°",
+      "eur": 154900,
+      "details": "7.534 km · EZ 03/2025",
+      "url": "https://www.kleinanzeigen.de/s-anzeige/mercedes-benz-g-580-eq-amg-line-tiefgruen-superior-walnuss-360/3554442559",
+      "yearWanted": 2025,
+      "carWanted": "glc-electric",
+      "reason": "Fremdmodell/Elektrovariante unklar"
+    },
+    {
+      "id": 3552677860,
+      "title": "Mercedes-Benz EQV 250 lang+Multibeam+Airmatic+MBUX+8 Pakete",
+      "eur": 55630,
+      "details": "10.763 km · EZ 06/2025",
+      "url": "https://www.kleinanzeigen.de/s-anzeige/mercedes-benz-eqv-250-lang-multibeam-airmatic-mbux-8-pakete/3552677860",
+      "yearWanted": 2025,
+      "carWanted": "glc-electric",
+      "reason": "Fremdmodell/Elektrovariante unklar"
+    },
+    {
+      "id": 3544556153,
+      "title": "Mercedes-Benz EQE 300 Advanved Plus",
+      "eur": 16880,
+      "details": "31.594 km · EZ 10/2025",
+      "url": "https://www.kleinanzeigen.de/s-anzeige/mercedes-benz-eqe-300-advanved-plus/3544556153",
+      "yearWanted": 2025,
+      "carWanted": "glc-electric",
+      "reason": "Fremdmodell/Elektrovariante unklar"
+    },
+    {
+      "id": 3541996249,
+      "title": "Mercedes G 580 elektrisch | 5.000 € Übernahmebonus | Ohne Ablöse",
+      "eur": 1476,
+      "details": "23.499 km · EZ 05/2025",
+      "url": "https://www.kleinanzeigen.de/s-anzeige/mercedes-g-580-elektrisch-5-000-uebernahmebonus-ohne-abloese/3541996249",
+      "yearWanted": 2025,
+      "carWanted": "glc-electric",
+      "reason": "Fremdmodell/Elektrovariante unklar; kein Kaufpreis"
+    },
+    {
+      "id": 3534924533,
+      "title": "Mercedes EQE 350 4MATIC SUV",
+      "eur": 65000,
+      "details": "4.300 km · EZ 12/2025",
+      "url": "https://www.kleinanzeigen.de/s-anzeige/mercedes-eqe-350-4matic-suv/3534924533",
+      "yearWanted": 2025,
+      "carWanted": "glc-electric",
+      "reason": "Fremdmodell/Elektrovariante unklar"
+    },
+    {
+      "id": 3448773289,
+      "title": "Mercedes-Benz EQA 250+  /360°/FAP/DISTRO/KEYLESS/AHK/",
+      "eur": 42700,
+      "details": "16.767 km · EZ 04/2025",
+      "url": "https://www.kleinanzeigen.de/s-anzeige/mercedes-benz-eqa-250-360-fap-distro-keyless-ahk/3448773289",
+      "yearWanted": 2025,
+      "carWanted": "glc-electric",
+      "reason": "Fremdmodell/Elektrovariante unklar"
+    }
+  ]
+}
