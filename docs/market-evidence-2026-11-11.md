@@ -29,13 +29,13 @@ Diese Datei dokumentiert 14 im Webwerkzeug einzeln aufgerufene, individuelle Ori
 
 | Variante × Erstzulassungsjahr | n | Mittelwert | Median | Minimum | Maximum | Kritik |
 |---|---:|---:|---:|---:|---:|---|
-| Taycan Cross 4 | EZ 2022 | 2 | 55.960,00 € | 55.960,00 € | 49.950,00 € | 61.970,00 € | Kleine Stichprobe |
-| Taycan Cross 4S | EZ 2022 | 3 | 57.299,33 € | 56.900,00 € | 54.999,00 € | 59.999,00 € | Kleine Stichprobe |
-| Taycan Cross 4S | EZ 2023 | 2 | 66.900,00 € | 66.900,00 € | 64.900,00 € | 68.900,00 € | Kleine Stichprobe |
-| BMW iX3 NA5 50 xDrive | EZ 2026 | 4 | 78.097,50 € | 77.495,00 € | 74.900,00 € | 82.500,00 € | Kleine Stichprobe |
-| BMW iX3 G08 | EZ 2024 | 1 | 43.890,00 € | 43.890,00 € | 43.890,00 € | 43.890,00 € | Kleine Stichprobe |
-| BMW i5 Touring eDrive40 | EZ 2024 | 1 | 49.999,00 € | 49.999,00 € | 49.999,00 € | 49.999,00 € | Kleine Stichprobe |
-| BMW i5 Touring eDrive40 | EZ 2025 | 1 | 54.980,00 € | 54.980,00 € | 54.980,00 € | 54.980,00 € | Kleine Stichprobe |
+| Taycan Cross 4 · EZ 2022 | 2 | 55.960,00 € | 55.960,00 € | 49.950,00 € | 61.970,00 € | Kleine Stichprobe |
+| Taycan Cross 4S · EZ 2022 | 3 | 57.299,33 € | 56.900,00 € | 54.999,00 € | 59.999,00 € | Kleine Stichprobe |
+| Taycan Cross 4S · EZ 2023 | 2 | 66.900,00 € | 66.900,00 € | 64.900,00 € | 68.900,00 € | Kleine Stichprobe |
+| BMW iX3 NA5 50 xDrive · EZ 2026 | 4 | 78.097,50 € | 77.495,00 € | 74.900,00 € | 82.500,00 € | Kleine Stichprobe |
+| BMW iX3 G08 · EZ 2024 | 1 | 43.890,00 € | 43.890,00 € | 43.890,00 € | 43.890,00 € | Kleine Stichprobe |
+| BMW i5 Touring eDrive40 · EZ 2024 | 1 | 49.999,00 € | 49.999,00 € | 49.999,00 € | 49.999,00 € | Kleine Stichprobe |
+| BMW i5 Touring eDrive40 · EZ 2025 | 1 | 54.980,00 € | 54.980,00 € | 54.980,00 € | 54.980,00 € | Kleine Stichprobe |
 
 Nicht aufgeführte Variante×EZ-Jahr-Zellen: **n aus dieser gezielten Teilrecherche 0, keine Marktaussage**. Der gesamte Premium-Markt der sieben Fahrzeugfamilien und aller Motorisierungen wurde nicht erneut erfasst. Unfallwagen, Gesuche, Leasingübernahmen und fremde Antriebsarten aus den Suchlisten wurden nicht als Verkäufe gezählt.
 
